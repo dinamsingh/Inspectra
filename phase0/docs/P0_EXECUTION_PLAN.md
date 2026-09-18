@@ -413,6 +413,16 @@ determinism (verified in the step-1 audit).
 
 Nothing here is assumed to exist.  Fill in the right-hand column with a real answer.
 
+**For the reference (B2) subset of this inventory only**, see
+`B2_MINIMUM_SETUP.md`: it reduces B2 to scanner + certified length standard +
+microscope (plus printed coupons), assigns ACCEPTABLE / CONDITIONALLY ACCEPTABLE /
+NOT ACCEPTABLE to every candidate substitute using only the existing documents, and
+gives the borrowing plan.  It changes no criterion, threshold or spec in this document;
+it is a scoping and feasibility read of what is already here.  Note one emphasis
+mismatch it flags: the measuring microscope is listed under PREFERRED below, while the
+same row and the MISSING table state that **P1 — and therefore every accuracy claim —
+depends on it**.  The stronger statement is the binding one.
+
 ### REQUIRED — the experiment cannot run without these
 
 | Item | Spec | Have it? |
