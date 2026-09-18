@@ -330,7 +330,7 @@ computed height.  Any retake decided after seeing a height invalidates the cell.
 
 ---
 
-## 10. Acceptance calculation — mapping frozen, computation is BLOCKER B1
+## 10. Acceptance calculation — mapping frozen, implemented by `tools/analyse_physical.py`
 
 Thresholds are quoted from `P0_CRITERIA.md` and are **not** restated as new criteria.
 
@@ -348,7 +348,20 @@ Reporting rule (already in `P0_CRITERIA.md`, restated because it is an execution
 accuracy and abstention are always reported together; an accuracy figure computed only
 over `MEASURED` runs without the abstention rate is not a result.
 
-**No tool computes any of P1–P7.**  See B1.
+**Implementation:** `tools/analyse_physical.py` computes this table.  It parses the
+thresholds out of `P0_CRITERIA.md` at run time, so that document remains the only place
+a physical limit is written down, and it takes its populations from
+`manifest_used.json` so it cannot select on measured values.  `tools/analyse_results.py`
+now routes any `PHYSICAL_PILOT` / `source=real` dataset to it instead of silently
+scoring physical rows against the synthetic C-criteria.
+
+Each criterion reports its statistic, its denominator, the frozen band it was compared
+against, and one of `PASS` / `CONDITIONAL` / `FAIL` / `UNCOMPUTABLE`.  `UNCOMPUTABLE` is
+never a pass, and missing physical fields are never zero-filled.
+
+**P7 is not decidable from the frozen documents** and is therefore reported
+`UNCOMPUTABLE` with its statistic attached; see B1 in §12 for the exact decision that is
+missing.
 
 ---
 
@@ -371,7 +384,7 @@ over `MEASURED` runs without the abstention rate is not a result.
 
 | # | BLOCKER | WHY IT MATTERS | REQUIRED BEFORE DATA COLLECTION |
 |---|---|---|---|
-| **B1** | No tool computes **P1–P7**.  `tools/analyse_results.py` implements only C1–C11 and filters on `SAFE_ACCURACY_EXPERIMENTS`, which excludes `PHYSICAL_PILOT`.  Verified: feeding it a physical-style row yields all-`nan` statistics and a misleading `OVERALL: FAIL` | The pilot's entire purpose is P1–P7.  Without the script there is no way to accept or reject, and writing it after seeing data breaks the anti-tuning rule in §6.3 | A physical analyser that computes P1–P7 exactly as defined in `P0_CRITERIA.md`, committed and exercised on stand-in data, before the first capture |
+| **B1** | **Partly closed.**  `tools/analyse_physical.py` now computes P1–P6 from the frozen bands, and `analyse_results.py` routes physical datasets to it (the old all-`nan` / misleading `OVERALL: FAIL` behaviour is gone, covered by tests).  **Still open: P7 is not decidable as written.**  Its Go cell is "CI includes nominal and lower bound >= 0.90", but (a) "nominal" is undefined — C4 calls `k = 1.645` a ~90 % two-sided region while A-07 calls the same `k` ~95 % one-sided, and the `covered` statistic is two-sided containment; (b) if nominal is 0.90 then "CI includes nominal" and "lower bound >= 0.90" can only both hold when the lower bound is exactly 0.90, which is unsatisfiable; (c) the CI method is unspecified — `P0_PROTOCOL.md` §6 asks for a cluster bootstrap and a development / held-back split that the result schema does not record | Without a decidable P7 the coverage criterion cannot be accepted or rejected, and §11 offers no band to fall back to | **One criteria decision, made before capture:** state what "nominal" coverage P7 compares against, whether the floor is a separate condition or replaces "includes nominal", and which CI method (and whether clustering / a held-back split applies).  The analyser then needs no change beyond making P7 decidable |
 | **B2** | **Reference measurement has no implemented procedure.**  Nothing measures a flatbed scan or a microscope image; `run_real_batch.py` needs a fiducial and a homography, which a scan does not have.  It is also unresolved whether the reference may reuse the pipeline estimator — if it does, estimator-definitional bias (already measured at 0.0054 mm on `RING_O`) cancels and becomes invisible | P1 gates everything else.  A reference that is undefined, or that shares the pipeline's systematic error, cannot validate it | A written, implemented reference procedure for both instruments, plus an explicit decision on estimator independence and what P1 therefore does and does not test |
 | **B3** | **`roi_mm` cannot be determined for a real capture.**  It is a required manifest field expressed in fiducial-plane millimetres, but there is no overlay renderer, no ROI picker, and `panels.json` carries no glyph coordinates | Without it no physical run can be processed at all; guessing it silently measures the wrong region | One of: mechanical registration of coupon to frame plus exported glyph coordinates, or an ROI-selection path.  Decision is the team's; this audit does not choose |
 | **B4** | **Mechanical flatness acceptance is not quantified.**  A-06 proves out-of-plane print is undetectable in software, yet `P0_PROTOCOL.md` §1.6 only says "record the flatness you can actually verify", and `residual_tilt_bound_deg = 3.0` has no fixture specification behind it | Every accuracy number inherits uncontrolled out-of-plane bias.  A 20 deg local tilt produced 0.18 mm of error with all gates passing | A numeric flatness / local-tilt acceptance over the measurement window, its verification instrument and method, and the disposition rule on failure |
@@ -438,8 +451,9 @@ Nothing here is assumed to exist.  Fill in the right-hand column with a real ans
 PHYSICAL_EXPERIMENT_READY = NO
 ```
 
-Blockers **B1–B6** in §12.  B1, B2 and B3 are hard: without them a physical run cannot
-be processed (B3), cannot be referenced (B2), and cannot be accepted or rejected (B1).
+Blockers **B1–B6** in §12.  B1 is now partly closed — the P1–P7 analyser exists and is
+tested — but P7 remains undecidable, so B1 is not closed.  B2 and B3 are untouched:
+without them a physical run cannot be processed (B3) and cannot be referenced (B2).
 B4 is the one that would silently corrupt otherwise-valid numbers.
 
 No one-page execution checklist is issued while the verdict is NO.  §1–§11 above are

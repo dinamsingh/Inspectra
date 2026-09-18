@@ -23,6 +23,10 @@ from p0.core import dump_json, mean, median, percentile, sd   # noqa: E402
 from p0.plots import Plot, histogram                          # noqa: E402
 from p0.results import read_csv                               # noqa: E402
 
+sys.path.insert(0, HERE)
+from analyse_physical import PHYSICAL_EXPERIMENT              # noqa: E402
+from analyse_physical import main as analyse_physical_main    # noqa: E402
+
 # ---------------------------------------------------------------------------
 # PRE-REGISTERED CRITERIA (do not tune against observed data)
 # ---------------------------------------------------------------------------
@@ -143,15 +147,35 @@ def sweep_table(rows, key):
     return table
 
 
-def main():
+def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--in", dest="inp", default=os.path.join(ROOT, "out", "synthetic"))
     ap.add_argument("--out", dest="out", default=None)
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
     out_dir = args.out or os.path.join(args.inp, "analysis")
     os.makedirs(out_dir, exist_ok=True)
 
     rows = read_csv(os.path.join(args.inp, "results.csv"))
+
+    # PHYSICAL_PILOT is a valid analysis population, but it is judged against the
+    # physical criteria P1-P7, not against the synthetic C-criteria below.  Before
+    # this routing existed, physical rows fell outside SAFE_ACCURACY_EXPERIMENTS and
+    # the C-block silently produced all-nan statistics and a misleading OVERALL: FAIL.
+    # SAFE_ACCURACY_EXPERIMENTS semantics are unchanged; the dataset is dispatched.
+    physical = [r for r in rows if r.get("source") == "real"
+                or r.get("experiment") == PHYSICAL_EXPERIMENT]
+    if physical and len(physical) != len(rows):
+        print("MIXED DATASET: %d physical and %d synthetic rows in %s.\n"
+              "Refusing to analyse: the two populations answer different criteria "
+              "(P1-P7 vs C1-C11). Separate them and re-run."
+              % (len(physical), len(rows) - len(physical), args.inp))
+        return 2
+    if physical:
+        print("physical dataset detected (%d rows) -> routing to analyse_physical"
+              % len(physical))
+        return analyse_physical_main(["--in", args.inp]
+                                     + (["--out", args.out] if args.out else []))
+
     base = [r for r in rows if r.get("variant") in ("base", "linear")]
     report = {"n_rows": len(rows), "criteria": CRIT, "sections": {}}
     S = report["sections"]
@@ -338,6 +362,7 @@ def main():
     print("=" * 78)
     print("OVERALL:", report["overall"])
     print("written:", out_dir)
+    return 0
 
 
 def _f(x, nd=4):
@@ -561,4 +586,4 @@ def _markdown(report, S, out_dir):
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main() or 0)
