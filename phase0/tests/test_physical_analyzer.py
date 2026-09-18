@@ -96,9 +96,12 @@ class TestCriteriaParsing(unittest.TestCase):
         self.assertEqual(self.crits["P1"]["min_sample"], 15)
         self.assertEqual(self.crits["P2"]["class_nominal_mm"], 3.0)
 
-    def test_p7_is_not_decidable(self):
+    def test_p7_is_report_only(self):
+        # STEP 3C froze P7 as a reporting/calibration criterion, not a gate.
+        self.assertTrue(self.crits["P7"]["report_only"])
         self.assertFalse(self.crits["P7"]["decidable"])
         self.assertIsNone(self.crits["P7"]["go"])
+        self.assertTrue(self.crits["P7"]["go_raw"].upper().startswith("REPORT_ONLY"))
 
     def test_no_threshold_is_hardcoded(self):
         """Editing the criteria document must change the verdict."""
@@ -160,12 +163,77 @@ class TestStandinDataset(unittest.TestCase):
             rep = ap.analyse(STANDIN, tmp)
             for pid in PIDS:
                 r = rep["results"][pid]
-                self.assertIn(r["status"],
-                              (ap.PASS, ap.CONDITIONAL, ap.FAIL, ap.UNCOMPUTABLE), pid)
+                allowed = ((ap.REPORT_ONLY, ap.UNCOMPUTABLE) if pid == "P7"
+                           else (ap.PASS, ap.CONDITIONAL, ap.FAIL, ap.UNCOMPUTABLE))
+                self.assertIn(r["status"], allowed, pid)
                 self.assertIn("go", r["threshold_reference"], pid)
                 self.assertIn("population", r, pid)
                 if r["status"] == ap.UNCOMPUTABLE:
                     self.assertTrue(r["reason"], "%s must explain itself" % pid)
+        finally:
+            shutil.rmtree(tmp)
+
+    def test_p6_and_p7_share_a_statistic_but_not_a_role(self):
+        # regression: P6 is a gate, P7 is report-only; direction parsing must not
+        # accidentally make P7 an acceptance gate.
+        crits = ap.load_physical_criteria()
+        self.assertEqual(crits["P6"]["direction"], "LOWER_IS_BETTER")
+        self.assertFalse(crits["P6"].get("report_only"))
+        self.assertTrue(crits["P7"]["report_only"])
+
+    def test_p7_is_report_only_and_never_an_acceptance_verdict(self):
+        tmp = tempfile.mkdtemp()
+        try:
+            rep = ap.analyse(STANDIN, tmp)
+            p7 = rep["results"]["P7"]
+            self.assertEqual(p7["status"], ap.REPORT_ONLY)
+            self.assertNotIn(p7["status"], ap.ACCEPTANCE_STATUSES)
+            s = p7["statistics"]
+            # observed_coverage is serialised rounded to 6 dp; compare at that precision
+            self.assertAlmostEqual(s["observed_coverage"],
+                                   s["n_covered"] / s["n_evaluated"], places=5)
+            self.assertLessEqual(s["wilson_ci95_lower"], s["observed_coverage"])
+            self.assertLessEqual(s["observed_coverage"], s["wilson_ci95_upper"])
+            self.assertIsNotNone(s["n_evaluated"])
+            self.assertIsNotNone(s["interval_width_mean_mm"])
+            self.assertEqual(s["k_lower"], 1.645)
+            self.assertEqual(s["k_upper"], 1.645)
+            self.assertFalse(s["model_calibrated"])
+            self.assertIn("uncalibrated", s["calibration_note"])
+            self.assertEqual(rep["reporting_criteria"], ["P7"])
+            self.assertNotIn("P7", rep["gate_criteria"])
+        finally:
+            shutil.rmtree(tmp)
+
+    def test_p7_uncomputable_only_when_no_evaluable_run(self):
+        tmp = tempfile.mkdtemp()
+        try:
+            rows, runs = [], []
+            for op in ("OP1", "OP2"):
+                for rep_id in ("R1", "R2", "R3"):
+                    for dev in ("A", "B"):
+                        rid = "P01-%s-%s-%s" % (dev, op, rep_id)
+                        rr = nominal_row(rid, "P01", dev, op, rep_id, 3.05, 3.04, 3.0,
+                                         status="PHYSICAL_SIZE_NOT_ESTABLISHED_GEOMETRY")
+                        rows.append(rr)
+                        runs.append(manifest_run(rid, "P01", dev, op, rep_id))
+            write_dataset(os.path.join(tmp, "ds"), rows, runs)
+            rep = ap.analyse(os.path.join(tmp, "ds"), os.path.join(tmp, "out"))
+            p7 = rep["results"]["P7"]
+            self.assertEqual(p7["status"], ap.UNCOMPUTABLE)
+            self.assertNotIn("observed_coverage", p7["statistics"])
+            # even fully abstained, P7 never becomes a FAIL acceptance verdict
+            self.assertNotIn(p7["status"], ap.ACCEPTANCE_STATUSES)
+        finally:
+            shutil.rmtree(tmp)
+
+    def test_gate_completeness_ignores_p7(self):
+        # P7 REPORT_ONLY must not make an otherwise-complete pilot look incomplete
+        tmp = tempfile.mkdtemp()
+        try:
+            rep = ap.analyse(STANDIN, tmp)
+            self.assertEqual(rep["overall"], "ALL_GATE_CRITERIA_DECIDED")
+            self.assertEqual(rep["tally"].get("REPORT_ONLY"), 1)
         finally:
             shutil.rmtree(tmp)
 

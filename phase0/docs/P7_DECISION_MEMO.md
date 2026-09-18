@@ -7,7 +7,8 @@ any physical capture, so the criterion is never adjusted after seeing results.
 threshold, no configuration and no code**, and it deliberately **does not choose**
 between the options in §8. `P0_CRITERIA.md` is untouched.
 
-**Verdict: `P7_SPECIFICATION = UNRESOLVED`** — see §9.
+**Verdict: `P7_SPECIFICATION = RESOLVED` (STEP 3C) — Option C chosen.** The analysis in
+§§1-8 stands as the record of *why*; §9 records the decision that was taken on it.
 
 ---
 
@@ -257,18 +258,59 @@ split is used at all — which needs a new manifest field committed before captu
 
 ---
 
-## 9. Final
+## 9. Final — decision taken (STEP 3C)
 
 ```
-P7_SPECIFICATION = UNRESOLVED
+P7_SPECIFICATION = RESOLVED
+Chosen option    = C  (P7 is reporting / calibration, not an acceptance gate)
 ```
 
-The ambiguity is **not** resolvable by further reading. Under the referent that matches
-the statistic (0.90) the criterion is provably unsatisfiable (§6, 0 solutions in 125 249
-combinations); under the referent inherited from V2 (0.95) it is satisfiable but tests
-the interval against a target its own `k` does not produce. Either way a **decision** is
-required, and it must be recorded in `P0_CRITERIA.md` **before the first capture**.
+### Why Option C
 
-Blocker **B1 remains open**. P1–P6 are computed and tested; only P7's acceptance rule is
-missing. Once one of §8's options is chosen, the analyser needs no new science — the
-parser will simply find a decidable Go cell.
+Options A and B both force a *pass/fail acceptance* out of a quantity the pilot is not
+equipped to judge. The evidence in §4 (row I4) and §8 (Option C) is decisive:
+
+* P7's own Conditional and No-go cells were **actions** ("widen interval and re-report",
+  "report a band"), not numeric bands — unlike P1-P6, whose cells are all thresholds.
+  The wording never described a gate.
+* `A-07` states `k = 1.645` is **nominal and uncalibrated** and the model "ships
+  explicitly uncalibrated". Turning uncalibrated coverage into a pass/fail gate would
+  assert exactly the calibration the model does not have.
+* The interval-width gate is **already disabled** for the same reason
+  (`P0_CRITERIA.md` "Values that look like criteria but are not").
+* `PHASE0_VERDICTS.md` #38 expects `k` to be fitted on a development set and evaluated on
+  a sealed set — i.e. calibration is a **later** step, not this pilot's P7.
+* Under the referent that matches the two-sided `covered` statistic (0.90), the old
+  wording was provably unsatisfiable (§6: 0 of 125,249 (k, n) combinations); under 0.95
+  it tested the interval against a target its own `k` cannot produce. Neither is a sound
+  gate.
+
+### What P7 now measures
+
+Observed two-sided interval coverage `k/n` over the identified nominal population
+(measured nominal runs that carry a reference value and both interval bounds), reported
+with its Wilson 95 % CI, the sample count `n`, `k`, and the interval mean/median width.
+The analyser emits status **`REPORT_ONLY`** (or `UNCOMPUTABLE` if there is nothing to
+report). It can never emit `PASS`, `CONDITIONAL` or `FAIL`.
+
+### What P7 does NOT establish
+
+P7 does **not** produce a physical-accuracy pass/fail for this pilot; the accuracy gates
+are **P1-P6**. It does **not** validate or calibrate the uncertainty model, and no output
+may describe the model as "validated" or "calibrated".
+
+### Why k stays uncalibrated
+
+`k_lower = k_upper = 1.645` is preserved unchanged. It remains nominal; this pilot only
+*collects* empirical coverage as calibration evidence. Fitting `k` on a development split
+and evaluating on a sealed split (`P0_PROTOCOL.md` §6, `PHASE0_VERDICTS.md` #38) is a
+distinct, later calibration step that this reporting-only P7 does not perform, so no
+development / held-back split is introduced now.
+
+### Consequence for the pilot
+
+Blocker **B1 is CLOSED**: P1-P6 are computed and tested against the frozen bands, and P7
+is now explicit, testable and pre-registered as reporting-only. The one honest cost,
+stated plainly: **the pilot carries no pass/fail check on interval calibration**; any
+claim must say the guard-band decision rests on an unvalidated `k` until a later
+calibration stage.

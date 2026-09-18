@@ -30,7 +30,41 @@ engineering -- never to move the threshold.
 | P4 | Inter-device bias after global correction | <= 0.05 mm | 0.05-0.12 mm | > 0.12 mm -> per-device claim only |
 | P5 | Gate acceptance in nominal conditions | >= 0.70 | 0.50-0.70 | < 0.50 -> redesign fixture/protocol |
 | P6 | Unsafe-condition acceptance (stress block) | <= 0.02 | 0.02-0.05 | > 0.05 -> abstention unsafe |
-| P7 | Empirical interval coverage | CI includes nominal and lower bound >= 0.90 | widen interval and re-report | cannot be achieved -> report a band, not a confidence interval |
+| P7 | Empirical interval coverage (REPORTING / CALIBRATION, not a pass/fail gate) | REPORT_ONLY: report observed two-sided coverage k/n, its Wilson 95% CI [L, U], and n, for the identified nominal population | report interval mean/median width alongside | (no No-go: P7 never fails the pilot) |
+
+### P7 is a reporting / calibration criterion, not an acceptance gate (RESOLVED, Option C)
+
+P7 was frozen as **reporting-only** by the STEP 3C decision (see
+`P7_DECISION_MEMO.md` §9 and `P0_EXECUTION_PLAN.md` §10). It exists to *report*
+empirical interval coverage as calibration evidence for the uncertainty model, and it
+**does not produce a PASS / FAIL for physical accuracy in this pilot**. The pilot's
+accuracy acceptance gates are **P1-P6 only**.
+
+Frozen definition:
+
+* **statistic:** `observed_coverage = k / n`, where a run is *covered* when
+  `lower_mm <= reference_h_mm <= upper_mm` (the existing two-sided `covered`,
+  `p0/results.py`).
+* **interval on the statistic:** Wilson score 95% CI `[L, U]` on `k / n`, observations
+  treated as independent (not clustered) - the method the analyser already computes and
+  labels. No development / held-back split is used for this reporting-only P7; the split
+  in `P0_PROTOCOL.md` §6 belongs to a later *calibration* step, not to this pilot's P7.
+* **also reported:** `n` (sample count), the identified nominal population, `k`
+  (n covered), and the interval mean/median width.
+* **status vocabulary:** `REPORT_ONLY` when the coverage evidence is produced;
+  `UNCOMPUTABLE` only when there is no evaluable run at all. P7 can never be `PASS`,
+  `CONDITIONAL` or `FAIL`.
+
+Uncertainty-model status (unchanged, preserved verbatim from `A-07`): the interval uses
+`k_lower = k_upper = 1.645`; this `k` is **nominal and currently uncalibrated**. P7
+collects empirical coverage as calibration evidence; **this pilot does not establish a
+validated or calibrated confidence interval**, and no output may describe the model as
+"validated" or "calibrated".
+
+Why the earlier wording was wrong: "CI includes nominal and lower bound >= 0.90" named
+no numeric "nominal" (0.90 two-sided vs 0.95 one-sided are both defensible readings of
+the same `k = 1.645`), and under the 0.90 reading the two clauses were mutually
+exclusive (`P7_DECISION_MEMO.md` §6: 0 solutions across 125,249 (k, n) combinations).
 
 **Conditional** means proceed with a narrower claim (per device, per font class,
 wider interval, higher abstention).  **No-go** means do not build the Android

@@ -40,6 +40,8 @@ MEASURED = "MEASURED"
 ND = 6                     # rounding for serialised statistics (determinism)
 
 PASS, CONDITIONAL, FAIL, UNCOMPUTABLE = "PASS", "CONDITIONAL", "FAIL", "UNCOMPUTABLE"
+REPORT_ONLY = "REPORT_ONLY"          # P7 only: coverage evidence, never a pass/fail gate
+ACCEPTANCE_STATUSES = (PASS, CONDITIONAL, FAIL)      # P1-P6 gate outcomes
 
 REQUIRED_COLUMNS = ("run_id", "status", "safety_class", "panel_id", "device",
                     "operator", "repeat", "h_mm", "lower_mm", "upper_mm",
@@ -83,23 +85,33 @@ def load_physical_criteria(path=CRITERIA_DOC):
              "conditional_raw": cond_raw, "nogo_raw": nogo_raw,
              "source": "docs/P0_CRITERIA.md"}
         m_lo, m_hi = _GO_LOWER.match(go_raw), _GO_HIGHER.match(go_raw)
-        if m_lo:
+        if go_raw.upper().startswith(REPORT_ONLY):
+            # A reporting / calibration criterion, not an acceptance gate.  Frozen
+            # for P7 by STEP 3C (Option C); see P7_DECISION_MEMO.md.
+            c["direction"] = None
+            c["go"] = None
+            c["decidable"] = False
+            c["report_only"] = True
+        elif m_lo:
             c["direction"] = "LOWER_IS_BETTER"
             c["go"] = float(m_lo.group(1))
             c["decidable"] = True
+            c["report_only"] = False
         elif m_hi:
             c["direction"] = "HIGHER_IS_BETTER"
             c["go"] = float(m_hi.group(1))
             c["decidable"] = True
+            c["report_only"] = False
         else:
             # Free text in the Go cell: the criterion references a quantity that
             # this document does not define numerically.  Do not guess it.
             c["direction"] = None
             c["go"] = None
             c["decidable"] = False
+            c["report_only"] = False
             c["undecidable_reason"] = (
                 "the Go cell is free text (%r) and does not reduce to a single "
-                "'<= value' or '>= value' rule" % go_raw)
+                "'<= value', '>= value' or 'REPORT_ONLY' rule" % go_raw)
         rng = _RANGE.search(cond_raw)
         if rng:
             c["conditional_lo"] = float(rng.group(1))
@@ -123,6 +135,9 @@ def load_physical_criteria(path=CRITERIA_DOC):
                                 "the frozen table changed shape" % pid)
     if out["P5"].get("direction") != "HIGHER_IS_BETTER":
         raise CriteriaError("P5 was expected to be a 'higher is better' rule")
+    if not out["P7"].get("report_only"):
+        raise CriteriaError("P7 was expected to be a REPORT_ONLY criterion "
+                            "(STEP 3C, Option C); the frozen table changed shape")
     return out
 
 
@@ -456,6 +471,14 @@ def compute_p6(stress_rows, expected, crit):
 
 
 def compute_p7(nominal_rows, crit, unc_model):
+    """P7 is REPORTING / CALIBRATION only (STEP 3C, Option C).
+
+    It reports observed two-sided interval coverage, its Wilson 95% CI, the sample
+    count, the interval widths and the (uncalibrated) k it used.  It NEVER returns a
+    PASS/FAIL/CONDITIONAL acceptance verdict for physical accuracy: its status is
+    REPORT_ONLY when evidence exists, and UNCOMPUTABLE only when there is nothing to
+    report.  The pilot's accuracy gates are P1-P6.
+    """
     pid = "P7"
     rows = [r for r in nominal_rows if r.get("status") == MEASURED
             and r.get("true_h_mm") is not None and r.get("lower_mm") is not None
@@ -464,33 +487,37 @@ def compute_p7(nominal_rows, crit, unc_model):
                for r in rows]
     pop = {"nominal_rows": len(nominal_rows), "evaluable_rows": len(rows),
            "abstained": len([r for r in nominal_rows if r.get("status") != MEASURED]),
-           "panels": sorted(set(str(r.get("panel_id")) for r in rows))}
+           "measured_missing_bounds_or_reference":
+               len([r for r in nominal_rows if r.get("status") == MEASURED]) - len(rows),
+           "panels": sorted(set(str(r.get("panel_id")) for r in rows)),
+           "nominal_population": "measured nominal runs with a reference value and "
+                                 "both interval bounds"}
     stats = {"k_lower": unc_model.get("k_lower"), "k_upper": unc_model.get("k_upper"),
              "model_version": unc_model.get("model_version"),
-             "model_calibrated": unc_model.get("calibrated")}
-    if rows:
-        k = sum(covered)
-        lo, hi = wilson(k, len(covered))
-        stats.update({"observed_coverage": k / len(covered), "n_covered": k,
-                      "n_evaluated": len(covered),
-                      "wilson_ci95_lo": lo, "wilson_ci95_hi": hi,
-                      "ci_method": "Wilson score interval, observations treated as "
-                                   "independent (not clustered by panel)"})
-    # The statistic is computable; the acceptance rule is not.  Do not guess it.
-    reason = (
-        "P7's Go cell reads %r, which is not decidable from the frozen documents for "
-        "three reasons. (1) 'nominal' is undefined here: P0_CRITERIA.md C4 states that "
-        "k = 1.645 one sided each side is a ~90 percent two sided region, while "
-        "P0_ASSUMPTIONS.md A-07 describes the same k as ~95 percent one sided - and the "
-        "'covered' statistic is two sided containment, so the two readings are not "
-        "interchangeable. (2) If nominal is taken as 0.90 the two conditions 'CI includes "
-        "nominal' and 'CI lower bound >= 0.90' can only both hold when the lower bound is "
-        "exactly 0.90, which is unsatisfiable in practice. (3) The CI method is "
-        "unspecified: P0_PROTOCOL.md section 6 calls for a cluster bootstrap and a "
-        "development / held-back split, neither of which the result schema records. "
-        "Resolving any of these is a criteria decision and is deliberately not made here."
-        % crit["go_raw"])
-    return _result(pid, crit, stats, UNCOMPUTABLE, reason, pop)
+             "model_calibrated": unc_model.get("calibrated"),
+             "calibration_note": ("k is nominal and uncalibrated (A-07); this pilot "
+                                  "collects coverage as calibration evidence and does "
+                                  "not establish a validated/calibrated interval"),
+             "ci_method": "Wilson score interval at 95%, observations treated as "
+                          "independent (not clustered)"}
+    if not rows:
+        return _result(pid, crit, stats, UNCOMPUTABLE,
+                       "no measured nominal run carries both a reference value and "
+                       "interval bounds, so there is no coverage to report", pop)
+    k = sum(covered)
+    n = len(covered)
+    lo, hi = wilson(k, n)
+    widths = [r["upper_mm"] - r["lower_mm"] for r in rows
+              if r.get("upper_mm") is not None and r.get("lower_mm") is not None]
+    stats.update({"observed_coverage": k / n, "n_covered": k, "n_evaluated": n,
+                  "wilson_ci95_lower": lo, "wilson_ci95_upper": hi,
+                  "interval_width_mean_mm": mean(widths) if widths else None,
+                  "interval_width_median_mm": median(widths) if widths else None})
+    reason = ("REPORT_ONLY: observed two-sided coverage %d/%d = %.3f, Wilson 95%% CI "
+              "[%.3f, %.3f]. P7 reports coverage as calibration evidence and is not an "
+              "accuracy pass/fail gate (STEP 3C, Option C); the accuracy gates are "
+              "P1-P6." % (k, n, k / n, lo, hi))
+    return _result(pid, crit, stats, REPORT_ONLY, reason, pop)
 
 
 # ---------------------------------------------------------------------------
@@ -518,6 +545,10 @@ def analyse(in_dir, out_dir=None, criteria_path=CRITERIA_DOC):
     tally = {}
     for r in results.values():
         tally[r["status"]] = tally.get(r["status"], 0) + 1
+    # Acceptance completeness is judged on the gate criteria (P1-P6) only; P7 is
+    # reporting-only and its REPORT_ONLY status never blocks or completes the pilot.
+    gate_uncomputable = sum(1 for pid, r in results.items()
+                            if pid != "P7" and r["status"] == UNCOMPUTABLE)
     report = {
         "schema_version": "p0-physical-analysis-1",
         "criteria_source": os.path.relpath(criteria_path, ROOT),
@@ -535,11 +566,14 @@ def analyse(in_dir, out_dir=None, criteria_path=CRITERIA_DOC):
         "criteria": {k: v for k, v in sorted(crits.items())},
         "results": results,
         "tally": dict(sorted(tally.items())),
-        "overall": ("ALL_DECIDED" if UNCOMPUTABLE not in tally else
-                    "INCOMPLETE_%d_UNCOMPUTABLE" % tally[UNCOMPUTABLE]),
-        "notice": ("Statuses are computed against the frozen bands in "
-                   "docs/P0_CRITERIA.md. UNCOMPUTABLE is never a pass. No physical "
-                   "accuracy is claimed by this file."),
+        "gate_criteria": ["P1", "P2", "P3", "P4", "P5", "P6"],
+        "reporting_criteria": ["P7"],
+        "overall": ("ALL_GATE_CRITERIA_DECIDED" if gate_uncomputable == 0 else
+                    "INCOMPLETE_%d_GATE_CRITERIA_UNCOMPUTABLE" % gate_uncomputable),
+        "notice": ("P1-P6 are acceptance gates, computed against the frozen bands in "
+                   "docs/P0_CRITERIA.md; UNCOMPUTABLE is never a pass. P7 is "
+                   "reporting/calibration only (REPORT_ONLY) and never a pass/fail "
+                   "accuracy gate. No physical accuracy is claimed by this file."),
     }
     dump_json(os.path.join(out_dir, "analysis_physical.json"), report)
     _markdown(report, os.path.join(out_dir, "PHYSICAL_RESULT.md"))
@@ -570,8 +604,10 @@ def _markdown(report, path):
              or r["population"].get("cells_with_repeats")
              or r["population"].get("attempted")
              or r["population"].get("evaluable_rows"))
-        L.append("| %s | %s | %s | %s | %s | **%s** | %s |"
-                 % (pid, key, "-" if val is None else val, n if n is not None else "-",
+        role = "report" if pid == "P7" else "gate"
+        L.append("| %s (%s) | %s | %s | %s | %s | **%s** | %s |"
+                 % (pid, role, key, "-" if val is None else val,
+                    n if n is not None else "-",
                     r["threshold_reference"]["go"], r["status"],
                     (r["reason"] or "")[:180]))
     L += ["", "## Tally", "",
