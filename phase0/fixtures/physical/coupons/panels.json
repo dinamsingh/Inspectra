@@ -1,0 +1,365 @@
+{
+  "note": "nominal geometry only; reference measurement required",
+  "panels": [
+    {
+      "font": "DejaVu Sans",
+      "nominal_heights_mm": [
+        1.2,
+        2.0,
+        3.0,
+        4.0,
+        6.0
+      ],
+      "panel_id": "P01",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 1
+    },
+    {
+      "font": "DejaVu Serif",
+      "nominal_heights_mm": [
+        6.0,
+        4.0,
+        3.0,
+        2.0,
+        1.2
+      ],
+      "panel_id": "P02",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 1
+    },
+    {
+      "font": "DejaVu Sans Mono",
+      "nominal_heights_mm": [
+        1.2,
+        2.0,
+        3.0,
+        4.0,
+        6.0
+      ],
+      "panel_id": "P03",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 1
+    },
+    {
+      "font": "Helvetica",
+      "nominal_heights_mm": [
+        6.0,
+        4.0,
+        3.0,
+        2.0,
+        1.2
+      ],
+      "panel_id": "P04",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 1
+    },
+    {
+      "font": "DejaVu Sans",
+      "nominal_heights_mm": [
+        1.2,
+        2.0,
+        3.0,
+        4.0,
+        6.0
+      ],
+      "panel_id": "P05",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 2
+    },
+    {
+      "font": "DejaVu Serif",
+      "nominal_heights_mm": [
+        6.0,
+        4.0,
+        3.0,
+        2.0,
+        1.2
+      ],
+      "panel_id": "P06",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 2
+    },
+    {
+      "font": "DejaVu Sans Mono",
+      "nominal_heights_mm": [
+        1.2,
+        2.0,
+        3.0,
+        4.0,
+        6.0
+      ],
+      "panel_id": "P07",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 2
+    },
+    {
+      "font": "Helvetica",
+      "nominal_heights_mm": [
+        6.0,
+        4.0,
+        3.0,
+        2.0,
+        1.2
+      ],
+      "panel_id": "P08",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 2
+    },
+    {
+      "font": "DejaVu Sans",
+      "nominal_heights_mm": [
+        1.2,
+        2.0,
+        3.0,
+        4.0,
+        6.0
+      ],
+      "panel_id": "P09",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 3
+    },
+    {
+      "font": "DejaVu Serif",
+      "nominal_heights_mm": [
+        6.0,
+        4.0,
+        3.0,
+        2.0,
+        1.2
+      ],
+      "panel_id": "P10",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 3
+    },
+    {
+      "font": "DejaVu Sans Mono",
+      "nominal_heights_mm": [
+        1.2,
+        2.0,
+        3.0,
+        4.0,
+        6.0
+      ],
+      "panel_id": "P11",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 3
+    },
+    {
+      "font": "Helvetica",
+      "nominal_heights_mm": [
+        6.0,
+        4.0,
+        3.0,
+        2.0,
+        1.2
+      ],
+      "panel_id": "P12",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 3
+    },
+    {
+      "font": "DejaVu Sans",
+      "nominal_heights_mm": [
+        1.2,
+        2.0,
+        3.0,
+        4.0,
+        6.0
+      ],
+      "panel_id": "P13",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 4
+    },
+    {
+      "font": "DejaVu Serif",
+      "nominal_heights_mm": [
+        6.0,
+        4.0,
+        3.0,
+        2.0,
+        1.2
+      ],
+      "panel_id": "P14",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 4
+    },
+    {
+      "font": "DejaVu Sans Mono",
+      "nominal_heights_mm": [
+        1.2,
+        2.0,
+        3.0,
+        4.0,
+        6.0
+      ],
+      "panel_id": "P15",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 4
+    },
+    {
+      "font": "Helvetica",
+      "nominal_heights_mm": [
+        6.0,
+        4.0,
+        3.0,
+        2.0,
+        1.2
+      ],
+      "panel_id": "P16",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 4
+    },
+    {
+      "font": "DejaVu Sans",
+      "nominal_heights_mm": [
+        1.2,
+        2.0,
+        3.0,
+        4.0,
+        6.0
+      ],
+      "panel_id": "P17",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 5
+    },
+    {
+      "font": "DejaVu Serif",
+      "nominal_heights_mm": [
+        6.0,
+        4.0,
+        3.0,
+        2.0,
+        1.2
+      ],
+      "panel_id": "P18",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 5
+    },
+    {
+      "font": "DejaVu Sans Mono",
+      "nominal_heights_mm": [
+        1.2,
+        2.0,
+        3.0,
+        4.0,
+        6.0
+      ],
+      "panel_id": "P19",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 5
+    },
+    {
+      "font": "Helvetica",
+      "nominal_heights_mm": [
+        6.0,
+        4.0,
+        3.0,
+        2.0,
+        1.2
+      ],
+      "panel_id": "P20",
+      "shapes": [
+        "BAR_I",
+        "H",
+        "T",
+        "RING_O"
+      ],
+      "sheet": 5
+    }
+  ]
+}

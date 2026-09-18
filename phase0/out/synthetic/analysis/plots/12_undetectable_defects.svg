@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="460" viewBox="0 0 720 460" font-family="DejaVu Sans,Arial,sans-serif">
+<rect width="100%" height="100%" fill="white"/>
+<text x="78" y="24" font-size="15" font-weight="bold">Defects a single view cannot detect</text>
+<line x1="78.0" y1="400.0" x2="694.0" y2="400.0" stroke="#eee"/>
+<text x="70.0" y="404.0" font-size="11" text-anchor="end" fill="#444">0.011</text>
+<line x1="78.0" y1="328.8" x2="694.0" y2="328.8" stroke="#eee"/>
+<text x="70.0" y="332.8" font-size="11" text-anchor="end" fill="#444">0.048</text>
+<line x1="78.0" y1="257.6" x2="694.0" y2="257.6" stroke="#eee"/>
+<text x="70.0" y="261.6" font-size="11" text-anchor="end" fill="#444">0.085</text>
+<line x1="78.0" y1="186.4" x2="694.0" y2="186.4" stroke="#eee"/>
+<text x="70.0" y="190.4" font-size="11" text-anchor="end" fill="#444">0.122</text>
+<line x1="78.0" y1="115.2" x2="694.0" y2="115.2" stroke="#eee"/>
+<text x="70.0" y="119.2" font-size="11" text-anchor="end" fill="#444">0.159</text>
+<line x1="78.0" y1="44.0" x2="694.0" y2="44.0" stroke="#eee"/>
+<text x="70.0" y="48.0" font-size="11" text-anchor="end" fill="#444">0.196</text>
+<rect x="78.0" y="44.0" width="616.0" height="356.0" fill="none" stroke="#999"/>
+<rect x="108.80" y="333.36" width="92.40" height="87.82" fill="#c0392b" fill-opacity="0.8"/>
+<text x="155.00" y="415.00" font-size="9.5" text-anchor="end" fill="#333" transform="rotate(-38 155.00 415.00)">NONPLANAR_TILT-10</text>
+<text x="155.00" y="330.36" font-size="9.5" text-anchor="middle" fill="#222">0.046</text>
+<rect x="262.80" y="65.86" width="92.40" height="355.32" fill="#c0392b" fill-opacity="0.8"/>
+<text x="309.00" y="415.00" font-size="9.5" text-anchor="end" fill="#333" transform="rotate(-38 309.00 415.00)">NONPLANAR_TILT-20</text>
+<text x="309.00" y="62.86" font-size="9.5" text-anchor="middle" fill="#222">0.185</text>
+<rect x="416.80" y="378.14" width="92.40" height="43.04" fill="#c0392b" fill-opacity="0.8"/>
+<text x="463.00" y="415.00" font-size="9.5" text-anchor="end" fill="#333" transform="rotate(-38 463.00 415.00)">PLANE_OFFSET_UNDECLARED-1.5</text>
+<text x="463.00" y="375.14" font-size="9.5" text-anchor="middle" fill="#222">0.022</text>
+<rect x="570.80" y="266.89" width="92.40" height="154.29" fill="#c0392b" fill-opacity="0.8"/>
+<text x="617.00" y="415.00" font-size="9.5" text-anchor="end" fill="#333" transform="rotate(-38 617.00 415.00)">PLANE_OFFSET_UNDECLARED-5.0</text>
+<text x="617.00" y="263.89" font-size="9.5" text-anchor="middle" fill="#222">0.080</text>
+<rect x="86.0" y="50.0" width="9" height="9" fill="#c0392b"/>
+<text x="99.0" y="58.0" font-size="11" fill="#222">|error|</text>
+<text x="386.0" y="440" font-size="12" text-anchor="middle">fixture</text>
+<text x="16" y="222.0" font-size="12" text-anchor="middle" transform="rotate(-90 16 222.0)">measured error (mm)</text>
+<text x="78" y="456" font-size="10" fill="#555">all of these were MEASURED, not abstained: geometry gates are blind to out-of-plane print, so the fixture must guarantee it</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="460" viewBox="0 0 720 460" font-family="DejaVu Sans,Arial,sans-serif">
+<rect width="100%%" height="100%%" fill="white"/>
+<text x="78" y="24" font-size="15" font-weight="bold">Illumination, glare and noise conditions</text>
+<line x1="78.0" y1="400.0" x2="694.0" y2="400.0" stroke="#eee"/>
+<text x="70.0" y="404.0" font-size="11" text-anchor="end" fill="#444">-9.3e-04</text>
+<line x1="78.0" y1="328.8" x2="694.0" y2="328.8" stroke="#eee"/>
+<text x="70.0" y="332.8" font-size="11" text-anchor="end" fill="#444">-1.4e-04</text>
+<line x1="78.0" y1="257.6" x2="694.0" y2="257.6" stroke="#eee"/>
+<text x="70.0" y="261.6" font-size="11" text-anchor="end" fill="#444">6.4e-04</text>
+<line x1="78.0" y1="186.4" x2="694.0" y2="186.4" stroke="#eee"/>
+<text x="70.0" y="190.4" font-size="11" text-anchor="end" fill="#444">0.001</text>
+<line x1="78.0" y1="115.2" x2="694.0" y2="115.2" stroke="#eee"/>
+<text x="70.0" y="119.2" font-size="11" text-anchor="end" fill="#444">0.002</text>
+<line x1="78.0" y1="44.0" x2="694.0" y2="44.0" stroke="#eee"/>
+<text x="70.0" y="48.0" font-size="11" text-anchor="end" fill="#444">0.003</text>
+<rect x="78.0" y="44.0" width="616.0" height="356.0" fill="none" stroke="#999"/>
+<line x1="78.0" y1="315.7" x2="694.0" y2="315.7" stroke="#888" stroke-dasharray="4,3"/>
+<text x="690.0" y="311.7" font-size="10" fill="#888" text-anchor="end">zero</text>
+<rect x="98.53" y="65.86" width="61.60" height="249.81" fill="#1f5fa8" fill-opacity="0.8"/>
+<text x="129.33" y="415.00" font-size="9.5" text-anchor="end" fill="#333" transform="rotate(-38 129.33 415.00)">glare-mild</text>
+<text x="129.33" y="62.86" font-size="9.5" text-anchor="middle" fill="#222">0.003</text>
+<rect x="201.20" y="315.67" width="61.60" height="0.00" fill="#1f5fa8" fill-opacity="0.8"/>
+<text x="232.00" y="415.00" font-size="9.5" text-anchor="end" fill="#333" transform="rotate(-38 232.00 415.00)">gradient</text>
+<text x="232.00" y="312.67" font-size="9.5" text-anchor="middle" fill="#222">0.000</text>
+<rect x="303.87" y="315.67" width="61.60" height="0.00" fill="#1f5fa8" fill-opacity="0.8"/>
+<text x="334.67" y="415.00" font-size="9.5" text-anchor="end" fill="#333" transform="rotate(-38 334.67 415.00)">noise 0.000</text>
+<text x="334.67" y="312.67" font-size="9.5" text-anchor="middle" fill="#222">-6.9e-04</text>
+<rect x="406.53" y="174.76" width="61.60" height="140.91" fill="#1f5fa8" fill-opacity="0.8"/>
+<text x="437.33" y="415.00" font-size="9.5" text-anchor="end" fill="#333" transform="rotate(-38 437.33 415.00)">noise 0.005</text>
+<text x="437.33" y="171.76" font-size="9.5" text-anchor="middle" fill="#222">0.002</text>
+<rect x="509.20" y="181.65" width="61.60" height="134.02" fill="#1f5fa8" fill-opacity="0.8"/>
+<text x="540.00" y="415.00" font-size="9.5" text-anchor="end" fill="#333" transform="rotate(-38 540.00 415.00)">noise 0.012</text>
+<text x="540.00" y="178.65" font-size="9.5" text-anchor="middle" fill="#222">0.001</text>
+<rect x="611.87" y="315.67" width="61.60" height="0.00" fill="#1f5fa8" fill-opacity="0.8"/>
+<text x="642.67" y="415.00" font-size="9.5" text-anchor="end" fill="#333" transform="rotate(-38 642.67 415.00)">noise 0.025</text>
+<text x="642.67" y="312.67" font-size="9.5" text-anchor="middle" fill="#222">0.000</text>
+<rect x="86.0" y="50.0" width="9" height="9" fill="#1f5fa8"/>
+<text x="99.0" y="58.0" font-size="11" fill="#222">error (0 = abstained)</text>
+<text x="386.0" y="440" font-size="12" text-anchor="middle">fixture</text>
+<text x="16" y="222.0" font-size="12" text-anchor="middle" transform="rotate(-90 16 222.0)">signed error (mm)</text>
+<text x="78" y="456" font-size="10" fill="#555">abstained: E_ILLUM-gradient, E_NOISE-0.025</text>
+</svg>

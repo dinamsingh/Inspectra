@@ -1,0 +1,129 @@
+{
+  "certificate_hash": "dcfeb0832bff19f2eaefcaea4c0045034234d59706eedbb0cef4afec5b35aae6",
+  "control_point_u_mm": 0.02,
+  "expected_marker_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "expires_at": "2027-09-18",
+  "fiducial_scheme": "NDFID-1",
+  "frame_id": "FRAME-SYN-0002-THICK",
+  "issued_at": "2026-09-18",
+  "markers": {
+    "0": {
+      "centre_mm": [
+        -40.0,
+        22.0
+      ],
+      "corners_mm": [
+        [
+          -45.0,
+          27.0
+        ],
+        [
+          -35.0,
+          27.0
+        ],
+        [
+          -35.0,
+          17.0
+        ],
+        [
+          -45.0,
+          17.0
+        ]
+      ],
+      "side_mm": 10.0
+    },
+    "1": {
+      "centre_mm": [
+        40.0,
+        22.0
+      ],
+      "corners_mm": [
+        [
+          35.0,
+          27.0
+        ],
+        [
+          45.0,
+          27.0
+        ],
+        [
+          45.0,
+          17.0
+        ],
+        [
+          35.0,
+          17.0
+        ]
+      ],
+      "side_mm": 10.0
+    },
+    "2": {
+      "centre_mm": [
+        40.0,
+        -22.0
+      ],
+      "corners_mm": [
+        [
+          35.0,
+          -17.0
+        ],
+        [
+          45.0,
+          -17.0
+        ],
+        [
+          45.0,
+          -27.0
+        ],
+        [
+          35.0,
+          -27.0
+        ]
+      ],
+      "side_mm": 10.0
+    },
+    "3": {
+      "centre_mm": [
+        -40.0,
+        -22.0
+      ],
+      "corners_mm": [
+        [
+          -45.0,
+          -17.0
+        ],
+        [
+          -35.0,
+          -17.0
+        ],
+        [
+          -35.0,
+          -27.0
+        ],
+        [
+          -45.0,
+          -27.0
+        ]
+      ],
+      "side_mm": 10.0
+    }
+  },
+  "outer_mm": [
+    100.0,
+    60.0
+  ],
+  "serial": "FRAME-SYN-0002-THICK",
+  "survey_instrument": "N/A (synthetic)",
+  "survey_method": "SYNTHETIC_EXACT",
+  "thickness_mm": 0.45,
+  "thickness_u_mm": 0.01,
+  "window_mm": [
+    50.0,
+    20.0
+  ]
+}

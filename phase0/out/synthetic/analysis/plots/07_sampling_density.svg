@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="460" viewBox="0 0 720 460" font-family="DejaVu Sans,Arial,sans-serif">
+<rect width="100%" height="100%" fill="white"/>
+<text x="78" y="24" font-size="15" font-weight="bold">Sampling density sensitivity</text>
+<line x1="78.0" y1="400.0" x2="694.0" y2="400.0" stroke="#eee"/>
+<text x="70.0" y="404.0" font-size="11" text-anchor="end" fill="#444">-0.001</text>
+<line x1="78.0" y1="328.8" x2="694.0" y2="328.8" stroke="#eee"/>
+<text x="70.0" y="332.8" font-size="11" text-anchor="end" fill="#444">0.003</text>
+<line x1="78.0" y1="257.6" x2="694.0" y2="257.6" stroke="#eee"/>
+<text x="70.0" y="261.6" font-size="11" text-anchor="end" fill="#444">0.006</text>
+<line x1="78.0" y1="186.4" x2="694.0" y2="186.4" stroke="#eee"/>
+<text x="70.0" y="190.4" font-size="11" text-anchor="end" fill="#444">0.010</text>
+<line x1="78.0" y1="115.2" x2="694.0" y2="115.2" stroke="#eee"/>
+<text x="70.0" y="119.2" font-size="11" text-anchor="end" fill="#444">0.014</text>
+<line x1="78.0" y1="44.0" x2="694.0" y2="44.0" stroke="#eee"/>
+<text x="70.0" y="48.0" font-size="11" text-anchor="end" fill="#444">0.017</text>
+<line x1="78.0" y1="44.0" x2="78.0" y2="400.0" stroke="#f4f4f4"/>
+<text x="78.0" y="418.0" font-size="11" text-anchor="middle" fill="#444">17.5</text>
+<line x1="201.2" y1="44.0" x2="201.2" y2="400.0" stroke="#f4f4f4"/>
+<text x="201.2" y="418.0" font-size="11" text-anchor="middle" fill="#444">18.9</text>
+<line x1="324.4" y1="44.0" x2="324.4" y2="400.0" stroke="#f4f4f4"/>
+<text x="324.4" y="418.0" font-size="11" text-anchor="middle" fill="#444">20.2</text>
+<line x1="447.6" y1="44.0" x2="447.6" y2="400.0" stroke="#f4f4f4"/>
+<text x="447.6" y="418.0" font-size="11" text-anchor="middle" fill="#444">21.6</text>
+<line x1="570.8" y1="44.0" x2="570.8" y2="400.0" stroke="#f4f4f4"/>
+<text x="570.8" y="418.0" font-size="11" text-anchor="middle" fill="#444">22.9</text>
+<line x1="694.0" y1="44.0" x2="694.0" y2="400.0" stroke="#f4f4f4"/>
+<text x="694.0" y="418.0" font-size="11" text-anchor="middle" fill="#444">24.3</text>
+<rect x="78.0" y="44.0" width="616.0" height="356.0" fill="none" stroke="#999"/>
+<line x1="78.0" y1="378.1" x2="694.0" y2="378.1" stroke="#888" stroke-dasharray="4,3"/>
+<text x="690.0" y="374.1" font-size="10" fill="#888" text-anchor="end">zero</text>
+<polyline points="115.82,340.55 656.18,361.37" fill="none" stroke="#1f5fa8" stroke-width="2.0"/>
+<polyline points="115.82,65.86 656.18,146.32" fill="none" stroke="#148f56" stroke-width="2.0"/>
+<rect x="86.0" y="50.0" width="9" height="9" fill="#1f5fa8"/>
+<text x="99.0" y="58.0" font-size="11" fill="#222">error</text>
+<rect x="86.0" y="65.0" width="9" height="9" fill="#148f56"/>
+<text x="99.0" y="73.0" font-size="11" fill="#222">u_c</text>
+<text x="386.0" y="440" font-size="12" text-anchor="middle">rho_min (px/mm)</text>
+<text x="16" y="222.0" font-size="12" text-anchor="middle" transform="rotate(-90 16 222.0)">signed error (mm)</text>
+<text x="78" y="456" font-size="10" fill="#555">abstained: z=240/blur_sigma_mm, z=280/blur_sigma_mm, z=340/blur_sigma_mm, z=420/blur_sigma_mm</text>
+</svg>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120.000mm" height="80.000mm" viewBox="0 0 120.000 80.000">
+<rect width="120.000" height="80.000" fill="white"/>
+<!-- NDFID-1 fiducial frame, nominal geometry in millimetres -->
+<rect x="10.000" y="10.000" width="100.000" height="60.000" fill="none" stroke="black" stroke-width="0.15"/>
+<rect x="35.000" y="30.000" width="50.000" height="20.000" fill="none" stroke="black" stroke-width="0.15" stroke-dasharray="2,1.5"/>
+<rect x="15.0000" y="13.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="16.6667" y="13.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="18.3333" y="13.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="20.0000" y="13.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="21.6667" y="13.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="23.3333" y="13.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="15.0000" y="14.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="16.6667" y="14.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="18.3333" y="14.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="20.0000" y="14.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="21.6667" y="14.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="23.3333" y="14.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="15.0000" y="16.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="16.6667" y="16.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="23.3333" y="16.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="15.0000" y="18.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="23.3333" y="18.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="15.0000" y="19.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="23.3333" y="19.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="15.0000" y="21.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="16.6667" y="21.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="18.3333" y="21.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="20.0000" y="21.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="21.6667" y="21.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="23.3333" y="21.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<text x="20.000" y="24.400" font-size="2.2" font-family="monospace" text-anchor="middle">id0</text>
+<rect x="95.0000" y="13.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="96.6667" y="13.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="98.3333" y="13.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="100.0000" y="13.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="101.6667" y="13.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="103.3333" y="13.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="95.0000" y="14.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="96.6667" y="14.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="98.3333" y="14.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="103.3333" y="14.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="95.0000" y="16.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="98.3333" y="16.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="100.0000" y="16.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="101.6667" y="16.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="103.3333" y="16.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="95.0000" y="18.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="103.3333" y="18.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="95.0000" y="19.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="103.3333" y="19.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="95.0000" y="21.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="96.6667" y="21.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="98.3333" y="21.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="100.0000" y="21.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="101.6667" y="21.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="103.3333" y="21.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<text x="100.000" y="24.400" font-size="2.2" font-family="monospace" text-anchor="middle">id1</text>
+<rect x="95.0000" y="57.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="96.6667" y="57.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="98.3333" y="57.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="100.0000" y="57.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="101.6667" y="57.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="103.3333" y="57.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="95.0000" y="58.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="100.0000" y="58.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="101.6667" y="58.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="103.3333" y="58.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="95.0000" y="60.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="98.3333" y="60.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="100.0000" y="60.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="103.3333" y="60.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="95.0000" y="62.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="96.6667" y="62.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="103.3333" y="62.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="95.0000" y="63.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="103.3333" y="63.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="95.0000" y="65.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="96.6667" y="65.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="98.3333" y="65.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="100.0000" y="65.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="101.6667" y="65.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="103.3333" y="65.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<text x="100.000" y="68.400" font-size="2.2" font-family="monospace" text-anchor="middle">id2</text>
+<rect x="15.0000" y="57.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="16.6667" y="57.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="18.3333" y="57.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="20.0000" y="57.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="21.6667" y="57.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="23.3333" y="57.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="15.0000" y="58.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="20.0000" y="58.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="23.3333" y="58.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="15.0000" y="60.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="16.6667" y="60.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="20.0000" y="60.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="21.6667" y="60.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="23.3333" y="60.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="15.0000" y="62.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="18.3333" y="62.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="23.3333" y="62.0000" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="15.0000" y="63.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="23.3333" y="63.6667" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="15.0000" y="65.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="16.6667" y="65.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="18.3333" y="65.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="20.0000" y="65.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="21.6667" y="65.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<rect x="23.3333" y="65.3333" width="1.6667" height="1.6667" fill="black" stroke="none" shape-rendering="crispEdges"/>
+<text x="20.000" y="68.400" font-size="2.2" font-family="monospace" text-anchor="middle">id3</text>
+<line x1="10.000" y1="67.000" x2="110.000" y2="67.000" stroke="black" stroke-width="0.12"/>
+<line x1="10.000" y1="67.000" x2="10.000" y2="65.000" stroke="black" stroke-width="0.12"/>
+<line x1="60.000" y1="67.000" x2="60.000" y2="65.000" stroke="black" stroke-width="0.12"/>
+<line x1="110.000" y1="67.000" x2="110.000" y2="65.000" stroke="black" stroke-width="0.12"/>
+<text x="60.000" y="63.400" font-size="2.4" font-family="monospace" text-anchor="middle">100.000 mm nominal check bar</text>
+<text x="10.000" y="6.800" font-size="2.6" font-family="monospace">FRAME-0001  NDFID-1  outer 100.0x60.0 mm  marker 10.0 mm  window 50.0x20.0 mm</text>
+<text x="10.000" y="72.000" font-size="2.1" font-family="monospace" fill="#444">print at 100% scale, then SURVEY before use</text>
+</svg>

@@ -1,0 +1,1074 @@
+{
+  "algorithm_version": "P0-min-1.0.0",
+  "fast_mode": false,
+  "fixtures": [
+    {
+      "burst_seed_base": 17737615719718171785,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_BLUR",
+      "fixture_id": "E_BLUR-0.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "8337da963169104ead5f07adeb7b6f110c0d0a002051c2289724616189c73a0d",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 2808832793780726885,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_BLUR",
+      "fixture_id": "E_BLUR-0.5",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "2352a05ba5d6f64e2734a4b5bb73cf9baa8ad0b40ae5509b057ff27d64b1963b",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 6811625886811752946,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_BLUR",
+      "fixture_id": "E_BLUR-1.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "0db8980de5bd7ba5b4efec44312842f049cbbfb54f7d3c8d816bb114f51516e4",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 9037660523842242060,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_BLUR",
+      "fixture_id": "E_BLUR-1.5",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "e77e84544dd91798716105ee3488ceca47f68434b055ccf0eaae3490d6f3cb4e",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 15731533311435506792,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_BLUR",
+      "fixture_id": "E_BLUR-2.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "354723ea86ddeb5ba0ee9498c857980991e9a70a89e802e3fc8512396bf2d7da",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 7505495169815395052,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_BLUR",
+      "fixture_id": "E_BLUR-3.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "70960c873996dd34ed1643c1e614b927ba53cdfcf067d6273792e56c2435852c",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 17852139526375961761,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_DECISION",
+      "fixture_id": "E_DECISION-2.40",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "66bf60433d1786e5f3cf57e4718c200fcfe874bc30aa1fd27422ba43e7bb5f00",
+      "threshold_mm": 3.0,
+      "true_ink_height_mm": 2.4,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 13335425632214982583,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_DECISION",
+      "fixture_id": "E_DECISION-2.70",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "6a2490563dd43fb9fc79b9576fdd944d6ea5e1f72e6f52304584b146b6446e0c",
+      "threshold_mm": 3.0,
+      "true_ink_height_mm": 2.7,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 11402192729500300578,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_DECISION",
+      "fixture_id": "E_DECISION-2.85",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "dc4b4fea91ff56d4528483ee0984d6e1a067d7cb8db5c6017455c6b93d08fcf0",
+      "threshold_mm": 3.0,
+      "true_ink_height_mm": 2.85,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 17159300709339871983,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_DECISION",
+      "fixture_id": "E_DECISION-2.95",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "a77fa42c46e5563fa1acadd7b7c9b2d8935fe0f40280bbbc20ce82b0d4632416",
+      "threshold_mm": 3.0,
+      "true_ink_height_mm": 2.95,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 2516096649528536187,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_DECISION",
+      "fixture_id": "E_DECISION-3.05",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "39369c69beb42334242ba8bd9ba79a9ad8b0d3ea7d84c40322e4beeae2ae650c",
+      "threshold_mm": 3.0,
+      "true_ink_height_mm": 3.05,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 3283748337034078319,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_DECISION",
+      "fixture_id": "E_DECISION-3.15",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "00411401ea3904ea8ec413782e4b764dca21d3ebbacc341039238547db4f2906",
+      "threshold_mm": 3.0,
+      "true_ink_height_mm": 3.15,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 4162417128643672161,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_DECISION",
+      "fixture_id": "E_DECISION-3.30",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "290f8bdf14247ca1b4bb9bb07703390807730bd928910856dade3fed024431b6",
+      "threshold_mm": 3.0,
+      "true_ink_height_mm": 3.3,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 8004756351941159737,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_DECISION",
+      "fixture_id": "E_DECISION-3.60",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "15063b377360dca96080954ed86b1a396b962dfea1f58013956721e803467f72",
+      "threshold_mm": 3.0,
+      "true_ink_height_mm": 3.6,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 221369442211090006,
+      "camera": "CAM-SYN-A-DIST",
+      "experiment": "E_DISTORT",
+      "fixture_id": "E_DISTORT-offaxis",
+      "frame": "FRAME-SYN-0001",
+      "note": "E3: is per-device intrinsic calibration necessary?",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "8dfdb2809a107bb190dfa9022f9b82b16f1845e7faf7166ca9eade6052c4c1cd",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "undistort_on",
+        "undistort_off"
+      ]
+    },
+    {
+      "burst_seed_base": 15387777544170308154,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_ILLUM",
+      "fixture_id": "E_ILLUM-glare-mild",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "6502f07366e17d361f0b79633bdf6607cae4cbc7aa3ad8b2124029a80d219ee8",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 11376296688589690178,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_ILLUM",
+      "fixture_id": "E_ILLUM-gradient",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "08837e798103e94311f2f4a4aa74631a3b09d1fe3e8a1db1c158eeb451106f4f",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 5766306795878454711,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_INKSPREAD",
+      "fixture_id": "E_INKSPREAD-0.00",
+      "frame": "FRAME-SYN-0001",
+      "note": "ground truth includes the spread",
+      "safety_class": "SAFE",
+      "spec_hash": "e27af3e1e4633c326af3cebfb0d3aef928c1679350dc4272ac934b3556964dad",
+      "threshold_mm": 2.7,
+      "true_ink_height_mm": 3.0,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 8065855758593374757,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_INKSPREAD",
+      "fixture_id": "E_INKSPREAD-0.03",
+      "frame": "FRAME-SYN-0001",
+      "note": "ground truth includes the spread",
+      "safety_class": "SAFE",
+      "spec_hash": "854f28fc2b4b83398fc708e88b08eccb78d2dc63da7f322e048113021cae7b90",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 18193034009281582327,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_INKSPREAD",
+      "fixture_id": "E_INKSPREAD-0.06",
+      "frame": "FRAME-SYN-0001",
+      "note": "ground truth includes the spread",
+      "safety_class": "SAFE",
+      "spec_hash": "613240a431bb94621505680a955f675889e7bc93a402a8d0d4bdce8878f852c0",
+      "threshold_mm": 2.808,
+      "true_ink_height_mm": 3.12,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 395632776652738030,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_INKSPREAD",
+      "fixture_id": "E_INKSPREAD-0.12",
+      "frame": "FRAME-SYN-0001",
+      "note": "ground truth includes the spread",
+      "safety_class": "SAFE",
+      "spec_hash": "20e3c8c77cba5f41e8f8f7d915f12cde95ad059e9ccaa36bc10735b94d113935",
+      "threshold_mm": 2.916,
+      "true_ink_height_mm": 3.24,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 12846281895288208163,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_LINEARIZE",
+      "fixture_id": "E_LINEARIZE-nominal",
+      "frame": "FRAME-SYN-0001",
+      "note": "E2: threshold in linear vs sRGB-encoded space",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "854f28fc2b4b83398fc708e88b08eccb78d2dc63da7f322e048113021cae7b90",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "linear",
+        "gamma",
+        "gamma_glyph_only"
+      ]
+    },
+    {
+      "burst_seed_base": 2611145447701407809,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_MATH",
+      "fixture_id": "E_MATH-BAR_I-2.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "pipeline arithmetic exactness",
+      "safety_class": "SAFE",
+      "spec_hash": "44e2b2abfa2628371029941aca96d391f4ba6ab74265ec645a7f1d5b3f12d378",
+      "threshold_mm": 1.8,
+      "true_ink_height_mm": 2.0,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 15469445768767095493,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_MATH",
+      "fixture_id": "E_MATH-BAR_I-4.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "pipeline arithmetic exactness",
+      "safety_class": "SAFE",
+      "spec_hash": "6e9e934dcf30d905fe42689a2e168a0264757dd3f5683861cf17e0b8ccdcda43",
+      "threshold_mm": 3.6,
+      "true_ink_height_mm": 4.0,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 5014958704112072997,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_MATH",
+      "fixture_id": "E_MATH-H-2.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "pipeline arithmetic exactness",
+      "safety_class": "SAFE",
+      "spec_hash": "591902d1dbb69ed71a8317e63877776afdc6248136ac76ca5bf9adef9a3580ac",
+      "threshold_mm": 1.8,
+      "true_ink_height_mm": 2.0,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 18121268156422249170,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_MATH",
+      "fixture_id": "E_MATH-H-4.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "pipeline arithmetic exactness",
+      "safety_class": "SAFE",
+      "spec_hash": "a017c021c735f0879428f22b2b8d7f7de4ff8f84f30e3c5cffe521e841cac562",
+      "threshold_mm": 3.6,
+      "true_ink_height_mm": 4.0,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 2775096640830410935,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_MATH",
+      "fixture_id": "E_MATH-RING_O-2.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "pipeline arithmetic exactness",
+      "safety_class": "SAFE",
+      "spec_hash": "1324ddb338bc0faf95defb7f009694755f5e198cbb22d4b5389e9ec178170797",
+      "threshold_mm": 1.8,
+      "true_ink_height_mm": 2.0,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 17680907022684570752,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_MATH",
+      "fixture_id": "E_MATH-RING_O-4.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "pipeline arithmetic exactness",
+      "safety_class": "SAFE",
+      "spec_hash": "45b2e24d4b406d8da9e291ddd2933ab7205ca59b8174336a1b22dabd4b89af75",
+      "threshold_mm": 3.6,
+      "true_ink_height_mm": 4.0,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 11090545878295356407,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_MATH",
+      "fixture_id": "E_MATH-T-2.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "pipeline arithmetic exactness",
+      "safety_class": "SAFE",
+      "spec_hash": "2bf5c5e650f2c33c948ea2a453d234365cb61c316ba28ae838effb13fd3c321c",
+      "threshold_mm": 1.8,
+      "true_ink_height_mm": 2.0,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 5155098597680675002,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_MATH",
+      "fixture_id": "E_MATH-T-4.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "pipeline arithmetic exactness",
+      "safety_class": "SAFE",
+      "spec_hash": "212a621c899091c99072944ad27dd60cbb00272c0e68561f609a9ce66083dbe9",
+      "threshold_mm": 3.6,
+      "true_ink_height_mm": 4.0,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 10893413121138326284,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOISE",
+      "fixture_id": "E_NOISE-0.000",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "ee29477d171255a1a33d55ee669da1e99dd9903e10b7e3779bf260445333b948",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 6458673246899894125,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOISE",
+      "fixture_id": "E_NOISE-0.005",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "9aac657968217efbe212d6dd6fd7c1e7a517188936546c7ac7ba9f4b83060d8f",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 17132558902504550154,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOISE",
+      "fixture_id": "E_NOISE-0.012",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "806005152d8a2f50f4f3408dc8c1cf9ac0cb442facd7d8b9cc387ebc8eec171c",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 1749059714834724545,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOISE",
+      "fixture_id": "E_NOISE-0.025",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "97bda6c864bcb20b369fea89461e5e88f24327fd9ce5b7c2fadc44cb867718c2",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 977640543327220764,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOMINAL",
+      "fixture_id": "E_NOMINAL-BAR_I-1.5",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "d20e296731615a88da718baf8f866947ea089e5f5f15d379d8d7949224fff5b1",
+      "threshold_mm": 1.404,
+      "true_ink_height_mm": 1.56,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 3655789553009879779,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOMINAL",
+      "fixture_id": "E_NOMINAL-BAR_I-2.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "ecdff4765a4758b778376486b34b33983cb436aa9af2da5b36fe7be27cdd5ec9",
+      "threshold_mm": 1.854,
+      "true_ink_height_mm": 2.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 10425149138828608520,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOMINAL",
+      "fixture_id": "E_NOMINAL-BAR_I-3.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "854f28fc2b4b83398fc708e88b08eccb78d2dc63da7f322e048113021cae7b90",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 10726897612922568938,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOMINAL",
+      "fixture_id": "E_NOMINAL-BAR_I-4.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "88b544c71ef9f32ed675044f2633b1aa30cf4c8ee48aa69b37656352098f1954",
+      "threshold_mm": 3.654,
+      "true_ink_height_mm": 4.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 5051926546674550776,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOMINAL",
+      "fixture_id": "E_NOMINAL-BAR_I-6.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "7add02763e3e4e13e33fddbb20d56e3fa9ca16d619b79987231a62f5a8f4b358",
+      "threshold_mm": 5.454,
+      "true_ink_height_mm": 6.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 4912505971542268500,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOMINAL",
+      "fixture_id": "E_NOMINAL-RING_O-1.5",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "d7c653c8001aa672306fca51a8ad4d74d3db88d3676df544cf7bdc5290bf89ff",
+      "threshold_mm": 1.404,
+      "true_ink_height_mm": 1.56,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 11463161015279957553,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOMINAL",
+      "fixture_id": "E_NOMINAL-RING_O-2.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "a11a435eed732f9b8d76c37ac71278518b39b8e3e5c144c19468fca237468463",
+      "threshold_mm": 1.854,
+      "true_ink_height_mm": 2.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 1447398858007197945,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOMINAL",
+      "fixture_id": "E_NOMINAL-RING_O-3.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "f115e9632ed1c97c6cd7ca029b45ea1a3d3f12bb5b19fc340042fd0f17e49e1b",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 2718396058394763464,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOMINAL",
+      "fixture_id": "E_NOMINAL-RING_O-4.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "d092cb2eb1083fae53151227e6afa889cd04c8a32e48a27fe2a93db07d05548f",
+      "threshold_mm": 3.654,
+      "true_ink_height_mm": 4.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 8411201094352271140,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_NOMINAL",
+      "fixture_id": "E_NOMINAL-RING_O-6.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "SAFE",
+      "spec_hash": "0d8d981198eec92740542482b1481e6c7d45f52b468bd1e79f24f73c3ea47744",
+      "threshold_mm": 5.454,
+      "true_ink_height_mm": 6.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 13145249185563773551,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_RHO",
+      "fixture_id": "E_RHO-200",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "854f28fc2b4b83398fc708e88b08eccb78d2dc63da7f322e048113021cae7b90",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 14411517178947753789,
+      "camera": "CAM-SYN-B-HIRES",
+      "experiment": "E_RHO",
+      "fixture_id": "E_RHO-200-hires",
+      "frame": "FRAME-SYN-0001",
+      "note": "rho = 24 px/mm",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "854f28fc2b4b83398fc708e88b08eccb78d2dc63da7f322e048113021cae7b90",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 14004907536890183225,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_RHO",
+      "fixture_id": "E_RHO-240",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "df13ca2f63d9085f1e65deb74b6ad8e1cb983aa733b49a39d7284605b8e0d5f6",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 9413881345320775623,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_RHO",
+      "fixture_id": "E_RHO-280",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "3fb67c059e2c1214f5f319f1cfd7bd1f49fa1ebe79a7b3c4ac1735f97de0fc83",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 18082124199533472923,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_RHO",
+      "fixture_id": "E_RHO-340",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "bb201f079936ea5a3308bf7d904eff41a845d753daf49ca952818a97a1952435",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 9763517673008873151,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_RHO",
+      "fixture_id": "E_RHO-420",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "92822ec0b60b9c221db3aeafd102da5567ab65066310e0d7ec6074db8d078980",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 16274503084936900187,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_THICKNESS",
+      "fixture_id": "E_THICKNESS-declared",
+      "frame": "FRAME-SYN-0002-THICK",
+      "note": "markers 0.45 mm above the print, declared in the cert",
+      "safety_class": "SAFE",
+      "spec_hash": "08b770db4deaf085439ca5115fde6bebfc5715e6670b8b4877e21f8abb54566a",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 14994401482359943011,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_TILT",
+      "fixture_id": "E_TILT-0",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "854f28fc2b4b83398fc708e88b08eccb78d2dc63da7f322e048113021cae7b90",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 14437280622164533552,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_TILT",
+      "fixture_id": "E_TILT-10",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "fa4327f932dd65c06bb1ceb0fa58a3e142c459b2de8415ea02f530ca261a0a5b",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 18094109229446255169,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_TILT",
+      "fixture_id": "E_TILT-20",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "38968ccbbce57589751f0eef1781c9f0f9c0517832c5dbc3d9e9e86ffdf9b205",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 16142415384567195605,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_TILT",
+      "fixture_id": "E_TILT-30",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "f193f1b9a5e0d50d82ff648a477b2a5cd767643dcd76d803aaed9ec84ed6e898",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 8451236165280778752,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_TILT",
+      "fixture_id": "E_TILT-40",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "14819805d4e6f95d52b659c554da02f3dff616d161b5283a5013ef73f6402bb4",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 18436450644573395362,
+      "camera": "CAM-SYN-A",
+      "experiment": "E_TILT",
+      "fixture_id": "E_TILT-50",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "DIAGNOSTIC",
+      "spec_hash": "cc271d277081f6d0f3230062c9423c90bccb054fb54843db2ba06f189f6be9be",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 10777845367213640739,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_NEGATIVE",
+      "fixture_id": "N_EXCESS_PERSPECTIVE",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "UNSAFE_DETECTABLE",
+      "spec_hash": "fb839e01eea3366d8b63955d9093d6110315b3a0cf676c9b70f039766c3ed726",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 10315236471223547910,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_NEGATIVE",
+      "fixture_id": "N_GLARE_SATURATION",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "UNSAFE_DETECTABLE",
+      "spec_hash": "9abff3e33d88d1d0c4fd2e0f6a0d46329d18d4f1e44750a44c455a115636dfa1",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 10709569865478823793,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_NEGATIVE",
+      "fixture_id": "N_LOW_CONTRAST",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "UNSAFE_DETECTABLE",
+      "spec_hash": "5136a15b168c6f9bc22fad9b1259978e936bf4d15afff34a2aea5f69d37e5dcc",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 7674673017670606323,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_NEGATIVE",
+      "fixture_id": "N_MISSING_MARKER",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "UNSAFE_DETECTABLE",
+      "spec_hash": "4b90be249f6430008236444d39afb50ffbdccdb3b1acdbef20d9aa8e6d264277",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 3670977888195197126,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_NEGATIVE",
+      "fixture_id": "N_MOTION_BLUR",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "UNSAFE_DETECTABLE",
+      "spec_hash": "0692066b9c4a5cb35a8c5e278e8e79abab4a53ddce671cc8a144dac977737a62",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 4020094695705140686,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_UNDETECTABLE",
+      "fixture_id": "N_NONPLANAR_TILT-10",
+      "frame": "FRAME-SYN-0001",
+      "note": "print patch tilted 10 deg vs fiducial plane",
+      "safety_class": "UNSAFE_UNDETECTABLE",
+      "spec_hash": "fcd7ef4eee67454272ee79f017a43e8fe99eac37b42d3d150be726ce8c453536",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 17361338259349819179,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_UNDETECTABLE",
+      "fixture_id": "N_NONPLANAR_TILT-20",
+      "frame": "FRAME-SYN-0001",
+      "note": "print patch tilted 20 deg vs fiducial plane",
+      "safety_class": "UNSAFE_UNDETECTABLE",
+      "spec_hash": "d07956cda4a5755609e38b60d1d373f4e935cb46d15694a2ba361fa71ac9d2ec",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 7515304097313207614,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_UNDETECTABLE",
+      "fixture_id": "N_PLANE_OFFSET_UNDECLARED-1.5",
+      "frame": "FRAME-SYN-0001",
+      "note": "print plane 1.5 mm off the fiducial plane",
+      "safety_class": "UNSAFE_UNDETECTABLE",
+      "spec_hash": "444801cb9f2c050da552b6b31c6d8a67493f92bd0f2306b92310b861d6fa91d1",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 114848688634743244,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_UNDETECTABLE",
+      "fixture_id": "N_PLANE_OFFSET_UNDECLARED-5.0",
+      "frame": "FRAME-SYN-0001",
+      "note": "print plane 5.0 mm off the fiducial plane",
+      "safety_class": "UNSAFE_UNDETECTABLE",
+      "spec_hash": "f06303aeffb1dec30dc2951580a1ce5fd977677575edd9e5d81ce2e6351de626",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 8015327125167005880,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_NEGATIVE",
+      "fixture_id": "N_SHARPENING",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "UNSAFE_DETECTABLE",
+      "spec_hash": "7c387f4116435e2d023a8569ac9756d165d9dc8a25b5f38354c8b560820e44d5",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 4363170758993276535,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_NEGATIVE",
+      "fixture_id": "N_TINY_TEXT",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "UNSAFE_DETECTABLE",
+      "spec_hash": "46f9b349b7c4d4de94b66d998b7d5823d66b877f1880a8f343e6eca2e158dace",
+      "threshold_mm": 0.774,
+      "true_ink_height_mm": 0.8600000000000001,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 3483589763982054452,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_NEGATIVE",
+      "fixture_id": "N_UNSTABLE_BOUNDARY",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "UNSAFE_DETECTABLE",
+      "spec_hash": "292cb3d654eb71678bc826849f2e59d50f7ec6d39ff45ec567c21d373909d5f4",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    },
+    {
+      "burst_seed_base": 6475462636801766540,
+      "camera": "CAM-SYN-A",
+      "experiment": "N_NEGATIVE",
+      "fixture_id": "N_WRONG_FIDUCIAL",
+      "frame": "FRAME-SYN-0001",
+      "note": "",
+      "safety_class": "UNSAFE_DETECTABLE",
+      "spec_hash": "b4d89409a3defcf246d2c99ac09e177ae19fd63d0e96b32cf33abf7b71aa152a",
+      "threshold_mm": 2.754,
+      "true_ink_height_mm": 3.06,
+      "variants": [
+        "base"
+      ]
+    }
+  ],
+  "frames_per_burst": 7,
+  "gate_policy_hash": "5a0d39910d22b0ece33fa845aac2a7fd2b9131ed3f2f437276ba294f4c589413",
+  "measurand_policy_hash": "28f2f51ecdbcd450dfe64db03735e9f9f0e471e0f4c43a9309b3d94cc580c281",
+  "runs": 73,
+  "uncertainty_model": {
+    "bias_mm": 0.0,
+    "calibrated": false,
+    "k_lower": 1.645,
+    "k_upper": 1.645,
+    "model_version": "UM-v1-uncalibrated",
+    "residual_tilt_bound_deg": 3.0,
+    "u_bias_correction_mm": 0.0,
+    "u_extra_mm": 0.0
+  },
+  "wall_clock_s": 206.67673444747925
+}

@@ -1,0 +1,12 @@
+# P0-min runs on the Python standard library ONLY.
+# Nothing below is required to run the pipeline, the suite, the tests or the plots.
+#
+# These are the OPTIONAL packages for a future accelerated backend port
+# (see docs/P0_ASSUMPTIONS.md A-01/A-02).  When they are introduced, the port must
+# reproduce the golden fixtures within the documented replay tolerance before it
+# replaces the reference implementation.
+#
+# opencv-python==<pin>   # detect_frame, undistortPoints, findHomography, ChArUco
+# numpy==<pin>           # vectorised rendering and measurement
+# matplotlib==<pin>      # replaces p0/plots.py
+# pillow==<pin>          # JPEG/TIFF decoding so PNG conversion is not needed

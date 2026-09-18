@@ -1,0 +1,2 @@
+ALGORITHM_VERSION = "P0-min-1.0.0"
+SCHEMA_VERSION = "p0-result-1"

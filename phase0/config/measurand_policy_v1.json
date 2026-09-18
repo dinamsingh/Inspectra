@@ -1,0 +1,42 @@
+{
+  "aggregation": "MIN_ELIGIBLE_GLYPH",
+  "apex_fit_window_frac": 0.35,
+  "boundary_fraction": 0.5,
+  "estimator": "FITTED_EXTREME_MODEL",
+  "estimator_note": "max-minus-min retained only as a diagnostic",
+  "excluded_glyph_features": [
+    "ACCENT",
+    "DOT",
+    "DESCENDER",
+    "PUNCTUATION"
+  ],
+  "linearization": "SRGB_EOTF",
+  "measurand": "VISIBLE_PRINTED_INK_EXTENT_PERPENDICULAR_TO_BASELINE",
+  "measurand_note": "Reports ink extent at the 50 percent linearised luminance boundary. This is NOT a statutory character height and NOT a nominal font size.",
+  "policy_hash": "6b98bad3952a61e22ed8c40af0eba89cb83436cd80894972068d279e55f37229",
+  "policy_id": "MP-v1",
+  "sampling_mode": "IMAGE_LINE_BILINEAR",
+  "scanlines": 24,
+  "sensitivity_fractions": [
+    0.4,
+    0.6
+  ],
+  "shape_classes": {
+    "FLAT_TOP": [
+      "BAR_I",
+      "H",
+      "T",
+      "E",
+      "I",
+      "1",
+      "7"
+    ],
+    "ROUND": [
+      "RING_O",
+      "O",
+      "0",
+      "8",
+      "S"
+    ]
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "budget": null,
+  "context": {
+    "camera_identity_match": true,
+    "declared_flat": true,
+    "frame_not_expired": true,
+    "frame_serial_match": true,
+    "profile_id": "CAM-SYN-A",
+    "safety_class": "DIAGNOSTIC",
+    "variant": "base",
+    "z_calib_mm": 200.0
+  },
+  "display": {
+    "decision": null,
+    "h_mm": null,
+    "lower_mm": null,
+    "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_FIDUCIAL",
+    "threshold_mm": "2.7540",
+    "u_c_mm": null,
+    "upper_mm": null
+  },
+  "frame_errors": [
+    {
+      "code": "FIDUCIAL_MISSING_MARKER",
+      "detail": "missing=[3]",
+      "frame": 0,
+      "stage": "FIDUCIAL"
+    },
+    {
+      "code": "FIDUCIAL_MISSING_MARKER",
+      "detail": "missing=[2]",
+      "frame": 1,
+      "stage": "FIDUCIAL"
+    },
+    {
+      "code": "FIDUCIAL_MISSING_MARKER",
+      "detail": "missing=[3]",
+      "frame": 2,
+      "stage": "FIDUCIAL"
+    },
+    {
+      "code": "FIDUCIAL_MISSING_MARKER",
+      "detail": "missing=[2, 3]",
+      "frame": 3,
+      "stage": "FIDUCIAL"
+    },
+    {
+      "code": "FIDUCIAL_MISSING_MARKER",
+      "detail": "missing=[3]",
+      "frame": 4,
+      "stage": "FIDUCIAL"
+    },
+    {
+      "code": "FIDUCIAL_MISSING_MARKER",
+      "detail": "missing=[2]",
+      "frame": 5,
+      "stage": "FIDUCIAL"
+    },
+    {
+      "code": "FIDUCIAL_MISSING_MARKER",
+      "detail": "missing=[2, 3]",
+      "frame": 6,
+      "stage": "FIDUCIAL"
+    }
+  ],
+  "gates": {
+    "failed_gate": "FIDUCIAL_MISSING_MARKER",
+    "failed_stage": "FIDUCIAL",
+    "rows": []
+  },
+  "ground_truth": {
+    "camera_profile": "CAM-SYN-A",
+    "design_h_mm": 3.0,
+    "frame_cert": "FRAME-SYN-0001",
+    "frame_index": 0,
+    "frame_pose": {
+      "azimuth_deg": -0.31542096390928676,
+      "roll_deg": 0.014104204904468424,
+      "shift_mm": [
+        0.19284349633105805,
+        -0.05272072815617811
+      ],
+      "tilt_deg": 40.252481012070554,
+      "z_mm": 199.71063869321503
+    },
+    "frames": [
+      {
+        "azimuth_deg": -0.31542096390928676,
+        "roll_deg": 0.014104204904468424,
+        "shift_mm": [
+          0.19284349633105805,
+          -0.05272072815617811
+        ],
+        "tilt_deg": 40.252481012070554,
+        "z_mm": 199.71063869321503
+      },
+      {
+        "azimuth_deg": -0.03126822480201637,
+        "roll_deg": 0.09158361952284866,
+        "shift_mm": [
+          -0.2309051141948336,
+          0.18734059362173133
+        ],
+        "tilt_deg": 40.30398790712121,
+        "z_mm": 200.3878899959079
+      },
+      {
+        "azimuth_deg": 0.20217851784417828,
+        "roll_deg": -0.23924828396884434,
+        "shift_mm": [
+          0.6462191479239096,
+          -0.31233389777005344
+        ],
+        "tilt_deg": 40.21999875002086,
+        "z_mm": 199.48186876274278
+      },
+      {
+        "azimuth_deg": 0.027780257752955242,
+        "roll_deg": -0.3290785990460118,
+        "shift_mm": [
+          0.2862243680853322,
+          0.36883446812112547
+        ],
+        "tilt_deg": 39.679693749474346,
+        "z_mm": 199.53229196576555
+      },
+      {
+        "azimuth_deg": 0.06784752136292903,
+        "roll_deg": 0.2096078713185369,
+        "shift_mm": [
+          0.4199652356079361,
+          0.33424065236859085
+        ],
+        "tilt_deg": 39.890772295908285,
+        "z_mm": 200.00278954053928
+      },
+      {
+        "azimuth_deg": -0.42960888014551335,
+        "roll_deg": 0.19056112130455247,
+        "shift_mm": [
+          -0.4085601352734707,
+          0.5122073905721433
+        ],
+        "tilt_deg": 39.777120236870665,
+        "z_mm": 200.21668872577195
+      },
+      {
+        "azimuth_deg": 0.21461403357138006,
+        "roll_deg": 0.18375250878220217,
+        "shift_mm": [
+          -0.008527421956801645,
+          -0.04478248252219162
+        ],
+        "tilt_deg": 40.113023540030674,
+        "z_mm": 199.24673956927614
+      }
+    ],
+    "glyph_bbox_mm": [
+      0.6000000000000001,
+      3.06
+    ],
+    "glyph_center_mm": [
+      0.0,
+      0.0
+    ],
+    "glyph_plane_offset_mm": 0.0,
+    "glyph_plane_tilt_deg": 0.0,
+    "glyph_shape": "BAR_I",
+    "ink_spread_mm": 0.03,
+    "marker_corner_px": {
+      "0": [
+        [
+          114.35701375822747,
+          182.62333061810315
+        ],
+        [
+          280.3651543959811,
+          183.3210296629272
+        ],
+        [
+          262.42454302588425,
+          303.218514378612
+        ],
+        [
+          91.3179430916049,
+          302.5233292935772
+        ]
+      ],
+      "1": [
+        [
+          1440.6249653213533,
+          188.19736981540657
+        ],
+        [
+          1606.1200744096802,
+          188.89291269113778
+        ],
+        [
+          1628.8232382016733,
+          308.7700243347561
+        ],
+        [
+          1458.2616144759702,
+          308.0770534210744
+        ]
+      ],
+      "2": [
+        [
+          1527.2510582582008,
+          777.0115216547841
+        ],
+        [
+          1717.6288309068848,
+          777.6807915228492
+        ],
+        [
+          1747.817433825619,
+          937.0824747248311
+        ],
+        [
+          1550.7040808891395,
+          936.4262102356649
+        ]
+      ],
+      "3": [
+        [
+          1.174782910385136,
+          771.6466260934529
+        ],
+        [
+          192.2317722950392,
+          772.3182837365662
+        ],
+        [
+          168.36448306100615,
+          931.8238817961756
+        ],
+        [
+          -29.477090078060325,
+          931.1651927880607
+        ]
+      ]
+    },
+    "note": "",
+    "pose_tilt_deg": 40.0,
+    "pose_z_mm": 200.0,
+    "rho_nominal_px_per_mm": 18.0,
+    "safety_class": "DIAGNOSTIC",
+    "shape_class": "FLAT_TOP",
+    "spec": {
+      "azimuth_deg": 0.0,
+      "blur_sigma_px": 0.8,
+      "blur_sigma_px_y": null,
+      "design_h_mm": 3.0,
+      "drop_markers": [],
+      "glare": null,
+      "glyph_center_mm": [
+        0.0,
+        0.0
+      ],
+      "glyph_plane_offset_mm": 0.0,
+      "glyph_plane_tilt_deg": 0.0,
+      "glyph_shape": "BAR_I",
+      "halftone_pitch_mm": 0.0,
+      "illum_gain": 1.0,
+      "illum_gradient": 0.0,
+      "ink_reflect": 0.04,
+      "ink_spread_mm": 0.03,
+      "jitter_ang_deg": 0.2,
+      "jitter_pos_mm": 0.35,
+      "jitter_z_mm": 0.8,
+      "marker_ids": null,
+      "noise_sigma": 0.002,
+      "paper_reflect": 0.82,
+      "roll_deg": 0.0,
+      "shift_mm": [
+        0.0,
+        0.0
+      ],
+      "ss_glyph": 8,
+      "ss_marker": 6,
+      "tilt_deg": 40.0,
+      "unsharp_amount": 0.0,
+      "unsharp_radius_px": 1.5,
+      "z_mm": 200.0
+    },
+    "true_ink_height_mm": 3.06
+  },
+  "inputs": {
+    "algorithm_version": "P0-min-1.0.0",
+    "camera_profile_id": "CAM-SYN-A",
+    "frame_cert_hash": "909205b18a444b47dbf4c55e658eb57eea2f91807423d0533e912b7268335b1d",
+    "frame_cert_serial": "FRAME-SYN-0001",
+    "frames_ok": 0,
+    "frames_requested": 7,
+    "gate_policy_hash": "85b21558ed80c7ab40cde285a41b738aea3f6bf3a8fb3072c40f8a99d4b596b3",
+    "measurand_policy_hash": "28f2f51ecdbcd450dfe64db03735e9f9f0e471e0f4c43a9309b3d94cc580c281",
+    "uncertainty_model": "UM-v1-uncalibrated"
+  },
+  "measurement": {
+    "decision": null,
+    "h_mm": null,
+    "lower_mm": null,
+    "threshold_mm": 2.754,
+    "upper_mm": null
+  },
+  "metrics": {},
+  "per_frame": [],
+  "reason_codes": [
+    "FIDUCIAL_MISSING_MARKER"
+  ],
+  "run_id": "E_TILT-40__base",
+  "schema_version": "p0-result-1",
+  "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_FIDUCIAL",
+  "timing_s": 2.929731607437134
+}

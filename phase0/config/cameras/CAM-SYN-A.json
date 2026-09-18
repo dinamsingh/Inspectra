@@ -1,0 +1,37 @@
+{
+  "K_cov": null,
+  "af_mode": "LOCKED",
+  "camera": {
+    "cx": 864.0,
+    "cy": 528.0,
+    "dist": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fx": 3600.0,
+    "fy": 3600.0,
+    "height": 1056,
+    "width": 1728
+  },
+  "device_model": "SYNTHETIC",
+  "expires_at": "2027-09-18",
+  "issued_at": "2026-09-18",
+  "notes": "synthetic profile; intrinsics are exact by construction",
+  "ois_state": "OFF",
+  "physical_camera_id": "0",
+  "profile_hash": "519685ea1549753a3e28892eeb79065024008cdf9e4e009bb7831618bcbf612d",
+  "profile_id": "CAM-SYN-A",
+  "reproj_holdout_rms_px": null,
+  "resolution": [
+    1728,
+    1056
+  ],
+  "z_calib_mm": 200.0,
+  "z_calib_range_mm": [
+    120.0,
+    360.0
+  ]
+}

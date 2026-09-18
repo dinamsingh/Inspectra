@@ -1,0 +1,37 @@
+{
+  "K_cov": null,
+  "af_mode": "LOCKED",
+  "camera": {
+    "cx": 1152.0,
+    "cy": 704.0,
+    "dist": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fx": 4800.0,
+    "fy": 4800.0,
+    "height": 1408,
+    "width": 2304
+  },
+  "device_model": "SYNTHETIC",
+  "expires_at": "2027-09-18",
+  "issued_at": "2026-09-18",
+  "notes": "synthetic profile; intrinsics are exact by construction",
+  "ois_state": "OFF",
+  "physical_camera_id": "0",
+  "profile_hash": "b0d0dbbe2a0d5d6a8b3d548d13f3144c350bde598aab521f810bde3c34a4e79f",
+  "profile_id": "CAM-SYN-B-HIRES",
+  "reproj_holdout_rms_px": null,
+  "resolution": [
+    2304,
+    1408
+  ],
+  "z_calib_mm": 200.0,
+  "z_calib_range_mm": [
+    120.0,
+    360.0
+  ]
+}

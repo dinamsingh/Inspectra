@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210.0mm" height="297.0mm" viewBox="0 0 210.0 297.0">
+<rect width="210.0" height="297.0" fill="white"/>
+<rect x="8.000" y="8.000" width="95.000" height="55.000" fill="none" stroke="#bbb" stroke-width="0.1"/>
+<text x="11.000" y="13.000" font-size="3" font-family="monospace">panel P13 | font DejaVu Sans</text>
+<text x="10.500" y="23.000" font-size="2.4" font-family="monospace" fill="#555">1.2</text>
+<rect x="15.8920" y="21.4000" width="0.2160" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.5200" y="21.4000" width="0.1920" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<rect x="22.2880" y="21.4000" width="0.1920" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.6160" y="21.9100" width="0.7680" height="0.1800" fill="black" shape-rendering="crispEdges"/>
+<rect x="27.5200" y="21.4000" width="0.9600" height="0.1800" fill="black" shape-rendering="crispEdges"/>
+<rect x="27.9040" y="21.4000" width="0.1920" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="34.0000" cy="22.0000" rx="0.3420" ry="0.5220" fill="none" stroke="black" stroke-width="0.1560"/>
+<text x="42.000" y="22.432" font-size="1.6560" font-family="DejaVu Sans">MRP 45 NET 200g</text>
+<text x="10.500" y="30.000" font-size="2.4" font-family="monospace" fill="#555">2.0</text>
+<rect x="15.8200" y="28.0000" width="0.3600" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.2000" y="28.0000" width="0.3200" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="22.4800" y="28.0000" width="0.3200" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.3600" y="28.8500" width="1.2800" height="0.3000" fill="black" shape-rendering="crispEdges"/>
+<rect x="27.2000" y="28.0000" width="1.6000" height="0.3000" fill="black" shape-rendering="crispEdges"/>
+<rect x="27.8400" y="28.0000" width="0.3200" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="34.0000" cy="29.0000" rx="0.5700" ry="0.8700" fill="none" stroke="black" stroke-width="0.2600"/>
+<text x="42.000" y="29.720" font-size="2.7600" font-family="DejaVu Sans">MRP 45 NET 200g</text>
+<text x="10.500" y="37.000" font-size="2.4" font-family="monospace" fill="#555">3.0</text>
+<rect x="15.7300" y="34.5000" width="0.5400" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="20.8000" y="34.5000" width="0.4800" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="22.7200" y="34.5000" width="0.4800" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.0400" y="35.7750" width="1.9200" height="0.4500" fill="black" shape-rendering="crispEdges"/>
+<rect x="26.8000" y="34.5000" width="2.4000" height="0.4500" fill="black" shape-rendering="crispEdges"/>
+<rect x="27.7600" y="34.5000" width="0.4800" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="34.0000" cy="36.0000" rx="0.8550" ry="1.3050" fill="none" stroke="black" stroke-width="0.3900"/>
+<text x="42.000" y="37.080" font-size="4.1400" font-family="DejaVu Sans">MRP 45 NET 200g</text>
+<text x="10.500" y="44.000" font-size="2.4" font-family="monospace" fill="#555">4.0</text>
+<rect x="15.6400" y="41.0000" width="0.7200" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.2000" y="41.0000" width="0.6400" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="23.7600" y="41.0000" width="0.6400" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.5200" y="42.7000" width="2.5600" height="0.6000" fill="black" shape-rendering="crispEdges"/>
+<rect x="28.0000" y="41.0000" width="3.2000" height="0.6000" fill="black" shape-rendering="crispEdges"/>
+<rect x="29.2800" y="41.0000" width="0.6400" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="36.4000" cy="43.0000" rx="1.1400" ry="1.7400" fill="none" stroke="black" stroke-width="0.5200"/>
+<text x="45.200" y="44.440" font-size="5.5200" font-family="DejaVu Sans">MRP 45 NET 200g</text>
+<text x="10.500" y="51.600" font-size="2.4" font-family="monospace" fill="#555">6.0</text>
+<rect x="15.4600" y="47.6000" width="1.0800" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="22.8000" y="47.6000" width="0.9600" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="26.6400" y="47.6000" width="0.9600" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="23.2800" y="50.1500" width="3.8400" height="0.9000" fill="black" shape-rendering="crispEdges"/>
+<rect x="32.0000" y="47.6000" width="4.8000" height="0.9000" fill="black" shape-rendering="crispEdges"/>
+<rect x="33.9200" y="47.6000" width="0.9600" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="43.6000" cy="50.6000" rx="1.7100" ry="2.6100" fill="none" stroke="black" stroke-width="0.7800"/>
+<text x="54.800" y="52.760" font-size="8.2800" font-family="DejaVu Sans">MRP 45 NET 200g</text>
+<text x="11.000" y="60.500" font-size="2.1" font-family="monospace" fill="#777">nominal heights only - measure with the reference method</text>
+<rect x="107.000" y="8.000" width="95.000" height="55.000" fill="none" stroke="#bbb" stroke-width="0.1"/>
+<text x="110.000" y="13.000" font-size="3" font-family="monospace">panel P14 | font DejaVu Serif</text>
+<text x="109.500" y="23.000" font-size="2.4" font-family="monospace" fill="#555">6.0</text>
+<rect x="114.4600" y="19.0000" width="1.0800" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="121.8000" y="19.0000" width="0.9600" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="125.6400" y="19.0000" width="0.9600" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="122.2800" y="21.5500" width="3.8400" height="0.9000" fill="black" shape-rendering="crispEdges"/>
+<rect x="131.0000" y="19.0000" width="4.8000" height="0.9000" fill="black" shape-rendering="crispEdges"/>
+<rect x="132.9200" y="19.0000" width="0.9600" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="142.6000" cy="22.0000" rx="1.7100" ry="2.6100" fill="none" stroke="black" stroke-width="0.7800"/>
+<text x="153.800" y="24.160" font-size="8.2800" font-family="DejaVu Serif">MRP 45 NET 200g</text>
+<text x="109.500" y="34.400" font-size="2.4" font-family="monospace" fill="#555">4.0</text>
+<rect x="114.6400" y="31.4000" width="0.7200" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.2000" y="31.4000" width="0.6400" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="122.7600" y="31.4000" width="0.6400" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.5200" y="33.1000" width="2.5600" height="0.6000" fill="black" shape-rendering="crispEdges"/>
+<rect x="127.0000" y="31.4000" width="3.2000" height="0.6000" fill="black" shape-rendering="crispEdges"/>
+<rect x="128.2800" y="31.4000" width="0.6400" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="135.4000" cy="33.4000" rx="1.1400" ry="1.7400" fill="none" stroke="black" stroke-width="0.5200"/>
+<text x="144.200" y="34.840" font-size="5.5200" font-family="DejaVu Serif">MRP 45 NET 200g</text>
+<text x="109.500" y="42.000" font-size="2.4" font-family="monospace" fill="#555">3.0</text>
+<rect x="114.7300" y="39.5000" width="0.5400" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="119.8000" y="39.5000" width="0.4800" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="121.7200" y="39.5000" width="0.4800" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.0400" y="40.7750" width="1.9200" height="0.4500" fill="black" shape-rendering="crispEdges"/>
+<rect x="125.8000" y="39.5000" width="2.4000" height="0.4500" fill="black" shape-rendering="crispEdges"/>
+<rect x="126.7600" y="39.5000" width="0.4800" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="133.0000" cy="41.0000" rx="0.8550" ry="1.3050" fill="none" stroke="black" stroke-width="0.3900"/>
+<text x="141.000" y="42.080" font-size="4.1400" font-family="DejaVu Serif">MRP 45 NET 200g</text>
+<text x="109.500" y="49.000" font-size="2.4" font-family="monospace" fill="#555">2.0</text>
+<rect x="114.8200" y="47.0000" width="0.3600" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.2000" y="47.0000" width="0.3200" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="121.4800" y="47.0000" width="0.3200" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.3600" y="47.8500" width="1.2800" height="0.3000" fill="black" shape-rendering="crispEdges"/>
+<rect x="126.2000" y="47.0000" width="1.6000" height="0.3000" fill="black" shape-rendering="crispEdges"/>
+<rect x="126.8400" y="47.0000" width="0.3200" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="133.0000" cy="48.0000" rx="0.5700" ry="0.8700" fill="none" stroke="black" stroke-width="0.2600"/>
+<text x="141.000" y="48.720" font-size="2.7600" font-family="DejaVu Serif">MRP 45 NET 200g</text>
+<text x="109.500" y="56.000" font-size="2.4" font-family="monospace" fill="#555">1.2</text>
+<rect x="114.8920" y="54.4000" width="0.2160" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.5200" y="54.4000" width="0.1920" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<rect x="121.2880" y="54.4000" width="0.1920" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.6160" y="54.9100" width="0.7680" height="0.1800" fill="black" shape-rendering="crispEdges"/>
+<rect x="126.5200" y="54.4000" width="0.9600" height="0.1800" fill="black" shape-rendering="crispEdges"/>
+<rect x="126.9040" y="54.4000" width="0.1920" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="133.0000" cy="55.0000" rx="0.3420" ry="0.5220" fill="none" stroke="black" stroke-width="0.1560"/>
+<text x="141.000" y="55.432" font-size="1.6560" font-family="DejaVu Serif">MRP 45 NET 200g</text>
+<text x="110.000" y="60.500" font-size="2.1" font-family="monospace" fill="#777">nominal heights only - measure with the reference method</text>
+<rect x="8.000" y="69.000" width="95.000" height="55.000" fill="none" stroke="#bbb" stroke-width="0.1"/>
+<text x="11.000" y="74.000" font-size="3" font-family="monospace">panel P15 | font DejaVu Sans Mono</text>
+<text x="10.500" y="84.000" font-size="2.4" font-family="monospace" fill="#555">1.2</text>
+<rect x="15.8920" y="82.4000" width="0.2160" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.5200" y="82.4000" width="0.1920" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<rect x="22.2880" y="82.4000" width="0.1920" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.6160" y="82.9100" width="0.7680" height="0.1800" fill="black" shape-rendering="crispEdges"/>
+<rect x="27.5200" y="82.4000" width="0.9600" height="0.1800" fill="black" shape-rendering="crispEdges"/>
+<rect x="27.9040" y="82.4000" width="0.1920" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="34.0000" cy="83.0000" rx="0.3420" ry="0.5220" fill="none" stroke="black" stroke-width="0.1560"/>
+<text x="42.000" y="83.432" font-size="1.6560" font-family="DejaVu Sans Mono">MRP 45 NET 200g</text>
+<text x="10.500" y="91.000" font-size="2.4" font-family="monospace" fill="#555">2.0</text>
+<rect x="15.8200" y="89.0000" width="0.3600" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.2000" y="89.0000" width="0.3200" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="22.4800" y="89.0000" width="0.3200" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.3600" y="89.8500" width="1.2800" height="0.3000" fill="black" shape-rendering="crispEdges"/>
+<rect x="27.2000" y="89.0000" width="1.6000" height="0.3000" fill="black" shape-rendering="crispEdges"/>
+<rect x="27.8400" y="89.0000" width="0.3200" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="34.0000" cy="90.0000" rx="0.5700" ry="0.8700" fill="none" stroke="black" stroke-width="0.2600"/>
+<text x="42.000" y="90.720" font-size="2.7600" font-family="DejaVu Sans Mono">MRP 45 NET 200g</text>
+<text x="10.500" y="98.000" font-size="2.4" font-family="monospace" fill="#555">3.0</text>
+<rect x="15.7300" y="95.5000" width="0.5400" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="20.8000" y="95.5000" width="0.4800" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="22.7200" y="95.5000" width="0.4800" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.0400" y="96.7750" width="1.9200" height="0.4500" fill="black" shape-rendering="crispEdges"/>
+<rect x="26.8000" y="95.5000" width="2.4000" height="0.4500" fill="black" shape-rendering="crispEdges"/>
+<rect x="27.7600" y="95.5000" width="0.4800" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="34.0000" cy="97.0000" rx="0.8550" ry="1.3050" fill="none" stroke="black" stroke-width="0.3900"/>
+<text x="42.000" y="98.080" font-size="4.1400" font-family="DejaVu Sans Mono">MRP 45 NET 200g</text>
+<text x="10.500" y="105.000" font-size="2.4" font-family="monospace" fill="#555">4.0</text>
+<rect x="15.6400" y="102.0000" width="0.7200" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.2000" y="102.0000" width="0.6400" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="23.7600" y="102.0000" width="0.6400" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="21.5200" y="103.7000" width="2.5600" height="0.6000" fill="black" shape-rendering="crispEdges"/>
+<rect x="28.0000" y="102.0000" width="3.2000" height="0.6000" fill="black" shape-rendering="crispEdges"/>
+<rect x="29.2800" y="102.0000" width="0.6400" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="36.4000" cy="104.0000" rx="1.1400" ry="1.7400" fill="none" stroke="black" stroke-width="0.5200"/>
+<text x="45.200" y="105.440" font-size="5.5200" font-family="DejaVu Sans Mono">MRP 45 NET 200g</text>
+<text x="10.500" y="112.600" font-size="2.4" font-family="monospace" fill="#555">6.0</text>
+<rect x="15.4600" y="108.6000" width="1.0800" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="22.8000" y="108.6000" width="0.9600" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="26.6400" y="108.6000" width="0.9600" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="23.2800" y="111.1500" width="3.8400" height="0.9000" fill="black" shape-rendering="crispEdges"/>
+<rect x="32.0000" y="108.6000" width="4.8000" height="0.9000" fill="black" shape-rendering="crispEdges"/>
+<rect x="33.9200" y="108.6000" width="0.9600" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="43.6000" cy="111.6000" rx="1.7100" ry="2.6100" fill="none" stroke="black" stroke-width="0.7800"/>
+<text x="54.800" y="113.760" font-size="8.2800" font-family="DejaVu Sans Mono">MRP 45 NET 200g</text>
+<text x="11.000" y="121.500" font-size="2.1" font-family="monospace" fill="#777">nominal heights only - measure with the reference method</text>
+<rect x="107.000" y="69.000" width="95.000" height="55.000" fill="none" stroke="#bbb" stroke-width="0.1"/>
+<text x="110.000" y="74.000" font-size="3" font-family="monospace">panel P16 | font Helvetica</text>
+<text x="109.500" y="84.000" font-size="2.4" font-family="monospace" fill="#555">6.0</text>
+<rect x="114.4600" y="80.0000" width="1.0800" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="121.8000" y="80.0000" width="0.9600" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="125.6400" y="80.0000" width="0.9600" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="122.2800" y="82.5500" width="3.8400" height="0.9000" fill="black" shape-rendering="crispEdges"/>
+<rect x="131.0000" y="80.0000" width="4.8000" height="0.9000" fill="black" shape-rendering="crispEdges"/>
+<rect x="132.9200" y="80.0000" width="0.9600" height="6.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="142.6000" cy="83.0000" rx="1.7100" ry="2.6100" fill="none" stroke="black" stroke-width="0.7800"/>
+<text x="153.800" y="85.160" font-size="8.2800" font-family="Helvetica">MRP 45 NET 200g</text>
+<text x="109.500" y="95.400" font-size="2.4" font-family="monospace" fill="#555">4.0</text>
+<rect x="114.6400" y="92.4000" width="0.7200" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.2000" y="92.4000" width="0.6400" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="122.7600" y="92.4000" width="0.6400" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.5200" y="94.1000" width="2.5600" height="0.6000" fill="black" shape-rendering="crispEdges"/>
+<rect x="127.0000" y="92.4000" width="3.2000" height="0.6000" fill="black" shape-rendering="crispEdges"/>
+<rect x="128.2800" y="92.4000" width="0.6400" height="4.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="135.4000" cy="94.4000" rx="1.1400" ry="1.7400" fill="none" stroke="black" stroke-width="0.5200"/>
+<text x="144.200" y="95.840" font-size="5.5200" font-family="Helvetica">MRP 45 NET 200g</text>
+<text x="109.500" y="103.000" font-size="2.4" font-family="monospace" fill="#555">3.0</text>
+<rect x="114.7300" y="100.5000" width="0.5400" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="119.8000" y="100.5000" width="0.4800" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="121.7200" y="100.5000" width="0.4800" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.0400" y="101.7750" width="1.9200" height="0.4500" fill="black" shape-rendering="crispEdges"/>
+<rect x="125.8000" y="100.5000" width="2.4000" height="0.4500" fill="black" shape-rendering="crispEdges"/>
+<rect x="126.7600" y="100.5000" width="0.4800" height="3.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="133.0000" cy="102.0000" rx="0.8550" ry="1.3050" fill="none" stroke="black" stroke-width="0.3900"/>
+<text x="141.000" y="103.080" font-size="4.1400" font-family="Helvetica">MRP 45 NET 200g</text>
+<text x="109.500" y="110.000" font-size="2.4" font-family="monospace" fill="#555">2.0</text>
+<rect x="114.8200" y="108.0000" width="0.3600" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.2000" y="108.0000" width="0.3200" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="121.4800" y="108.0000" width="0.3200" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.3600" y="108.8500" width="1.2800" height="0.3000" fill="black" shape-rendering="crispEdges"/>
+<rect x="126.2000" y="108.0000" width="1.6000" height="0.3000" fill="black" shape-rendering="crispEdges"/>
+<rect x="126.8400" y="108.0000" width="0.3200" height="2.0000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="133.0000" cy="109.0000" rx="0.5700" ry="0.8700" fill="none" stroke="black" stroke-width="0.2600"/>
+<text x="141.000" y="109.720" font-size="2.7600" font-family="Helvetica">MRP 45 NET 200g</text>
+<text x="109.500" y="117.000" font-size="2.4" font-family="monospace" fill="#555">1.2</text>
+<rect x="114.8920" y="115.4000" width="0.2160" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.5200" y="115.4000" width="0.1920" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<rect x="121.2880" y="115.4000" width="0.1920" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<rect x="120.6160" y="115.9100" width="0.7680" height="0.1800" fill="black" shape-rendering="crispEdges"/>
+<rect x="126.5200" y="115.4000" width="0.9600" height="0.1800" fill="black" shape-rendering="crispEdges"/>
+<rect x="126.9040" y="115.4000" width="0.1920" height="1.2000" fill="black" shape-rendering="crispEdges"/>
+<ellipse cx="133.0000" cy="116.0000" rx="0.3420" ry="0.5220" fill="none" stroke="black" stroke-width="0.1560"/>
+<text x="141.000" y="116.432" font-size="1.6560" font-family="Helvetica">MRP 45 NET 200g</text>
+<text x="110.000" y="121.500" font-size="2.1" font-family="monospace" fill="#777">nominal heights only - measure with the reference method</text>
+<text x="8.0" y="291.0" font-size="3" font-family="monospace">P0-min coupon sheet 4 - print at 100% scale, mount flat</text>
+</svg>

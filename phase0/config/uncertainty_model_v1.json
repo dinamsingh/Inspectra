@@ -1,0 +1,10 @@
+{
+  "bias_mm": 0.0,
+  "calibrated": false,
+  "k_lower": 1.645,
+  "k_upper": 1.645,
+  "model_version": "UM-v1-uncalibrated",
+  "residual_tilt_bound_deg": 3.0,
+  "u_bias_correction_mm": 0.0,
+  "u_extra_mm": 0.0
+}

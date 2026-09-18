@@ -1,0 +1,928 @@
+{
+  "criteria": {
+    "C11_min_safe_measure_rate": 0.8,
+    "C1_math_max_abs_err_mm": 0.01,
+    "C2_bias_abs_mm": 0.03,
+    "C2_p95_abs_err_mm": 0.06,
+    "C3_repeatability_sd_mm": 0.03,
+    "C4_min_coverage": 0.9,
+    "C7_unsafe_detectable_abstention": 1.0,
+    "C8_max_false_clear": 0
+  },
+  "n_rows": 76,
+  "overall": "PASS",
+  "sections": {
+    "C5_ESTIMATOR": {
+      "maxminus_min_bias_mm": 0.0009502941176470589,
+      "maxminus_min_mae_mm": 0.0027338235294117647,
+      "model_fit_bias_mm": 0.0005177058823529412,
+      "model_fit_mae_mm": 0.0017500588235294118,
+      "n": 17,
+      "vs_blur": [
+        {
+          "blur_sigma_mm": 0.033482,
+          "maxminus_min_err_mm": 0.002873,
+          "model_fit_err_mm": 0.000735
+        },
+        {
+          "blur_sigma_mm": 0.037741,
+          "maxminus_min_err_mm": 0.004712,
+          "model_fit_err_mm": 0.002608
+        }
+      ]
+    },
+    "C6_LINEARIZE": {
+      "gamma": {
+        "error_mm": null,
+        "failed_gate": "reproj_rms_px",
+        "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_GEOMETRY"
+      },
+      "gamma_glyph_only": {
+        "error_mm": -0.044148,
+        "failed_gate": null,
+        "status": "MEASURED"
+      },
+      "linear": {
+        "error_mm": 0.000426,
+        "failed_gate": null,
+        "status": "MEASURED"
+      }
+    },
+    "C8_DECISION": {
+      "detail": [
+        {
+          "decision": "POTENTIAL_UNDERSIZE",
+          "fixture_id": "E_DECISION-2.40",
+          "h_mm": 2.400696,
+          "lower_mm": 2.374038,
+          "threshold_mm": 3.0,
+          "true_h_mm": 2.4,
+          "truly_undersize": true,
+          "upper_mm": 2.427353
+        },
+        {
+          "decision": "POTENTIAL_UNDERSIZE",
+          "fixture_id": "E_DECISION-2.70",
+          "h_mm": 2.702057,
+          "lower_mm": 2.676225,
+          "threshold_mm": 3.0,
+          "true_h_mm": 2.7,
+          "truly_undersize": true,
+          "upper_mm": 2.727888
+        },
+        {
+          "decision": "POTENTIAL_UNDERSIZE",
+          "fixture_id": "E_DECISION-2.85",
+          "h_mm": 2.851528,
+          "lower_mm": 2.825787,
+          "threshold_mm": 3.0,
+          "true_h_mm": 2.85,
+          "truly_undersize": true,
+          "upper_mm": 2.877269
+        },
+        {
+          "decision": "POTENTIAL_UNDERSIZE",
+          "fixture_id": "E_DECISION-2.95",
+          "h_mm": 2.950439,
+          "lower_mm": 2.925081,
+          "threshold_mm": 3.0,
+          "true_h_mm": 2.95,
+          "truly_undersize": true,
+          "upper_mm": 2.975797
+        },
+        {
+          "decision": "MEETS_SCREENING_THRESHOLD",
+          "fixture_id": "E_DECISION-3.05",
+          "h_mm": 3.0475,
+          "lower_mm": 3.023009,
+          "threshold_mm": 3.0,
+          "true_h_mm": 3.05,
+          "truly_undersize": false,
+          "upper_mm": 3.071991
+        },
+        {
+          "decision": "MEETS_SCREENING_THRESHOLD",
+          "fixture_id": "E_DECISION-3.15",
+          "h_mm": 3.152648,
+          "lower_mm": 3.126228,
+          "threshold_mm": 3.0,
+          "true_h_mm": 3.15,
+          "truly_undersize": false,
+          "upper_mm": 3.179068
+        },
+        {
+          "decision": "MEETS_SCREENING_THRESHOLD",
+          "fixture_id": "E_DECISION-3.30",
+          "h_mm": 3.300211,
+          "lower_mm": 3.274272,
+          "threshold_mm": 3.0,
+          "true_h_mm": 3.3,
+          "truly_undersize": false,
+          "upper_mm": 3.32615
+        },
+        {
+          "decision": "MEETS_SCREENING_THRESHOLD",
+          "fixture_id": "E_DECISION-3.60",
+          "h_mm": 3.599795,
+          "lower_mm": 3.573479,
+          "threshold_mm": 3.0,
+          "true_h_mm": 3.6,
+          "truly_undersize": false,
+          "upper_mm": 3.626111
+        }
+      ],
+      "false_accuse": [],
+      "false_accuse_count": 0,
+      "false_clear": [],
+      "false_clear_count": 0,
+      "n_truly_compliant": 4,
+      "n_truly_undersize": 4,
+      "tally": {
+        "ABSTAINED": 0,
+        "MEETS_SCREENING_THRESHOLD": 4,
+        "POTENTIAL_UNDERSIZE": 4,
+        "REQUIRES_OFFICER_REVIEW_BORDERLINE": 0
+      }
+    },
+    "E3_UNDISTORTION": {
+      "undistort_off": {
+        "error_mm": null,
+        "failed_gate": "reproj_rms_px",
+        "reproj_rms_px": 0.821922,
+        "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_GEOMETRY"
+      },
+      "undistort_on": {
+        "error_mm": 0.001129,
+        "failed_gate": null,
+        "reproj_rms_px": 0.079704,
+        "status": "MEASURED"
+      }
+    },
+    "E_BLUR": {
+      "abstention": {
+        "abstained": 4,
+        "abstention_rate": 0.6666666666666666,
+        "by_gate": {
+          "blur_sigma_mm": 4
+        },
+        "by_stage": {
+          "IMAGE_QUALITY": 4
+        },
+        "measured": 2,
+        "n": 6
+      },
+      "table": [
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.000735,
+          "blur_sigma_mm": 0.033482,
+          "mae_mm": 0.000735,
+          "measured": 1,
+          "median_burst_sd_mm": 0.004316,
+          "median_u_c_mm": 0.00948,
+          "n": 1
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.002608,
+          "blur_sigma_mm": 0.037741,
+          "mae_mm": 0.002608,
+          "measured": 1,
+          "median_burst_sd_mm": 0.004706,
+          "median_u_c_mm": 0.011479,
+          "n": 1
+        },
+        {
+          "abstain_gates": [
+            "blur_sigma_mm"
+          ],
+          "bias_mm": null,
+          "blur_sigma_mm": 0.061417,
+          "mae_mm": null,
+          "measured": 0,
+          "median_burst_sd_mm": null,
+          "median_u_c_mm": null,
+          "n": 1
+        },
+        {
+          "abstain_gates": [
+            "blur_sigma_mm"
+          ],
+          "bias_mm": null,
+          "blur_sigma_mm": 0.085742,
+          "mae_mm": null,
+          "measured": 0,
+          "median_burst_sd_mm": null,
+          "median_u_c_mm": null,
+          "n": 1
+        },
+        {
+          "abstain_gates": [
+            "blur_sigma_mm"
+          ],
+          "bias_mm": null,
+          "blur_sigma_mm": 0.103942,
+          "mae_mm": null,
+          "measured": 0,
+          "median_burst_sd_mm": null,
+          "median_u_c_mm": null,
+          "n": 1
+        },
+        {
+          "abstain_gates": [
+            "blur_sigma_mm"
+          ],
+          "bias_mm": null,
+          "blur_sigma_mm": 0.127756,
+          "mae_mm": null,
+          "measured": 0,
+          "median_burst_sd_mm": null,
+          "median_u_c_mm": null,
+          "n": 1
+        }
+      ]
+    },
+    "E_INKSPREAD": {
+      "table": [
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.002579,
+          "ink_spread_mm": 0.0,
+          "mae_mm": 0.002579,
+          "measured": 1,
+          "median_burst_sd_mm": 0.001664,
+          "median_u_c_mm": 0.015919,
+          "n": 1
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": -0.00105,
+          "ink_spread_mm": 0.03,
+          "mae_mm": 0.00105,
+          "measured": 1,
+          "median_burst_sd_mm": 0.003833,
+          "median_u_c_mm": 0.017036,
+          "n": 1
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": -0.000105,
+          "ink_spread_mm": 0.06,
+          "mae_mm": 0.000105,
+          "measured": 1,
+          "median_burst_sd_mm": 0.003316,
+          "median_u_c_mm": 0.01583,
+          "n": 1
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": -0.001884,
+          "ink_spread_mm": 0.12,
+          "mae_mm": 0.001884,
+          "measured": 1,
+          "median_burst_sd_mm": 0.003843,
+          "median_u_c_mm": 0.015661,
+          "n": 1
+        }
+      ]
+    },
+    "E_MATH": {
+      "bias_mm": -0.0011714999999999998,
+      "by_shape": [
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.0,
+          "glyph_shape": "BAR_I",
+          "mae_mm": 0.0,
+          "measured": 2,
+          "median_burst_sd_mm": 0.0,
+          "median_u_c_mm": 0.0130755,
+          "n": 2
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.0,
+          "glyph_shape": "H",
+          "mae_mm": 0.0,
+          "measured": 2,
+          "median_burst_sd_mm": 0.0,
+          "median_u_c_mm": 0.0130755,
+          "n": 2
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": -0.0054304999999999996,
+          "glyph_shape": "RING_O",
+          "mae_mm": 0.0054304999999999996,
+          "measured": 2,
+          "median_burst_sd_mm": 0.0,
+          "median_u_c_mm": 0.0115015,
+          "n": 2
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.0007445,
+          "glyph_shape": "T",
+          "mae_mm": 0.0007445,
+          "measured": 2,
+          "median_burst_sd_mm": 0.0,
+          "median_u_c_mm": 0.012993000000000001,
+          "n": 2
+        }
+      ],
+      "coverage": 1.0,
+      "coverage_ci95": [
+        0.6755843804891231,
+        1.0
+      ],
+      "coverage_n": 8,
+      "mae_mm": 0.00154375,
+      "max_abs_error_mm": 0.007967,
+      "max_burst_sd_mm": 0.0,
+      "measure_rate": 1.0,
+      "median_burst_sd_mm": 0.0,
+      "median_error_mm": 0.0,
+      "median_interval_width_mm": 0.042537,
+      "n_measured": 8,
+      "n_runs": 8,
+      "p95_abs_error_mm": 0.006191449999999998,
+      "sd_error_mm": 0.0029999668569597807
+    },
+    "E_NOISE": {
+      "abstention": {
+        "abstained": 1,
+        "abstention_rate": 0.25,
+        "by_gate": {
+          "overshoot_ratio": 1
+        },
+        "by_stage": {
+          "IMAGE_QUALITY": 1
+        },
+        "measured": 3,
+        "n": 4
+      },
+      "table": [
+        {
+          "abstain_gates": [],
+          "bias_mm": -0.000688,
+          "fixture_id": "E_NOISE-0.000",
+          "mae_mm": 0.000688,
+          "measured": 1,
+          "median_burst_sd_mm": 0.003595,
+          "median_u_c_mm": 0.015385,
+          "n": 1
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.001517,
+          "fixture_id": "E_NOISE-0.005",
+          "mae_mm": 0.001517,
+          "measured": 1,
+          "median_burst_sd_mm": 0.00243,
+          "median_u_c_mm": 0.016129,
+          "n": 1
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.00139,
+          "fixture_id": "E_NOISE-0.012",
+          "mae_mm": 0.00139,
+          "measured": 1,
+          "median_burst_sd_mm": 0.003021,
+          "median_u_c_mm": 0.015412,
+          "n": 1
+        },
+        {
+          "abstain_gates": [
+            "overshoot_ratio"
+          ],
+          "bias_mm": null,
+          "fixture_id": "E_NOISE-0.025",
+          "mae_mm": null,
+          "measured": 0,
+          "median_burst_sd_mm": null,
+          "median_u_c_mm": null,
+          "n": 1
+        }
+      ]
+    },
+    "E_RHO": {
+      "abstention": {
+        "abstained": 4,
+        "abstention_rate": 0.6666666666666666,
+        "by_gate": {
+          "blur_sigma_mm": 4
+        },
+        "by_stage": {
+          "IMAGE_QUALITY": 4
+        },
+        "measured": 2,
+        "n": 6
+      },
+      "table": [
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.001407,
+          "mae_mm": 0.001407,
+          "measured": 2,
+          "median_burst_sd_mm": 0.0022885,
+          "median_u_c_mm": 0.014083499999999999,
+          "n": 2,
+          "pose_z_mm": 200.0
+        },
+        {
+          "abstain_gates": [
+            "blur_sigma_mm"
+          ],
+          "bias_mm": null,
+          "mae_mm": null,
+          "measured": 0,
+          "median_burst_sd_mm": null,
+          "median_u_c_mm": null,
+          "n": 1,
+          "pose_z_mm": 240.0
+        },
+        {
+          "abstain_gates": [
+            "blur_sigma_mm"
+          ],
+          "bias_mm": null,
+          "mae_mm": null,
+          "measured": 0,
+          "median_burst_sd_mm": null,
+          "median_u_c_mm": null,
+          "n": 1,
+          "pose_z_mm": 280.0
+        },
+        {
+          "abstain_gates": [
+            "blur_sigma_mm"
+          ],
+          "bias_mm": null,
+          "mae_mm": null,
+          "measured": 0,
+          "median_burst_sd_mm": null,
+          "median_u_c_mm": null,
+          "n": 1,
+          "pose_z_mm": 340.0
+        },
+        {
+          "abstain_gates": [
+            "blur_sigma_mm"
+          ],
+          "bias_mm": null,
+          "mae_mm": null,
+          "measured": 0,
+          "median_burst_sd_mm": null,
+          "median_u_c_mm": null,
+          "n": 1,
+          "pose_z_mm": 420.0
+        }
+      ]
+    },
+    "E_TILT": {
+      "abstention": {
+        "abstained": 3,
+        "abstention_rate": 0.5,
+        "by_gate": {
+          "FIDUCIAL_MISSING_MARKER": 2,
+          "reproj_rms_px": 1
+        },
+        "by_stage": {
+          "FIDUCIAL": 2,
+          "GEOMETRY": 1
+        },
+        "measured": 3,
+        "n": 6
+      },
+      "table": [
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.000485,
+          "mae_mm": 0.000485,
+          "measured": 1,
+          "median_burst_sd_mm": 0.002765,
+          "median_u_c_mm": 0.015615,
+          "n": 1,
+          "pose_tilt_deg": 0.0
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": -1.9e-05,
+          "mae_mm": 1.9e-05,
+          "measured": 1,
+          "median_burst_sd_mm": 0.002,
+          "median_u_c_mm": 0.015846,
+          "n": 1,
+          "pose_tilt_deg": 10.0
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.001889,
+          "mae_mm": 0.001889,
+          "measured": 1,
+          "median_burst_sd_mm": 0.004122,
+          "median_u_c_mm": 0.01692,
+          "n": 1,
+          "pose_tilt_deg": 20.0
+        },
+        {
+          "abstain_gates": [
+            "reproj_rms_px"
+          ],
+          "bias_mm": null,
+          "mae_mm": null,
+          "measured": 0,
+          "median_burst_sd_mm": null,
+          "median_u_c_mm": null,
+          "n": 1,
+          "pose_tilt_deg": 30.0
+        },
+        {
+          "abstain_gates": [
+            "FIDUCIAL_MISSING_MARKER"
+          ],
+          "bias_mm": null,
+          "mae_mm": null,
+          "measured": 0,
+          "median_burst_sd_mm": null,
+          "median_u_c_mm": null,
+          "n": 1,
+          "pose_tilt_deg": 40.0
+        },
+        {
+          "abstain_gates": [
+            "FIDUCIAL_MISSING_MARKER"
+          ],
+          "bias_mm": null,
+          "mae_mm": null,
+          "measured": 0,
+          "median_burst_sd_mm": null,
+          "median_u_c_mm": null,
+          "n": 1,
+          "pose_tilt_deg": 50.0
+        }
+      ]
+    },
+    "SAFE_ACCURACY": {
+      "bias_mm": 0.0005177058823529412,
+      "by_experiment": [
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.0015725,
+          "experiment": "E_ILLUM",
+          "mae_mm": 0.0015725,
+          "measured": 2,
+          "median_burst_sd_mm": 0.002261,
+          "median_u_c_mm": 0.015957,
+          "n": 2
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": -0.00011499999999999998,
+          "experiment": "E_INKSPREAD",
+          "mae_mm": 0.0014045000000000001,
+          "measured": 4,
+          "median_burst_sd_mm": 0.0035745,
+          "median_u_c_mm": 0.0158745,
+          "n": 4
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.0005432,
+          "experiment": "E_NOMINAL",
+          "mae_mm": 0.0020304000000000003,
+          "measured": 10,
+          "median_burst_sd_mm": 0.002728,
+          "median_u_c_mm": 0.0160345,
+          "n": 10
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.000684,
+          "experiment": "E_THICKNESS",
+          "mae_mm": 0.000684,
+          "measured": 1,
+          "median_burst_sd_mm": 0.002229,
+          "median_u_c_mm": 0.015683,
+          "n": 1
+        }
+      ],
+      "by_shape": [
+        {
+          "abstain_gates": [],
+          "bias_mm": -4.325e-05,
+          "glyph_shape": "BAR_I",
+          "mae_mm": 0.0011209166666666665,
+          "measured": 12,
+          "median_burst_sd_mm": 0.003163,
+          "median_u_c_mm": 0.0160345,
+          "n": 12
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.001864,
+          "glyph_shape": "RING_O",
+          "mae_mm": 0.0032600000000000003,
+          "measured": 5,
+          "median_burst_sd_mm": 0.001541,
+          "median_u_c_mm": 0.015441,
+          "n": 5
+        }
+      ],
+      "by_true_height": [
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.004031,
+          "mae_mm": 0.004031,
+          "measured": 2,
+          "median_burst_sd_mm": 0.002275,
+          "median_u_c_mm": 0.015654500000000002,
+          "n": 2,
+          "true_h_mm": 1.56
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.0024029999999999998,
+          "mae_mm": 0.0024029999999999998,
+          "measured": 2,
+          "median_burst_sd_mm": 0.0021405,
+          "median_u_c_mm": 0.015448,
+          "n": 2,
+          "true_h_mm": 2.06
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.002579,
+          "mae_mm": 0.002579,
+          "measured": 1,
+          "median_burst_sd_mm": 0.001664,
+          "median_u_c_mm": 0.015919,
+          "n": 1,
+          "true_h_mm": 3.0
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": 0.0002013333333333333,
+          "mae_mm": 0.0010749999999999998,
+          "measured": 6,
+          "median_burst_sd_mm": 0.002441,
+          "median_u_c_mm": 0.0158885,
+          "n": 6,
+          "true_h_mm": 3.06
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": -0.000105,
+          "mae_mm": 0.000105,
+          "measured": 1,
+          "median_burst_sd_mm": 0.003316,
+          "median_u_c_mm": 0.01583,
+          "n": 1,
+          "true_h_mm": 3.12
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": -0.001884,
+          "mae_mm": 0.001884,
+          "measured": 1,
+          "median_burst_sd_mm": 0.003843,
+          "median_u_c_mm": 0.015661,
+          "n": 1,
+          "true_h_mm": 3.24
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": -0.001461,
+          "mae_mm": 0.001461,
+          "measured": 2,
+          "median_burst_sd_mm": 0.0023665,
+          "median_u_c_mm": 0.0158705,
+          "n": 2,
+          "true_h_mm": 4.06
+        },
+        {
+          "abstain_gates": [],
+          "bias_mm": -0.0014715,
+          "mae_mm": 0.0014715,
+          "measured": 2,
+          "median_burst_sd_mm": 0.002415,
+          "median_u_c_mm": 0.016397500000000002,
+          "n": 2,
+          "true_h_mm": 6.06
+        }
+      ],
+      "coverage": 1.0,
+      "coverage_ci95": [
+        0.8156763396284354,
+        1.0
+      ],
+      "coverage_n": 17,
+      "mae_mm": 0.0017500588235294118,
+      "max_abs_error_mm": 0.008021,
+      "max_burst_sd_mm": 0.003843,
+      "measure_rate": 1.0,
+      "median_burst_sd_mm": 0.002464,
+      "median_error_mm": -0.000105,
+      "median_interval_width_mm": 0.052374,
+      "n_measured": 17,
+      "n_runs": 17,
+      "p95_abs_error_mm": 0.005435399999999998,
+      "sd_error_mm": 0.002654365949824597
+    },
+    "UNSAFE_DETECTABLE": {
+      "abstained": 11,
+      "abstention_rate": 1.0,
+      "by_gate": {
+        "FIDUCIAL_MISSING_MARKER": 3,
+        "blur_sigma_mm": 2,
+        "clip_dark_frac": 1,
+        "median_crossings": 3,
+        "michelson_contrast": 2
+      },
+      "by_stage": {
+        "FIDUCIAL": 3,
+        "IMAGE_QUALITY": 5,
+        "SEGMENTATION": 3
+      },
+      "measured": 0,
+      "n": 11,
+      "per_fixture": [
+        {
+          "error_mm": null,
+          "failed_gate": "FIDUCIAL_MISSING_MARKER",
+          "failed_stage": "FIDUCIAL",
+          "fixture_id": "N_EXCESS_PERSPECTIVE",
+          "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_FIDUCIAL"
+        },
+        {
+          "error_mm": null,
+          "failed_gate": "michelson_contrast",
+          "failed_stage": "IMAGE_QUALITY",
+          "fixture_id": "N_GLARE_SATURATION",
+          "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_IMAGE_QUALITY"
+        },
+        {
+          "error_mm": null,
+          "failed_gate": "michelson_contrast",
+          "failed_stage": "IMAGE_QUALITY",
+          "fixture_id": "N_LOW_CONTRAST",
+          "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_IMAGE_QUALITY"
+        },
+        {
+          "error_mm": null,
+          "failed_gate": "FIDUCIAL_MISSING_MARKER",
+          "failed_stage": "FIDUCIAL",
+          "fixture_id": "N_MISSING_MARKER",
+          "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_FIDUCIAL"
+        },
+        {
+          "error_mm": null,
+          "failed_gate": "blur_sigma_mm",
+          "failed_stage": "IMAGE_QUALITY",
+          "fixture_id": "N_MOTION_BLUR",
+          "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_IMAGE_QUALITY"
+        },
+        {
+          "error_mm": null,
+          "failed_gate": "clip_dark_frac",
+          "failed_stage": "IMAGE_QUALITY",
+          "fixture_id": "N_SHARPENING",
+          "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_IMAGE_QUALITY"
+        },
+        {
+          "error_mm": null,
+          "failed_gate": "blur_sigma_mm",
+          "failed_stage": "IMAGE_QUALITY",
+          "fixture_id": "N_TINY_TEXT",
+          "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_IMAGE_QUALITY"
+        },
+        {
+          "error_mm": null,
+          "failed_gate": "median_crossings",
+          "failed_stage": "SEGMENTATION",
+          "fixture_id": "N_UNSTABLE_BOUNDARY-0.15",
+          "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_SEGMENTATION"
+        },
+        {
+          "error_mm": null,
+          "failed_gate": "median_crossings",
+          "failed_stage": "SEGMENTATION",
+          "fixture_id": "N_UNSTABLE_BOUNDARY-0.30",
+          "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_SEGMENTATION"
+        },
+        {
+          "error_mm": null,
+          "failed_gate": "median_crossings",
+          "failed_stage": "SEGMENTATION",
+          "fixture_id": "N_UNSTABLE_BOUNDARY-0.50",
+          "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_SEGMENTATION"
+        },
+        {
+          "error_mm": null,
+          "failed_gate": "FIDUCIAL_MISSING_MARKER",
+          "failed_stage": "FIDUCIAL",
+          "fixture_id": "N_WRONG_FIDUCIAL",
+          "status": "PHYSICAL_SIZE_NOT_ESTABLISHED_FIDUCIAL"
+        }
+      ]
+    },
+    "UNSAFE_UNDETECTABLE": {
+      "n": 4,
+      "per_fixture": [
+        {
+          "covered": 0.0,
+          "error_mm": -0.045642,
+          "failed_gate": null,
+          "fixture_id": "N_NONPLANAR_TILT-10",
+          "lomo_rel_spread": 0.000232,
+          "reproj_rms_px": 0.121151,
+          "status": "MEASURED",
+          "u_c_mm": 0.015924
+        },
+        {
+          "covered": 0.0,
+          "error_mm": -0.184665,
+          "failed_gate": null,
+          "fixture_id": "N_NONPLANAR_TILT-20",
+          "lomo_rel_spread": 0.000198,
+          "reproj_rms_px": 0.092134,
+          "status": "MEASURED",
+          "u_c_mm": 0.016197
+        },
+        {
+          "covered": 1.0,
+          "error_mm": 0.022369,
+          "failed_gate": null,
+          "fixture_id": "N_PLANE_OFFSET_UNDECLARED-1.5",
+          "lomo_rel_spread": 0.000233,
+          "reproj_rms_px": 0.09927,
+          "status": "MEASURED",
+          "u_c_mm": 0.015341
+        },
+        {
+          "covered": 0.0,
+          "error_mm": 0.080188,
+          "failed_gate": null,
+          "fixture_id": "N_PLANE_OFFSET_UNDECLARED-5.0",
+          "lomo_rel_spread": 0.000225,
+          "reproj_rms_px": 0.09381,
+          "status": "MEASURED",
+          "u_c_mm": 0.014848
+        }
+      ]
+    }
+  },
+  "verdict": {
+    "C11_safe_measure_rate": {
+      "detail": "measure rate on SAFE=1.00 (>=0.80)",
+      "informational": false,
+      "pass": true
+    },
+    "C1_arithmetic": {
+      "detail": "max|err|=0.00797 mm <= 0.010",
+      "informational": false,
+      "pass": true
+    },
+    "C2_accuracy": {
+      "detail": "bias=+0.0005 (<=0.030), p95|err|=0.0054 (<=0.060)",
+      "informational": false,
+      "pass": true
+    },
+    "C3_repeatability": {
+      "detail": "median burst SD=0.0025 mm (<=0.030)",
+      "informational": false,
+      "pass": true
+    },
+    "C4_coverage": {
+      "detail": "coverage=1.000 on n=17 (>=0.90); k is NOMINAL, not validated",
+      "informational": false,
+      "pass": true
+    },
+    "C5_estimator": {
+      "detail": "model-fit MAE=0.0018 vs max-minus-min MAE=0.0027",
+      "informational": false,
+      "pass": true
+    },
+    "C6_linearisation": {
+      "detail": "linear err=0.0004 vs gamma-glyph err=-0.0441; full gamma: PHYSICAL_SIZE_NOT_ESTABLISHED_GEOMETRY",
+      "informational": false,
+      "pass": true
+    },
+    "C7_unsafe_detection": {
+      "detail": "abstained 11/11",
+      "informational": false,
+      "pass": true
+    },
+    "C8_decision_safety": {
+      "detail": "false-clear=0 of 4 undersize; false-accuse=0 of 4 compliant",
+      "informational": false,
+      "pass": true
+    },
+    "C9_undetectable_documented": {
+      "detail": "single-view undetectable defects measured with |err| up to 0.1847 mm; these require fixture control, not gates",
+      "informational": true,
+      "pass": true
+    }
+  }
+}
