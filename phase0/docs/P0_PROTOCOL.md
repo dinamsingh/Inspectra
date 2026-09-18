@@ -1,5 +1,11 @@
 # P0-min physical experiment protocol (20 panels)
 
+> **Do not start capturing from this document alone.**  The execution-readiness audit
+> in [`P0_EXECUTION_PLAN.md`](P0_EXECUTION_PLAN.md) freezes the operational details this
+> protocol leaves open (vocabulary, run/observation counts, ordering, naming, failure
+> handling, P1–P7 mapping) and currently reports
+> `PHYSICAL_EXPERIMENT_READY = NO` with six open blockers.  Close those first.
+
 Purpose: answer, with physical evidence, whether a normal Android smartphone can
 estimate printed glyph ink extent in millimetres with useful repeatability and
 error, and abstain when conditions are unsafe.  Success criteria are in

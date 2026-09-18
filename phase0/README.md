@@ -43,6 +43,7 @@ phase0/
   tests/test_p0.py         39 tests: linear algebra, geometry, ground truth, gates, end to end
   docs/
     P0_PROTOCOL.md         the physical experiment protocol
+    P0_EXECUTION_PLAN.md   execution-readiness audit + frozen operational plan
     P0_CRITERIA.md         pre-registered PASS/FAIL criteria
     RESULT_SCHEMA.md       JSON/CSV schema and invariants
     P0_ASSUMPTIONS.md      unresolved assumptions and limitations
@@ -127,7 +128,9 @@ combination, guard-band branches, and fail-closed behaviour on NaN.
 
 ## I. Physical protocol
 
-`docs/P0_PROTOCOL.md`.  Summary: print and **survey** one frame, mount 20 coupons
+`docs/P0_PROTOCOL.md` for the method, `docs/P0_EXECUTION_PLAN.md` for the frozen
+operational detail and the readiness verdict (currently
+`PHYSICAL_EXPERIMENT_READY = NO`, six blockers).  Summary: print and **survey** one frame, mount 20 coupons
 on a flat plate, measure every glyph with a calibrated 2400 dpi scanner
 cross-checked against a measuring microscope, then capture 240 nominal bursts
 (20 panels x 2 devices x 2 operators x 3 repeats x 7 frames) plus a ~60-run stress
