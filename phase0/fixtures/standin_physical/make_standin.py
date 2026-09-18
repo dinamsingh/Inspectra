@@ -162,18 +162,27 @@ def build():
                 rng = Rng(seed_from("standin-ref", panel, sh, hgt))
                 base = hgt + 0.035 + rng.normal(0.0, 0.01)
                 delta = rng.normal(0.0, REFERENCE_DIFF_MM)
-                for method, val in ((("SCANNER_2400DPI"), base),
+                for method, val in (("SCANNER_2400DPI", base),
                                     ("MICROSCOPE", base + delta)):
-                    ref.append({"panel_id": panel, "glyph_shape": sh,
-                                "nominal_h_mm": hgt, "glyph_index": 1,
-                                "method": method, "instrument_id":
-                                    "STANDIN-SCANNER" if method.startswith("SCANNER")
-                                    else "STANDIN-MICROSCOPE",
-                                "operator": "OP1",
-                                "measured_at": "2026-01-01T00:00:00Z",
-                                "reference_h_mm": val, "reference_u_mm": 0.01,
-                                "n_repeats": 1, "raw_readings": "",
-                                "notes": "STAND-IN, NOT PHYSICAL EVIDENCE"})
+                    scanner = method.startswith("SCANNER")
+                    ref.append({
+                        "glyph_id": "%s:%s:%.2f:%d" % (panel, sh, hgt, 1),
+                        "panel_id": panel, "glyph_shape": sh,
+                        "nominal_h_mm": hgt, "glyph_index": 1,
+                        "method": method,
+                        # the independence rule: the microscope cross-check must not
+                        # be produced by the pipeline estimator
+                        "measurement_procedure": ("PIPELINE_ESTIMATOR_ON_SCAN" if scanner
+                                                  else "MANUAL_VISUAL_CROSSHAIR"),
+                        "reference_h_mm": val, "unit": "mm", "reference_u_mm": 0.01,
+                        "instrument_id": ("STANDIN-SCANNER" if scanner
+                                          else "STANDIN-MICROSCOPE"),
+                        "instrument_cal_ref": "STANDIN-NO-CERTIFICATE",
+                        "operator": "OP1" if scanner else "OP2",
+                        "measured_at": "2026-01-01T00:00:00Z",
+                        "n_repeats": 1, "raw_readings": "",
+                        "cross_check_status": "PENDING",
+                        "notes": "STAND-IN, NOT PHYSICAL EVIDENCE"})
                 n += 1
     return rows, runs, ref
 
@@ -199,9 +208,10 @@ def main():
         "gate_policy": "config/gate_policy_v1.json",
         "uncertainty_model": "config/uncertainty_model_v1.json",
         "runs": runs})
-    cols = ["panel_id", "glyph_shape", "nominal_h_mm", "glyph_index", "method",
-            "instrument_id", "operator", "measured_at", "reference_h_mm",
-            "reference_u_mm", "n_repeats", "raw_readings", "notes"]
+    cols = ["glyph_id", "panel_id", "glyph_shape", "nominal_h_mm", "glyph_index",
+            "method", "measurement_procedure", "reference_h_mm", "unit",
+            "reference_u_mm", "instrument_id", "instrument_cal_ref", "operator",
+            "measured_at", "n_repeats", "raw_readings", "cross_check_status", "notes"]
     with open(os.path.join(HERE, "reference_table.csv"), "w", newline="",
               encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=cols)

@@ -108,31 +108,42 @@ instruction**.  Printer scaling and ink spread change the real extent, so:
 ### 2.4 Recording (frozen)
 
 One append-only `reference/reference_table.csv`, written **before** any camera capture
-is processed, with columns:
-
-```
-panel_id, glyph_shape, nominal_h_mm, glyph_index,
-method, instrument_id, operator, measured_at,
-reference_h_mm, reference_u_mm, n_repeats, raw_readings, notes
-```
+is processed.  The authoritative column list is **`P0_REFERENCE_PROCEDURE.md` §6** (18
+fields) and is machine-checked by `tools/validate_reference_table.py`; the earlier
+13-column sketch in this document is superseded by it.  The added fields carry
+identity and provenance (`glyph_id`, `unit`, `instrument_cal_ref`), independence
+(`measurement_procedure` ∈ `PIPELINE_ESTIMATOR_ON_SCAN` | `MANUAL_VISUAL_CROSSHAIR` |
+`UNRESOLVED`) and cross-check state (`cross_check_status` ∈ `PENDING` | `AGREED` |
+`DISAGREED` | `UNUSABLE`).
 
 `method` ∈ `SCANNER_2400DPI` | `MICROSCOPE`.  Rows are never edited; a correction is a
-new row that supersedes an earlier one by timestamp.
+new row that supersedes an earlier one by timestamp, and the validator reports
+`SUPERSEDED_ROWS` so the supersession is visible rather than silent.
 
-### 2.5 Unresolved — **C / BLOCKER B2**
+### 2.5 Estimator independence — RESOLVED; measurement implementation still **C / BLOCKER B2**
 
-Two things are genuinely undecided and must not be guessed:
+**Resolved (STEP 4, `P0_REFERENCE_PROCEDURE.md` §2, §5):** the scanner tier **may**
+reuse the pipeline's own estimator (rule R1), because at 94.5 px/mm the scan is a
+different sampling regime, not a different measurand definition; but the microscope tier
+**must not** (rule R2) — reuse there is an `ERROR`
+(`MICROSCOPE_NOT_INDEPENDENT`), and a glyph whose scanner *and* microscope rows both
+reuse the estimator is also an `ERROR` (`PAIR_NOT_INDEPENDENT`).  Both rules are
+enforced by `tools/validate_reference_table.py`.
 
-1. **There is no implemented tool that measures a scan or a microscope image.**
-   `run_real_batch.py` requires a fiducial frame and a homography; a flatbed scan has
-   neither (scale comes from dpi).  Either a reduced measurement path is written, or
-   the frame is scanned lying on the coupon so the normal pipeline applies.
-2. **Whether the reference may reuse the pipeline's own estimator is unresolved.**
-   If it does, any estimator-definitional bias is common mode and cancels — the
-   synthetic run already showed a 0.0054 mm apex-fit bias on `RING_O` even on ideal
-   renders, and that component would become invisible.  The microscope cross-check
-   (P1) is the only step that tests the measurand realisation independently, so its
-   procedure and software must be defined explicitly.
+The consequence is disclosed, not hidden: because the scanner tier shares the pipeline
+estimator, **P2/P3/P4 are blind to estimator-definitional bias** (measured at
+0.0054 mm on `RING_O` on ideal renders).  Only **P1** — the microscope cross-check —
+tests the ink-boundary definition itself.  P1's stated meaning is therefore narrower
+than "the reference is correct".
+
+**Still unresolved and still B2:** there is no implemented tool that measures a scan or
+a microscope image, and the scanner's own scale-calibration inputs do not exist in the
+repository (`P0_REFERENCE_PROCEDURE.md` §3.2 S1-S6, §4.2 M1-M5).  Scanner image
+processing was deliberately **not** written in STEP 4: with no calibration input and no
+scan to validate against, a hand-rolled reader would silently substitute a *visual*
+criterion for the protocol's photometric 50 % one.  What exists instead is the schema
+plus a validated manual-entry path (§12 of that document).  See B2-1/B2-2/B2-3 in §12
+below.
 
 ---
 
@@ -385,7 +396,7 @@ missing.
 | # | BLOCKER | WHY IT MATTERS | REQUIRED BEFORE DATA COLLECTION |
 |---|---|---|---|
 | **B1** | **CLOSED (STEP 3C).**  `tools/analyse_physical.py` computes P1-P6 from the frozen bands, `analyse_results.py` routes physical datasets to it (the old all-`nan` / misleading `OVERALL: FAIL` behaviour is gone), and **P7 was frozen as reporting/calibration only (Option C)** in `P0_CRITERIA.md` and `P7_DECISION_MEMO.md` §9: it reports observed coverage, its Wilson 95 % CI, `n` and interval width with status `REPORT_ONLY`, and can never emit a pass/fail accuracy verdict.  The accuracy gates are P1-P6.  Tests: 68 total (39 unchanged + 29 physical). | The pilot's accuracy acceptance is now fully computable and pre-registered before any capture | Done.  Residual, stated in the memo: the pilot carries no pass/fail check on interval calibration, so any claim must note the guard band rests on an unvalidated `k = 1.645` until a later calibration stage |
-| **B2** | **Reference measurement has no implemented procedure.**  Nothing measures a flatbed scan or a microscope image; `run_real_batch.py` needs a fiducial and a homography, which a scan does not have.  It is also unresolved whether the reference may reuse the pipeline estimator — if it does, estimator-definitional bias (already measured at 0.0054 mm on `RING_O`) cancels and becomes invisible | P1 gates everything else.  A reference that is undefined, or that shares the pipeline's systematic error, cannot validate it | A written, implemented reference procedure for both instruments, plus an explicit decision on estimator independence and what P1 therefore does and does not test |
+| **B2** | **PARTLY CLOSED (STEP 4) — still NOT CLOSED overall.**  Closed: the reference procedure is written (`P0_REFERENCE_PROCEDURE.md`), estimator independence is **decided** (scanner may reuse the pipeline estimator, microscope may not — rules R1/R2), the 18-field ground-truth schema exists, and `tools/validate_reference_table.py` enforces it (units, provenance, independence, supersession, agreement, disagreement notes) with 32 tests.  What P1 does and does not test is stated: P2/P3/P4 are blind to the 0.0054 mm estimator-definitional bias; only P1 tests the ink-boundary definition.  **Open: B2-1** no scanner reference *value* can be produced — no scan-measurement implementation and no scale-calibration input exists, so the primary reference for P2/P3/P4 is unavailable; **B2-2** the microscope edge criterion (M1) is undefined, so the independent cross-check is not executable as specified; **B2-3** microscope / graticule availability is unverified | P1 gates everything else.  A reference that is undefined, or that shares the pipeline's systematic error, cannot validate it | B2-1: an implemented scan-measurement path realising the 50 % linearised-luminance boundary, plus its dpi/scale-calibration input.  B2-2: a written, physically realisable microscope edge criterion.  B2-3: a named, calibrated instrument confirmed on hand.  Scanner image processing was deliberately not guessed in STEP 4 |
 | **B3** | **`roi_mm` cannot be determined for a real capture.**  It is a required manifest field expressed in fiducial-plane millimetres, but there is no overlay renderer, no ROI picker, and `panels.json` carries no glyph coordinates | Without it no physical run can be processed at all; guessing it silently measures the wrong region | One of: mechanical registration of coupon to frame plus exported glyph coordinates, or an ROI-selection path.  Decision is the team's; this audit does not choose |
 | **B4** | **Mechanical flatness acceptance is not quantified.**  A-06 proves out-of-plane print is undetectable in software, yet `P0_PROTOCOL.md` §1.6 only says "record the flatness you can actually verify", and `residual_tilt_bound_deg = 3.0` has no fixture specification behind it | Every accuracy number inherits uncontrolled out-of-plane bias.  A 20 deg local tilt produced 0.18 mm of error with all gates passing | A numeric flatness / local-tilt acceptance over the measurement window, its verification instrument and method, and the disposition rule on failure |
 | **B5** | **Panel → measured-glyph assignment is not pre-registered.**  Only 20 of 400 glyph instances are camera-measured, and which ones decides whether P2's 3 mm class has data | Choosing after capture is post-hoc selection; choosing badly leaves a criterion uncomputable | A committed map covering all 5 heights and both shape classes, fixed before the first capture |
@@ -451,14 +462,18 @@ Nothing here is assumed to exist.  Fill in the right-hand column with a real ans
 PHYSICAL_EXPERIMENT_READY = NO
 ```
 
-Blockers **B2–B6** in §12.  **B1 is now CLOSED** (STEP 3C): the P1-P6 gate analyser and
-the reporting-only P7 exist, are tested and are pre-registered.  B2 and B3 remain hard
-and untouched: without them a physical run cannot be processed (B3) and cannot be
-referenced (B2).  The overall verdict stays NO until B2-B6 are closed.
+Blockers **B2–B6** in §12.  **B1 is CLOSED** (STEP 3C): the P1-P6 gate analyser and
+the reporting-only P7 exist, are tested and are pre-registered.  **B2 is partly closed**
+(STEP 4): the reference procedure, the estimator-independence decision and the enforced
+ground-truth schema now exist, but **B2 is not closed** — no scanner reference value can
+be produced (B2-1), the microscope edge criterion is undefined (B2-2) and the instrument
+is unverified (B2-3), so a physical run still cannot be referenced.  B3 remains hard and
+untouched: without it a physical run cannot be processed at all.  The overall verdict
+stays NO until B2-B6 are closed.
 B4 is the one that would silently corrupt otherwise-valid numbers.
 
 No one-page execution checklist is issued while the verdict is NO.  §1–§11 above are
-frozen and remain valid once the blockers are closed; the only items still open inside
-them are the four marked **C**: §1.6 glyph assignment, §2.5 reference implementation and
-estimator independence, §4 stock-per-panel register, §5.4 flatness acceptance, and §7.4
-pilot `threshold_mm`.
+frozen and remain valid once the blockers are closed; the items still open inside them
+are §1.6 glyph assignment, §2.5 reference *implementation* (estimator independence is
+now resolved), §4 stock-per-panel register, §5.4 flatness acceptance, and §7.4 pilot
+`threshold_mm`.
