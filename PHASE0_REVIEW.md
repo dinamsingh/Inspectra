@@ -11,6 +11,28 @@ Saare numbers hypotheses/targets hain. Neeche ke calculations first-order optics
 
 ---
 
+## POST-IMPLEMENTATION CORRECTIONS (added by the consistency audit)
+
+This review was written **before** the P0-min code existed. It is kept as the design
+record. Five of its recommendations were later changed or falsified by the executed
+synthetic experiment (`phase0/out/synthetic`). Where they differ, the code,
+`phase0/config/*.json` and `phase0/docs/P0_ASSUMPTIONS.md` are authoritative.
+
+| Recommendation in this document | What actually happened |
+|---|---|
+| §F2.4 / §20.8 frame outer **150 x 90 mm**, window 100 x 30 mm | Built at **100 x 60 mm**, window 50 x 20 mm, marker 10 mm. Reason: rendering cost and keeping the whole frame inside the synthetic image at rho = 18 px/mm. |
+| §0.3 / §F2.1 "replace the flatness gate with **local tilt <= 5 deg**" | **Only partly implementable.** Local print-plane tilt relative to the fiducial plane is *not observable from one view* — measured, see `P0_ASSUMPTIONS.md` A-06: a 20 deg local tilt produced a 0.185 mm error while reprojection RMS stayed at 0.09 px and LOMO at 0.0002. The shipped gate `max_view_tilt_deg = 30` measures **view obliqueness**, a different quantity. Local tilt is carried as a bounded budget term (`residual_tilt_bound_deg = 3.0`, not 5.0) and must be guaranteed by the fixture. |
+| §20 / verdict #23, #32 "**rho >= 12 px/mm**" | Too low. The pre-registered blur gate (sigma <= 0.06 mm) is unreachable below roughly 15-16 px/mm with a realistic PSF, so `P0_PROTOCOL.md` §4 sets the *capture target* at **>= 16 px/mm**. The shipped gate floor stays at **10.0** — it was pre-registered and was not moved after seeing results. |
+| §15 / §16 reference-measure "**60 glyphs**" (3 per coupon) | The generated coupons carry 4 shapes x 5 heights per panel, so the pilot has **400 glyph instances** across 20 panels. The microscope cross-check subset remains >= 15. |
+| §F2.2 use a **ChArUco border** for control points | Not built — cv2.aruco is unavailable offline. NDFID-1 coded squares with subpixel edge-line corners are used instead (A-03). The metrological principle is preserved; absolute corner performance versus ChArUco is untested. |
+
+Two items in §18 were also resolved by measurement rather than by design:
+`u_photometric` / `u_device_residual` are **not separate budget fields** (they share the
+single `u_extra_mm` slot, currently 0.0), and focal-length error turned out **not** to
+bias the height at all, because metric scale comes from the surveyed fiducial (A-08).
+
+---
+
 ## 0. Numeric reality check (assumption: 12 MP main camera, 4000 px across, ~67° HFOV, f≈6 mm, f/1.8)
 
 | Working distance Z | FOV width | ρ (px/mm) | px per 3 mm glyph | DOF (CoC 2 µm) | DOF (CoC 5 µm) |

@@ -79,6 +79,11 @@ linearised-luminance ink boundary, measured perpendicular to the baseline.
 2. Scan each coupon flat, 8-bit greyscale, all enhancement off, 2400 dpi.
 3. Measure each glyph with the same estimator (the scan is just a very high-rho
    capture; record the procedure and the software version used).
+   **Count:** the generated coupons carry 4 shapes x 5 heights per panel, so 20 panels
+   contain **400 glyph instances**.  Measuring all 400 is the reference target; if that
+   is not achievable, the reduced set must be *pre-declared* (for example one shape per
+   height per panel = 100 glyphs) and the reduction recorded with the results.  Do not
+   decide the subset after seeing camera data.
 4. Reference uncertainty target: <= 0.01 mm, i.e. about one third of the intended
    system uncertainty or better.
 

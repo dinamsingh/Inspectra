@@ -6,6 +6,112 @@
 
 ---
 
+## 0. AS-BUILT RECONCILIATION (added by the consistency audit)
+
+> **Status of this document:** §1–§9 are the *pre-implementation draft specification*.
+> They are retained as the design record. Where they disagree with the shipped code,
+> **the code and `phase0/config/*.json` are authoritative**, and the table below is the
+> single normative reconciliation. No threshold was changed to produce this table; it
+> only records what was actually built.
+
+### 0.1 Module layout as built
+
+| Draft (§1) | As built | Note |
+|---|---|---|
+| `types.py`, `imageio.py` | folded into `p0/core.py` | plus linear algebra, sRGB LUT, PNG codec, PRNG |
+| `quality.py` | folded into `p0/measure.py` | quality metrics come out of the same profile scan |
+| `frame_detect.py` | `p0/fiducial.py` | also contains the NDFID-1 dictionary and marker rendering bits |
+| `glyph.py` | `p0/measure.py` | |
+| `mc.py` (offline Monte Carlo) | **not implemented** | closed-form budget only; see `P0_ASSUMPTIONS.md` A-07 |
+| `report.py` | `p0/results.py` + `p0/plots.py` | |
+| — | `p0/camera.py`, `p0/render.py`, `p0/version.py` | camera model and synthetic renderer were not in the draft |
+| `tools/make_synthetic.py` | `tools/experiments.py` + the renderer | fixtures are generated in-process, not written to disk first |
+| `tools/run_batch.py` | `tools/run_experiment.py` (synthetic), `tools/run_real_batch.py` (physical) | |
+| `tools/analyse_pilot.py` | `tools/analyse_results.py` | one analyser for both sources |
+| `tools/calibrate_uncertainty.py` | **not implemented** | the model ships uncalibrated by design (A-07) |
+| — | `tools/make_configs.py`, `make_frame_svg.py`, `make_coupons_svg.py`, `survey_frame.py`, `calibrate_camera.py` | |
+
+### 0.2 Policy values as built
+
+| Draft field (§2) | Draft value | As-built key | As-built value |
+|---|---|---|---|
+| `rho_px_per_mm_min` | 12.0 | `min_rho_px_per_mm` | **10.0** (hard floor; the *capture target* is >= 16 px/mm, see `P0_PROTOCOL.md` §4) |
+| `stroke_px_min` | 4.0 | — | **not implemented as a gate** |
+| `blur_sigma_mm_max` | 0.06 | `max_blur_sigma_mm` | 0.06 (unchanged) |
+| `fiducial_edge_spread_px_max` | 1.5 | — | **not a gate.** Marker 10-90 edge rise is used to *compute* `blur_sigma_mm`; the separate `max_edge_rms_px = 0.60` gates the edge-line fit residual, a different quantity |
+| `contrast_michelson_min` | 0.30 | `min_michelson_contrast` | 0.30 |
+| `snr_min` | 20.0 | `min_snr` | 20.0 |
+| `reproj_rms_px_max` / `reproj_max_px_max` | 0.25 / 0.60 | `max_reproj_rms_px` / `max_reproj_max_px` | 0.25 / 0.60 |
+| `lomo_scale_rel_max` | 0.005 | `max_lomo_rel_spread` | 0.005 |
+| `jacobian_ratio_max` | 3.0 | `max_jacobian_ratio` | 3.0 |
+| `d_over_z_max` | 0.01 | `max_thickness_over_z` | 0.01 |
+| `tilt_deg_max` | 5.0 | `max_view_tilt_deg` | **30.0 — and it is a different quantity.** 5 deg referred to *local print-plane tilt*, which is **not observable** from one view (A-06). The gate measures *view obliqueness*. The residual local tilt is carried as a bounded budget term, `residual_tilt_bound_deg = 3.0` in `uncertainty_model_v1.json` |
+| `z_mm_range` | (170, 260) | `z_tolerance_frac` | 0.35 as a fraction of the profile's `z_calib_mm` |
+| `burst_spread_mm_max` | 0.06 | `max_burst_sd_mm` | 0.06 |
+| `interval_width_beta` | set after pilot | `max_interval_width_mm`, `max_interval_width_frac_of_threshold` | both `null` = gate deliberately **disabled** until the model is calibrated; reported as `evaluated: false` |
+| `scanlines` | 32 | `scanlines` | **24** |
+| `apex_fit_window_frac` | 0.30 | `apex_fit_window_frac` | **0.35** |
+| bootstrap resamples | "e.g. 200" | `n_boot` in `measure.py` | **160** |
+| — | — | `min_control_points` | 12 |
+| — | — | `min_hull_margin_mm` | **8.0 flat** (the draft's `max(10 mm, 0.25 x ROI height)` rule was not implemented) |
+| — | — | `max_clip_dark_frac`, `max_clip_bright_frac` | 0.005 each |
+| — | — | `max_overshoot_ratio` | 0.08 |
+| — | — | `min_scanline_fraction`, `max_median_crossings` | 0.50, 4 |
+| — | — | `max_sensitivity_dev_frac`, `min_cluster_points`, `max_edge_fit_rms_mm` | 0.05, 4, 0.030 (the last one added in gate revision GP-v2) |
+
+### 0.3 Uncertainty budget as built
+
+The draft's `u_photometric_mm` and `u_device_mm` are **not separate fields**. The shipped
+budget is:
+
+```
+u_random  = max(u_burst, mean(u_edge)/sqrt(n))      measured from the burst
+u_common  = quadrature( u_scale, u_seg, u_thickness, u_ref, u_tilt,
+                        u_extra, u_bias_correction )
+u_c       = sqrt(u_random^2 + u_common^2)
+```
+
+`u_extra_mm` is the single slot reserved for the offline-calibrated photometric and
+per-device residual; it is `0.0` today (`UM-v1-uncalibrated`). The draft's advice
+"do not assume `k = 1.645`" is **not yet honoured** — 1.645 ships as a nominal value
+and this is recorded as an open item in A-07.
+
+### 0.4 Naming
+
+Abstention statuses use the full prefix `PHYSICAL_SIZE_NOT_ESTABLISHED_<STAGE>`.
+The draft's shorthand `PSNE_*` appears nowhere in the code. The eight stages match:
+`PROFILE, FIDUCIAL, IMAGE_QUALITY, GEOMETRY, PLANARITY, SEGMENTATION, BURST,
+UNCERTAINTY`.
+
+### 0.5 Fixture and test identifiers
+
+The draft's `FX-SYN-01..09` / `T-01..T-14` identifiers were not carried into the code.
+Implemented as:
+
+| Draft | As built |
+|---|---|
+| FX-SYN-01 ideal | `E_MATH-*` fixtures + `test_T01_ideal_accuracy` |
+| FX-SYN-02/03 distortion, tilt | `E_DISTORT-offaxis` (2 variants), `E_TILT-*` |
+| FX-SYN-04/05 blur, estimator | `E_BLUR-*`, `test_estimator_beats_max_minus_min_under_noise` |
+| FX-SYN-06 gamma | `E_LINEARIZE-nominal` (`linear`, `gamma`, `gamma_glyph_only`) |
+| FX-SYN-07 overshoot | `N_SHARPENING` |
+| FX-SYN-08 offset/tilt injection | `N_PLANE_OFFSET_UNDECLARED-*`, `N_NONPLANAR_TILT-*`, `test_T08_*` |
+| FX-SYN-09 marker faults | `N_WRONG_FIDUCIAL`, `N_MISSING_MARKER`, `test_T09_*` |
+| T-11 gate invariant | `test_T11_gate_invariant_no_number_when_abstaining` |
+| T-14 determinism | `test_T14_determinism` |
+| T-13 golden regression | **not implemented** (`fixtures/golden/` does not exist); the committed `out/synthetic` set serves as the reference |
+| FX-PHY-01..04, T-20..T-25 | specified in `P0_PROTOCOL.md`; **not yet executed** (A-12) |
+
+### 0.6 Physical fixture geometry
+
+| Draft | As built |
+|---|---|
+| frame outer 150 x 90 mm, window 100 x 30 mm, marker/checker band 20 mm | **outer 100 x 60 mm, window 50 x 20 mm, marker side 10 mm** (`tools/make_configs.py`) |
+| coupon reference measurement "all 60 glyphs" | **20 panels x 5 heights x 4 shapes = 400 glyph instances** (`tools/make_coupons_svg.py`); the microscope cross-check subset is >= 15 |
+| ChArUco border for control points | **NDFID-1** coded squares with edge-line corners (A-03) |
+
+---
+
 ## 1. Repository layout
 
 ```

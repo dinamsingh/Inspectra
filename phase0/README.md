@@ -40,7 +40,7 @@ phase0/
     make_frame_svg.py      printable 1:1 fiducial frame
     make_coupons_svg.py    printable coupon sheets for the 20-panel pilot
     run_real_batch.py      run the pipeline over real captures
-  tests/test_p0.py         38 tests: linear algebra, geometry, ground truth, gates, end to end
+  tests/test_p0.py         39 tests: linear algebra, geometry, ground truth, gates, end to end
   docs/
     P0_PROTOCOL.md         the physical experiment protocol
     P0_CRITERIA.md         pre-registered PASS/FAIL criteria
@@ -58,7 +58,7 @@ No installation, no network, no third-party packages.
 python3 --version          # 3.9+
 cd phase0
 python3 tools/make_configs.py
-python3 -m unittest discover -s tests          # 38 tests, ~35 s
+python3 -m unittest discover -s tests          # 39 tests, ~40 s
 ```
 
 `requirements.txt` lists the *optional* accelerated backend for a future port; it
@@ -117,7 +117,7 @@ causes, decision guard band, undetectable defects.
 
 ## H. Tests
 
-`python3 -m unittest discover -s tests` -- linear algebra, sRGB non-affinity,
+`python3 -m unittest discover -s tests` (39 tests) -- linear algebra, sRGB non-affinity,
 PNG round trip, distortion round trip, homography recovery, LOMO, exact ground
 truth for all four glyph shapes, fiducial dictionary distance, end-to-end ideal
 accuracy, hard failure on missing/wrong markers, the gate invariant (no number

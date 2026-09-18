@@ -131,3 +131,36 @@ yet implemented or tested.
 Results are bit-identical for the same interpreter, platform and pinned code.
 Cross-platform float differences are not eliminated; replay should be compared
 with a tolerance (proposed 0.005 mm), not by byte equality.
+
+
+## A-16 Synthetic runs bypass 8-bit quantisation
+**Status: found by the consistency audit.**  `tools/run_experiment.py` passes the
+renderer's **in-memory linear float** buffer straight into the pipeline
+(`imgs = frames`).  The `frameN.png` written next to each result is 8-bit
+sRGB-encoded **evidence only** -- it is not what was measured.
+**Consequence:** every synthetic number reported in `out/synthetic` is free of 8-bit
+quantisation noise, while physical runs go through `read_png_gray` and therefore
+carry it.  The synthetic accuracy figures are correspondingly optimistic, and the
+gap is one more reason they cannot be quoted as camera performance.
+**Resolves when:** the physical pilot runs, or a synthetic variant is added that
+re-reads the quantised PNG.  Not changed now because it would alter the committed,
+pre-registered result set.
+
+## A-17 The sampling-density gate floor is not the capture target
+`min_rho_px_per_mm = 10.0` in `gate_policy_v1.json` is a pre-registered **hard
+floor** and was deliberately not moved after the experiment.  The *operating target*
+in `P0_PROTOCOL.md` §4 is **>= 16 px/mm**, because the blur gate
+(`max_blur_sigma_mm = 0.06`) binds before the rho gate does with a realistic PSF:
+in the rho sweep every working distance beyond 200 mm abstained on blur, not on rho.
+Both numbers are correct; they answer different questions.  Do not "reconcile" them
+by editing either value.
+
+## A-18 Gate-policy file name versus policy id
+`phase0/config/gate_policy_v1.json` carries `policy_id: "GP-v2"`.  This is
+intentional: the **file path is a stable slot** that tools load, while the
+**`policy_id` tracks the gate-set revision**.  GP-v2 differs from GP-v1 by one
+*added* gate (`max_edge_fit_rms_mm`), introduced after run v1 measured a ragged
+dithered boundary without abstaining; no existing limit was loosened.  Both runs are
+kept (`out/synthetic_v1` = GP-v1, `out/synthetic` = GP-v2).  The file was not renamed
+because `policy_hash` is recorded inside every result and renaming would break the
+reproducibility of the committed set.

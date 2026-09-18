@@ -36,6 +36,22 @@ engineering -- never to move the threshold.
 wider interval, higher abstention).  **No-go** means do not build the Android
 measurement feature and do not put a millimetre claim in any presentation.
 
+## Values that look like criteria but are not
+
+Added by the consistency audit, because these three are commonly misread:
+
+* **`min_rho_px_per_mm = 10.0`** is a pre-registered gate **floor**, not the capture
+  target. The target is `>= 16 px/mm` (`P0_PROTOCOL.md` §4). See `P0_ASSUMPTIONS.md` A-17.
+* **`max_view_tilt_deg = 30.0`** gates *view obliqueness*, which is observable from the
+  homography. It is **not** the local print-plane tilt limit; that is not observable
+  from one view (A-06) and is carried as `residual_tilt_bound_deg = 3.0` in the
+  uncertainty model plus a fixture requirement.
+* **The interval-width gate is disabled** (`max_interval_width_mm = null`) until the
+  uncertainty model is calibrated. It is reported as `evaluated: false`, never as a pass.
+
+`gate_policy_v1.json` deliberately carries `policy_id: "GP-v2"` -- file path is the
+slot, `policy_id` is the revision (A-18).
+
 ## Hard stops
 
 1. C1 fails -> the pipeline maths is wrong; fix before any physical work.

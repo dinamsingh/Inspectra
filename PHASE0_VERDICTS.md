@@ -110,3 +110,25 @@ Legend: **A = PASS** (keep as-is) · **B = NEEDS MODIFICATION** · **C = REMOVE*
 - **D (NEEDS EXPERIMENT):** 2 — intrinsic-calibration necessity (#19), RAW-vs-JPEG effect (#24)
 
 **Interpretation:** V2 ka Phase-0 *philosophy* (co-planar reference, no resampling, uncertainty, abstention, gating) largely correct hai — isliye 24 straight passes. Failures overwhelmingly **estimator, photometric definition, platform reality aur mis-scaled tolerances** mein hain, architecture mein nahi. Ye good news hai: Phase 0 salvageable hai without redesigning the product.
+
+
+---
+
+## AS-BUILT RECONCILIATION (added by the consistency audit)
+
+These verdicts were issued before implementation. Four of them were changed by the
+executed experiment or by what proved implementable. The code and
+`phase0/config/*.json` are authoritative.
+
+| # | Verdict as issued | As built |
+|---|---|---|
+| 16 | `≤0.10 mm` flatness gate → replace with **local tilt ≤5°** + bow δ/Z + LOMO | **Withdrawn in part.** Local print-plane tilt is not observable from a single view (measured — `P0_ASSUMPTIONS.md` A-06). Shipped: `max_view_tilt_deg = 30` (view obliqueness, a different quantity), `max_thickness_over_z = 0.01`, `max_lomo_rel_spread = 0.005`, plus a bounded budget term `residual_tilt_bound_deg = 3.0`. Fixture control, not a gate, carries the residual. |
+| 23 | Add Z ∈ 180–240 mm, **ρ ≥ 12 px/mm**, nominal tilt ≤25° | Capture target raised to **ρ ≥ 16 px/mm** (`P0_PROTOCOL.md` §4) because the blur gate binds first. Gate floor deliberately left at the pre-registered **10.0**. Tilt: measured accurate to 20°, abstains at 30°, detection lost at 40° — protocol uses 0/12/25°. |
+| 32 | Restate as **ρ ≥ 12 px/mm**, stroke ≥4 px, blur σ ≤0.06 mm | Blur gate 0.06 mm shipped as stated. **No stroke-width gate was implemented.** ρ as in #23. |
+| 36 | Uncertainty model `u_burst ⊕ u_scale ⊕ u_geom ⊕ u_photometric ⊕ u_device` | Shipped as `u_random ⊕ u_scale ⊕ u_seg ⊕ u_thickness ⊕ u_ref ⊕ u_tilt ⊕ u_extra ⊕ u_bias_correction`. `u_photometric` and `u_device` are not separate fields; they share the single `u_extra_mm` slot, which is `0.0` in `UM-v1-uncalibrated`. |
+
+Verdicts #19 (is intrinsic calibration necessary?) and #24 (RAW vs JPEG) were classified
+**D — needs experiment**. #19 now has partial evidence: with `k1 = -0.09`, skipping
+undistortion did not silently bias the result, it **tripped the reprojection gate**
+(`E_DISTORT-offaxis / undistort_off` abstained), and an 8.7 % focal-length error moved the
+height by 0.0001 mm (A-08). #24 remains untested — it needs physical captures.
