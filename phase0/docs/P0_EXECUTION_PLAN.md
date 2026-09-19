@@ -70,6 +70,12 @@ Constraint that the assignment must satisfy (frozen): the map must be written do
 committed **before the first capture**, must cover all 5 nominal heights and both shape
 classes (`FLAT_TOP`, `ROUND`), and must not be changed afterwards.
 
+**B3 is now closed and does not decide this.**  `fixtures/physical/coupons/glyph_map.json`
+pre-registers *how* any of the 400 glyph instances is located (`B3_GLYPH_ROI_MAP.md`); it
+covers all 400 deliberately, so that this B5 selection can be made from it without the map
+encoding a preference.  Every B5 selection will be a list of `glyph_key`s that already
+resolve in that map.
+
 ---
 
 ## 2. Ground-truth procedure — partly FROZEN, see BLOCKER B2
@@ -311,6 +317,13 @@ Stress classes (fixed vocabulary): `DEFOCUS`, `MOTION`, `GLARE`, `MARKER_OCCLUDE
 `reference_method`, `angle_deg`, `declared_flat`, `safety_class`, `threshold_mm`,
 `camera_identity_match`, `frame_serial_match`, `frame_not_expired`.
 
+Added by **B3** (`B3_GLYPH_ROI_MAP.md`), all optional to the pipeline and mandatory to
+the ROI validator: `glyph_index`, `registration` (the two measured coupon corners, their
+`u_mm`, and how the origin corner was identified), plus `roi_source` and
+`glyph_map_hash`, which `tools/validate_roi_map.py --fill` writes when it **computes**
+`roi_mm`.  `roi_mm` is never typed by hand; its meaning, units and 4-tuple shape are
+unchanged.
+
 Recorded alongside, in a capture log: working distance, ois_state, lighting, stock,
 conversion command, flatness check result, timestamp, anomalies.
 
@@ -413,7 +426,7 @@ missing.
 |---|---|---|---|
 | **B1** | **CLOSED (STEP 3C).**  `tools/analyse_physical.py` computes P1-P6 from the frozen bands, `analyse_results.py` routes physical datasets to it (the old all-`nan` / misleading `OVERALL: FAIL` behaviour is gone), and **P7 was frozen as reporting/calibration only (Option C)** in `P0_CRITERIA.md` and `P7_DECISION_MEMO.md` §9: it reports observed coverage, its Wilson 95 % CI, `n` and interval width with status `REPORT_ONLY`, and can never emit a pass/fail accuracy verdict.  The accuracy gates are P1-P6.  Tests: 68 total (39 unchanged + 29 physical). | The pilot's accuracy acceptance is now fully computable and pre-registered before any capture | Done.  Residual, stated in the memo: the pilot carries no pass/fail check on interval calibration, so any claim must note the guard band rests on an unvalidated `k = 1.645` until a later calibration stage |
 | **B2** | **PARTLY CLOSED (STEP 4 + 4B) — still NOT CLOSED overall.  Every *human decision* inside B2 that can be made without equipment is now made.**  Closed in STEP 4: the reference procedure (`P0_REFERENCE_PROCEDURE.md`), estimator independence (scanner may reuse the pipeline estimator, microscope may not — R1/R2), the 18-field schema, and `tools/validate_reference_table.py`.  Closed in STEP 4B: **M1** frozen as symmetric transition-band bisection with M3/M4 settled and an operator checklist (§4.2), **S3 = NO** (§3.2), and **R6** observer independence reported.  47 tests.  What P1 does and does not test is stated: P2/P3/P4 are blind to the 0.0054 mm estimator-definitional bias; only P1 tests the ink-boundary definition, and even then it bounds *realisation disagreement*, not correctness.  **Open: B2-1** no scanner reference *value* can be produced — route now fully specified (dpi-derived pure-scale homography, no measurement-code change) but unimplemented, with S4 promoted to the load-bearing scale term; **B2-2** reduced to **M2** (magnification / reading resolution) and **M5** (operator training), both requiring an instrument; **B2-3** microscope / graticule availability unverified, and the graticule is now unconditionally required | P1 gates everything else.  A reference that is undefined, or that shares the pipeline's systematic error, cannot validate it | B2-1: write the scan-measurement path, decide S4/S5/S6.  B2-2: choose M2 once an instrument is identified, then train against M1 (M5).  B2-3: a named, calibrated instrument confirmed on hand.  Scanner image processing was deliberately not guessed |
-| **B3** | **`roi_mm` cannot be determined for a real capture.**  It is a required manifest field expressed in fiducial-plane millimetres, but there is no overlay renderer, no ROI picker, and `panels.json` carries no glyph coordinates | Without it no physical run can be processed at all; guessing it silently measures the wrong region | One of: mechanical registration of coupon to frame plus exported glyph coordinates, or an ROI-selection path.  Decision is the team's; this audit does not choose |
+| **B3** | **CLOSED (STEP 5).**  `roi_mm` is now **computed, never typed**: `fixtures/physical/coupons/glyph_map.json` pre-registers all **400** glyph instances in panel-local millimetres — *derived* from `tools/make_coupons_svg.py` and `p0.render.glyph_bbox_mm`, never authored — and `tools/validate_roi_map.py` turns that plus a two-point caliper registration of the mounting into `roi_mm`, with `--fill` writing it and `roi_source`/`glyph_map_hash` recording where it came from.  The audit's original framing was too kind: the hazard was not a *missing* `roi_mm` but the scaffold's **plausible stub** `[0.0, 0.0, 1.5, 3.2]`, a valid-looking box at the window centre that measured whatever lay there without warning.  That stub is now `null`, is rejected by name, and `run_real_batch.py` exits on it.  The ROI-centre budget `min(0.5·w, 0.225·h)` is derived from `p0/measure.py` and `min_scanline_fraction`, registration uncertainty is propagated to each glyph's lever arm and refused if it does not fit, and a misplaced ROI was measured to **abstain** rather than return a wrong height.  60 tests; no change to `p0/`, `config/` or any threshold | Without it no physical run can be processed at all; guessing it silently measures the wrong region | Done.  Residual, non-blocking: a mechanical jig would make the registration constant instead of per-mounting, and `u_mm` must be genuinely measured on the day — the validator refuses the run if the recorded value does not fit the glyph's budget.  **B3 locates a glyph; B5 still chooses which glyphs** |
 | **B4** | **Mechanical flatness acceptance is not quantified.**  A-06 proves out-of-plane print is undetectable in software, yet `P0_PROTOCOL.md` §1.6 only says "record the flatness you can actually verify", and `residual_tilt_bound_deg = 3.0` has no fixture specification behind it | Every accuracy number inherits uncontrolled out-of-plane bias.  A 20 deg local tilt produced 0.18 mm of error with all gates passing | A numeric flatness / local-tilt acceptance over the measurement window, its verification instrument and method, and the disposition rule on failure |
 | **B5** | **Panel → measured-glyph assignment is not pre-registered.**  Only 20 of 400 glyph instances are camera-measured, and which ones decides whether P2's 3 mm class has data | Choosing after capture is post-hoc selection; choosing badly leaves a criterion uncomputable | A committed map covering all 5 heights and both shape classes, fixed before the first capture |
 | **B6** | **Equipment availability is unverified.**  Needed but not confirmed to exist: 2400 dpi scanner, measuring microscope, certified scale or graticule, calibrated caliper with certificate, two phones with manual camera control (AF/AE/AWB lock, HDR off, OIS off), copy stand, dimensionally stable print stock, flat rigid backing, image conversion tool | The protocol silently assumes all of it.  A missing item changes the design, not just the schedule | The §13 inventory completed with real yes/no answers and substitutes agreed for anything missing |
@@ -501,8 +514,10 @@ ground-truth schema, the **M1** edge criterion and the **S3 = NO** strategy all 
 — **B2 contains no undecided procedure left that equipment-free work could settle.**  But
 **B2 is not closed**: no scanner reference value can be produced (B2-1), M2/M5 need an
 instrument in hand (B2-2), and availability is unverified (B2-3), so a physical run still
-cannot be referenced.  B3 remains hard and untouched: without it a physical run cannot be
-processed at all.  The overall verdict stays NO until B2-B6 are closed.
+cannot be referenced.  **B3 is CLOSED** (STEP 5): `roi_mm` is computed from a committed
+400-glyph map plus a measured panel→fiducial registration, so a physical run can now be
+*located* even though it cannot yet be *referenced*.  The overall verdict stays NO until
+B2 and B4-B6 are closed.
 B4 is the one that would silently corrupt otherwise-valid numbers.
 
 No one-page execution checklist is issued while the verdict is NO.  §1–§11 above are

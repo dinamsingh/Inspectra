@@ -136,7 +136,11 @@ caps/
 ```
 ```
 python3 tools/run_real_batch.py --scaffold caps --out manifests/pilot.json
-#   fill in roi_mm, shape_class, glyph_label, reference_h_mm, reference_method, angle_deg
+#   record panel_id, glyph_label, nominal_h_mm, glyph_index and the per-panel
+#   registration, then COMPUTE roi_mm from the pre-registered glyph map:
+#     python3 tools/validate_roi_map.py --manifest manifests/pilot.json --fill manifests/pilot.json
+#   roi_mm is never typed by hand -- see docs/B3_GLYPH_ROI_MAP.md.
+#   reference_h_mm / reference_method come from the reference table (blocker B2).
 python3 tools/run_real_batch.py --manifest manifests/pilot.json --out out/pilot
 python3 tools/analyse_results.py --in out/pilot
 ```

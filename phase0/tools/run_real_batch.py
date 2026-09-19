@@ -45,8 +45,13 @@ def scaffold(root, out):
             "run_id": "%s-%s-%s-%s" % (panel, device, operator, repeat),
             "panel_id": panel, "device": device, "operator": operator,
             "repeat": repeat, "frames": pngs,
-            "roi_mm": [0.0, 0.0, 1.5, 3.2],
-            "shape_class": "FLAT_TOP", "glyph_label": "TODO",
+            # roi_mm is deliberately null, never a plausible stub: a stub box at
+            # the frame centre would silently measure whatever lies there.  It is
+            # computed from the pre-registered glyph map --
+            # tools/validate_roi_map.py --fill (docs/B3_GLYPH_ROI_MAP.md).
+            "roi_mm": None, "roi_source": "UNSET",
+            "shape_class": None, "glyph_label": None, "nominal_h_mm": None,
+            "glyph_index": 1, "registration": None,
             "threshold_mm": 3.0,
             "reference_h_mm": None, "reference_method": "TODO",
             "declared_flat": True, "angle_deg": None,
@@ -61,8 +66,14 @@ def scaffold(root, out):
            "runs": runs}
     dump_json(out, man)
     print("scaffolded %d runs -> %s" % (len(runs), out))
-    print("fill in roi_mm, shape_class, glyph_label, reference_h_mm, "
-          "reference_method and angle_deg before running")
+    print("next: record panel_id, glyph_label, nominal_h_mm, glyph_index and the "
+          "per-panel registration, then")
+    print("      python3 tools/validate_roi_map.py --manifest %s --fill %s"
+          % (out, out))
+    print("      to COMPUTE roi_mm from the pre-registered glyph map. Do not type "
+          "roi_mm by hand.")
+    print("      reference_h_mm / reference_method come from the reference table "
+          "(blocker B2).")
 
 
 def main():
@@ -101,6 +112,21 @@ def main():
         for k in REQUIRED:
             if k not in r:
                 sys.exit("run %s missing %s" % (r.get("run_id"), k))
+        # B3: roi_mm must be a real, computed ROI.  Refuse placeholders here as
+        # well as in tools/validate_roi_map.py, so the pipeline cannot be driven
+        # with an unset or stub region even if the validator is skipped.
+        roi = r.get("roi_mm")
+        if not (isinstance(roi, (list, tuple)) and len(roi) == 4
+                and all(isinstance(v, (int, float)) and not isinstance(v, bool)
+                        for v in roi)
+                and roi[2] > 0 and roi[3] > 0):
+            sys.exit("run %s: roi_mm must be four positive-sized numbers in "
+                     "fiducial-plane mm; compute it with "
+                     "tools/validate_roi_map.py --fill (see docs/B3_GLYPH_ROI_MAP.md)"
+                     % r.get("run_id"))
+        if str(r.get("glyph_label") or "").strip().upper() in ("", "TODO", "NONE"):
+            sys.exit("run %s: glyph_label must name the pre-registered glyph"
+                     % r.get("run_id"))
         prof = profiles.get(r["device"])
         if prof is None:
             sys.exit("no camera profile for device %s" % r["device"])
