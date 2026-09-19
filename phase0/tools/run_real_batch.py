@@ -54,7 +54,9 @@ def scaffold(root, out):
             "glyph_index": 1, "registration": None,
             "threshold_mm": 3.0,
             "reference_h_mm": None, "reference_method": "TODO",
-            "declared_flat": True, "angle_deg": None,
+            # B4: null, not True.  A default-true flatness declaration is exactly
+            # how an unsurveyed panel would pass the PLANARITY gate (A-06).
+            "declared_flat": None, "flatness_record": None, "angle_deg": None,
             "camera_identity_match": True, "frame_serial_match": True,
             "frame_not_expired": True,
         })
@@ -127,6 +129,14 @@ def main():
         if str(r.get("glyph_label") or "").strip().upper() in ("", "TODO", "NONE"):
             sys.exit("run %s: glyph_label must name the pre-registered glyph"
                      % r.get("run_id"))
+        # B4: the PLANARITY gate trusts `declared_flat`, and A-06 shows no gate can
+        # see local print-plane tilt.  A default of True would let an unsurveyed
+        # panel pass silently, so the flag must be stated and evidenced.
+        if not isinstance(r.get("declared_flat"), bool):
+            sys.exit("run %s: declared_flat must be stated explicitly (true/false) "
+                     "and must come from the panel's flatness record; verify it with "
+                     "tools/validate_flatness.py (see docs/B4_FLATNESS_CONTROL.md)"
+                     % r.get("run_id"))
         prof = profiles.get(r["device"])
         if prof is None:
             sys.exit("no camera profile for device %s" % r["device"])
@@ -143,7 +153,7 @@ def main():
                "camera_identity_match": r.get("camera_identity_match", True),
                "frame_serial_match": r.get("frame_serial_match", True),
                "frame_not_expired": r.get("frame_not_expired", True),
-               "declared_flat": r.get("declared_flat", True),
+               "declared_flat": r["declared_flat"],
                "operator": r.get("operator"), "panel_id": r.get("panel_id"),
                "angle_deg": r.get("angle_deg"),
                "reference_method": r.get("reference_method")}

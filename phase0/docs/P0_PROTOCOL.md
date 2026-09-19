@@ -48,6 +48,11 @@ phone is used only as a camera.
 6. Record the flatness you can actually verify over the window (feeler / straight
    edge).  A caliper survey does **not** characterise out-of-plane form; see
    `docs/P0_ASSUMPTIONS.md` A-06.
+   The acceptance is now numeric and machine-checked (`docs/B4_FLATNESS_CONTROL.md`):
+   local print-plane tilt <= 3.0 deg, i.e. a straightedge gap <= 0.655 mm over the
+   50 mm window span and <= 0.262 mm over the 20 mm span, measured *after* clamping,
+   plus the frame flush rock/gap check.  Record it per panel and verify with
+   `python3 tools/validate_flatness.py --register reference/flatness_register.json`.
 
 **Why a caliper is enough:** a 0.02 mm survey uncertainty over a ~100 mm baseline
 is a 0.02 percent scale error, i.e. 0.0006 mm on a 3 mm glyph -- about 250 times
