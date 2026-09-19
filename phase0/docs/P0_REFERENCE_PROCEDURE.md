@@ -543,6 +543,13 @@ traceability (§10).
 **Dependency, not owned by B2:** the concrete cross-check subset (§8) needs the B5
 panel→glyph assignment.
 
+**Pre-capture gate (STEP 4C):** `B2_SETUP_VERIFICATION.md` turns B2-1/B2-2/B2-3 into a
+lab-visit checklist and a machine-checkable gate,
+`python3 tools/verify_b2_setup.py --evidence reference/b2_setup.json` →
+`B2_SETUP_VERIFIED = YES | NO`. A blank or placeholder answer, a missing calibration
+record, or an unresolved decision all produce `NO`. It verifies *setup*, not measurements,
+and it does not close any blocker by itself.
+
 ---
 
 ## 12. What was implemented

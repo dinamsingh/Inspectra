@@ -429,6 +429,12 @@ determinism (verified in the step-1 audit).
 
 Nothing here is assumed to exist.  Fill in the right-hand column with a real answer.
 
+**Before a lab visit**, the per-item verification checklist and the machine-checkable
+pre-capture gate are in `B2_SETUP_VERIFICATION.md`
+(`tools/verify_b2_setup.py` → `B2_SETUP_VERIFIED = YES | NO`; 58 mandatory checks, and a
+blank, a placeholder or an unresolved decision all produce `NO`).  It covers the reference
+tier only — it does **not** verify B3-B6.
+
 **For the reference (B2) subset of this inventory only**, see
 `B2_MINIMUM_SETUP.md`: it reduces B2 to scanner + certified length standard +
 microscope (plus printed coupons), assigns ACCEPTABLE / CONDITIONALLY ACCEPTABLE /

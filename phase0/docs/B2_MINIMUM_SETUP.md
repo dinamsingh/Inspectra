@@ -380,6 +380,9 @@ MICROSCOPE PATH  (P1 only — without it, no accuracy claim is permitted)
     produced and has not seen the scanner values for those glyphs
 
 RECORDING AND GATING
+[ ] reference/b2_setup.json filled in; python3 tools/verify_b2_setup.py --evidence ...
+    ->  B2_SETUP_VERIFIED = YES   (the per-item lab checklist is in
+        B2_SETUP_VERIFICATION.md §5; blanks and placeholders read as NO)
 [ ] reference_table.csv filled to the 18-field schema (P0_REFERENCE_PROCEDURE.md §6)
 [ ] python3 tools/validate_reference_table.py --table ... --agreement  ->  ACCEPTED
 [ ] P1 computed from the reference table ALONE, before any phone data exists
