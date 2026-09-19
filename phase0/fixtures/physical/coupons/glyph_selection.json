@@ -1,0 +1,290 @@
+{
+  "allocation_rule": "f=(i-1) mod 4; p=(i-1) div 4; c=(p+f) mod 5; nominal_h=HEIGHTS[c]; shape=SHAPES[(f+c) mod 4]",
+  "balance": {
+    "by_font": {
+      "DejaVu Sans": 5,
+      "DejaVu Sans Mono": 5,
+      "DejaVu Serif": 5,
+      "Helvetica": 5
+    },
+    "by_glyph_shape": {
+      "BAR_I": 5,
+      "H": 5,
+      "RING_O": 5,
+      "T": 5
+    },
+    "by_nominal_h_mm": {
+      "1.2": 4,
+      "2.0": 4,
+      "3.0": 4,
+      "4.0": 4,
+      "6.0": 4
+    },
+    "by_shape_class": {
+      "FLAT_TOP": 15,
+      "ROUND": 5
+    },
+    "distinct_font_height_pairs": 20,
+    "distinct_height_shape_pairs": 20
+  },
+  "derived_from": [
+    "tools/make_coupons_svg.py",
+    "fixtures/physical/coupons/panels.json",
+    "p0/render.py:glyph_shape_class"
+  ],
+  "glyph_map_hash": "db548c1f1c9441a9abc89154eb00f7e5549aece39c0a2929875025fe55d5f935",
+  "glyphs": [
+    {
+      "font": "DejaVu Sans",
+      "glyph_index": 1,
+      "glyph_key": "P01:BAR_I:1.20:1",
+      "glyph_shape": "BAR_I",
+      "nominal_h_mm": 1.2,
+      "panel_id": "P01",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 1
+    },
+    {
+      "font": "DejaVu Serif",
+      "glyph_index": 1,
+      "glyph_key": "P02:T:2.00:1",
+      "glyph_shape": "T",
+      "nominal_h_mm": 2.0,
+      "panel_id": "P02",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 1
+    },
+    {
+      "font": "DejaVu Sans Mono",
+      "glyph_index": 1,
+      "glyph_key": "P03:BAR_I:3.00:1",
+      "glyph_shape": "BAR_I",
+      "nominal_h_mm": 3.0,
+      "panel_id": "P03",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 1
+    },
+    {
+      "font": "Helvetica",
+      "glyph_index": 1,
+      "glyph_key": "P04:T:4.00:1",
+      "glyph_shape": "T",
+      "nominal_h_mm": 4.0,
+      "panel_id": "P04",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 1
+    },
+    {
+      "font": "DejaVu Sans",
+      "glyph_index": 1,
+      "glyph_key": "P05:H:2.00:1",
+      "glyph_shape": "H",
+      "nominal_h_mm": 2.0,
+      "panel_id": "P05",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 2
+    },
+    {
+      "font": "DejaVu Serif",
+      "glyph_index": 1,
+      "glyph_key": "P06:RING_O:3.00:1",
+      "glyph_shape": "RING_O",
+      "nominal_h_mm": 3.0,
+      "panel_id": "P06",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "ROUND",
+      "sheet": 2
+    },
+    {
+      "font": "DejaVu Sans Mono",
+      "glyph_index": 1,
+      "glyph_key": "P07:H:4.00:1",
+      "glyph_shape": "H",
+      "nominal_h_mm": 4.0,
+      "panel_id": "P07",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 2
+    },
+    {
+      "font": "Helvetica",
+      "glyph_index": 1,
+      "glyph_key": "P08:RING_O:6.00:1",
+      "glyph_shape": "RING_O",
+      "nominal_h_mm": 6.0,
+      "panel_id": "P08",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "ROUND",
+      "sheet": 2
+    },
+    {
+      "font": "DejaVu Sans",
+      "glyph_index": 1,
+      "glyph_key": "P09:T:3.00:1",
+      "glyph_shape": "T",
+      "nominal_h_mm": 3.0,
+      "panel_id": "P09",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 3
+    },
+    {
+      "font": "DejaVu Serif",
+      "glyph_index": 1,
+      "glyph_key": "P10:BAR_I:4.00:1",
+      "glyph_shape": "BAR_I",
+      "nominal_h_mm": 4.0,
+      "panel_id": "P10",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 3
+    },
+    {
+      "font": "DejaVu Sans Mono",
+      "glyph_index": 1,
+      "glyph_key": "P11:T:6.00:1",
+      "glyph_shape": "T",
+      "nominal_h_mm": 6.0,
+      "panel_id": "P11",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 3
+    },
+    {
+      "font": "Helvetica",
+      "glyph_index": 1,
+      "glyph_key": "P12:RING_O:1.20:1",
+      "glyph_shape": "RING_O",
+      "nominal_h_mm": 1.2,
+      "panel_id": "P12",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "ROUND",
+      "sheet": 3
+    },
+    {
+      "font": "DejaVu Sans",
+      "glyph_index": 1,
+      "glyph_key": "P13:RING_O:4.00:1",
+      "glyph_shape": "RING_O",
+      "nominal_h_mm": 4.0,
+      "panel_id": "P13",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "ROUND",
+      "sheet": 4
+    },
+    {
+      "font": "DejaVu Serif",
+      "glyph_index": 1,
+      "glyph_key": "P14:H:6.00:1",
+      "glyph_shape": "H",
+      "nominal_h_mm": 6.0,
+      "panel_id": "P14",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 4
+    },
+    {
+      "font": "DejaVu Sans Mono",
+      "glyph_index": 1,
+      "glyph_key": "P15:T:1.20:1",
+      "glyph_shape": "T",
+      "nominal_h_mm": 1.2,
+      "panel_id": "P15",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 4
+    },
+    {
+      "font": "Helvetica",
+      "glyph_index": 1,
+      "glyph_key": "P16:BAR_I:2.00:1",
+      "glyph_shape": "BAR_I",
+      "nominal_h_mm": 2.0,
+      "panel_id": "P16",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 4
+    },
+    {
+      "font": "DejaVu Sans",
+      "glyph_index": 1,
+      "glyph_key": "P17:BAR_I:6.00:1",
+      "glyph_shape": "BAR_I",
+      "nominal_h_mm": 6.0,
+      "panel_id": "P17",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 5
+    },
+    {
+      "font": "DejaVu Serif",
+      "glyph_index": 1,
+      "glyph_key": "P18:H:1.20:1",
+      "glyph_shape": "H",
+      "nominal_h_mm": 1.2,
+      "panel_id": "P18",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 5
+    },
+    {
+      "font": "DejaVu Sans Mono",
+      "glyph_index": 1,
+      "glyph_key": "P19:RING_O:2.00:1",
+      "glyph_shape": "RING_O",
+      "nominal_h_mm": 2.0,
+      "panel_id": "P19",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "ROUND",
+      "sheet": 5
+    },
+    {
+      "font": "Helvetica",
+      "glyph_index": 1,
+      "glyph_key": "P20:H:3.00:1",
+      "glyph_shape": "H",
+      "nominal_h_mm": 3.0,
+      "panel_id": "P20",
+      "role": "NOMINAL_MEASURED",
+      "shape_class": "FLAT_TOP",
+      "sheet": 5
+    }
+  ],
+  "n_panels": 20,
+  "note": "Pre-registered panel -> measured-glyph assignment.  One glyph per panel (A-14), committed before the first capture and never changed afterwards (P0_EXECUTION_PLAN.md §1.6).",
+  "p1_cross_check_subset": {
+    "glyph_keys": [
+      "P01:BAR_I:1.20:1",
+      "P02:T:2.00:1",
+      "P03:BAR_I:3.00:1",
+      "P04:T:4.00:1",
+      "P05:H:2.00:1",
+      "P06:RING_O:3.00:1",
+      "P07:H:4.00:1",
+      "P08:RING_O:6.00:1",
+      "P09:T:3.00:1",
+      "P10:BAR_I:4.00:1",
+      "P11:T:6.00:1",
+      "P12:RING_O:1.20:1",
+      "P13:RING_O:4.00:1",
+      "P14:H:6.00:1",
+      "P15:T:1.20:1",
+      "P16:BAR_I:2.00:1",
+      "P17:BAR_I:6.00:1",
+      "P18:H:1.20:1",
+      "P19:RING_O:2.00:1",
+      "P20:H:3.00:1"
+    ],
+    "minimum_required": 15,
+    "n": 20,
+    "rationale": "P1 must bound the reference values that P2/P3/P4 actually consume, so the cross-check subset is exactly the camera-measured glyphs. 20 >= 15, and it spans all 5 heights, all 4 shapes, both shape classes and all 4 fonts by construction (docs/B5_GLYPH_SELECTION.md §4)."
+  },
+  "prohibition": "nominal_h_mm is a print instruction only and may never be used as a reference value (P0_EXECUTION_PLAN.md §2.2). Choosing or changing this assignment after seeing any measured value is post-hoc selection.",
+  "schema_version": "GLYPH_SELECTION-1",
+  "selection_hash": "1a1b1dabea1421f2e6fc06570433b6ece5eddb3fa4d998d7eac372bf9229388d"
+}

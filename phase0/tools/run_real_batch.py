@@ -109,8 +109,33 @@ def main():
         if extra not in CSV_COLUMNS:
             CSV_COLUMNS.append(extra)
 
+    # B5: the pre-registered panel -> measured-glyph assignment.  Loaded here as well
+    # as in tools/validate_selection.py so the pipeline cannot be driven onto an
+    # unselected glyph even if the validator is skipped.
+    sel_path = os.path.join(ROOT, "fixtures", "physical", "coupons",
+                            "glyph_selection.json")
+    selected = {}
+    if os.path.exists(sel_path):
+        sel = load_json(sel_path)
+        if man.get("selection_hash") != sel.get("selection_hash"):
+            sys.exit("manifest does not record the committed selection_hash (%s); "
+                     "see docs/B5_GLYPH_SELECTION.md"
+                     % str(sel.get("selection_hash"))[:16])
+        selected = {g["panel_id"]: g for g in sel.get("glyphs") or []}
+
     rows = []
     for r in man["runs"]:
+        if selected and (r.get("safety_class") or "SAFE") == "SAFE":
+            want = selected.get(r.get("panel_id"))
+            if want is None:
+                sys.exit("run %s: panel %s has no pre-registered glyph (B5)"
+                         % (r.get("run_id"), r.get("panel_id")))
+            if (r.get("glyph_label") != want["glyph_shape"]
+                    or r.get("nominal_h_mm") != want["nominal_h_mm"]):
+                sys.exit("run %s: panel %s is pre-registered for %s, not %s/%s; the "
+                         "assignment was fixed before capture (B5)"
+                         % (r.get("run_id"), r.get("panel_id"), want["glyph_key"],
+                            r.get("glyph_label"), r.get("nominal_h_mm")))
         for k in REQUIRED:
             if k not in r:
                 sys.exit("run %s missing %s" % (r.get("run_id"), k))

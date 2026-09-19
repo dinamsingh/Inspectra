@@ -462,16 +462,24 @@ pairing or the statistic. The reference table is committed before capture
 * **Independence, documented:** selection is pre-registered and may never be decided
   after seeing camera data (`P0_PROTOCOL.md` §3, `P0_EXECUTION_PLAN.md` §6.3).
 
-**UNRESOLVED — which specific glyphs.** The repository does not list them, and the choice
-is entangled with the panel→measured-glyph assignment that is still open as **B5**
-(`P0_EXECUTION_PLAN.md` §1.6). Two further sub-decisions are also unstated and are **not**
-made here:
+**RESOLVED (STEP 7, by B5).** Both sub-decisions left open here are now decided in
+`B5_GLYPH_SELECTION.md` §4, and the concrete glyph list is committed in
+`fixtures/physical/coupons/glyph_selection.json`:
 
-1. whether the cross-check subset must *include* the 20 camera-measured glyphs — which is
-   what would let P1 bound the reference actually used by P2/P3/P4;
-2. how the subset is distributed across the 4 fonts, 4 shapes and 5 heights.
+1. **Does the subset include the 20 camera-measured glyphs? It *is* them.** P1 exists to
+   bound the reference values that P2/P3/P4 actually consume, so a subset drawn from
+   elsewhere would bound the wrong quantity. 20 ≥ the criterion's 15, so the measured
+   glyphs satisfy the minimum on their own. Leaving one out is an error
+   (`MEASURED_GLYPH_NOT_CROSS_CHECKED`); cross-checking *extra* glyphs is allowed and only
+   raises a `WARN` noting that the extras bound nothing P2/P3/P4 uses.
+2. **Distribution:** inherited from the B5 allocation — all 5 heights (4 panels each), all
+   4 shapes (5 each), both shape classes, all 4 fonts (5 each), with all 20
+   (height, shape) pairs distinct.
 
-Choosing any of this now would be a post-hoc selection dressed as a plan.
+This is not a post-hoc selection: the assignment is a closed-form function of
+`panels.json` and the panel index, committed before any capture exists, re-derived by
+`tools/make_glyph_selection.py --check`, and enforced through the manifest's
+`selection_hash`.  Producing the reference *values* for those glyphs remains **B2**.
 
 ---
 

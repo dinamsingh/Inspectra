@@ -341,7 +341,7 @@ progress today, and §9 argues they *must* progress before any instrument is tou
 | C6 | Reference population: all 400 glyphs or a **pre-declared** reduction | **open** — must be fixed before capture (`P0_PROTOCOL.md` §3 step 3) |
 | C7 | ~~Reconciling §3 step 1's graticule sentence~~ | **dissolved by C4.** S3 = NO leaves `P0_PROTOCOL.md` §3 step 1 exactly as frozen |
 | C8 | **D1** — per-glyph `DISAGREED` threshold, and what follows | **open** — only the aggregate 0.06 mm rule exists today. M1 does not close it |
-| C9 | Cross-check subset: which ≥ 15 glyphs, and whether it includes the 20 camera-measured ones | **open** — entangled with **B5**; must not be chosen after seeing camera data |
+| C9 | Cross-check subset: which ≥ 15 glyphs, and whether it includes the 20 camera-measured ones | **CLOSED (STEP 7, by B5).** The subset **is** the 20 camera-measured glyphs — 20 ≥ 15, spanning all 5 heights, 4 shapes, both classes and 4 fonts — because P1 must bound the references P2/P3/P4 consume.  Committed in `glyph_selection.json`; see `B5_GLYPH_SELECTION.md` §4.  Producing the reference *values* is still B2 |
 | C10 | Operator independence / blinding roster (§8) | **formalised as rule R6 (STEP 4B)** and reported by the validator as a `WARN` when both methods share an operator; the roster itself is still yours to set |
 | C11 | **S4 — platen non-uniformity correction rule** | **open, and promoted** by C4: with scale now coming from the platen, this is the load-bearing scanner scale term |
 
