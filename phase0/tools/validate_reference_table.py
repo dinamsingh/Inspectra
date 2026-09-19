@@ -3,7 +3,7 @@
 
 Scope: this tool validates and reports on **manually recorded reference
 measurements**.  It deliberately does **not** measure a scan or a microscope image -- see
-`docs/P0_REFERENCE_PROCEDURE.md` §3.5 for why that remains an open B2 item.
+`docs/P0_REFERENCE_PROCEDURE.md` §11 (blocker B2-1) for why that remains an open B2 item.
 
 What it enforces
 ----------------
@@ -12,6 +12,9 @@ What it enforces
 * the **independence rule**: a cross-check pair may not consist solely of rows produced
   by the pipeline estimator, and a `MICROSCOPE` row may never declare it.  Without this,
   estimator-definitional bias is common mode and cancels inside P1 (§5);
+* **M1 auditability**: a `MICROSCOPE` row's `raw_readings` must re-derive its own
+  `reference_h_mm` through the frozen transition-band bisection (§4.1), and the
+  cross-check operator should differ from the scanner operator (rule R6);
 * duplicate / superseded row detection (rows are append-only, latest timestamp wins);
 * the frozen prohibition on using the nominal artwork height as a reference value;
 * provenance linkage to a run manifest, when one is supplied.
@@ -56,6 +59,42 @@ PIPELINE_PROCEDURES = ("PIPELINE_ESTIMATOR_ON_SCAN",)
 CROSS_CHECK_STATUS = ("PENDING", "AGREED", "DISAGREED", "UNUSABLE")
 REQUIRE_NOTES_WHEN = ("DISAGREED", "UNUSABLE")
 UNIT = "mm"
+
+# --- M1 (microscope edge criterion, docs/P0_REFERENCE_PROCEDURE.md §4) ------
+# A compliant MICROSCOPE row records, per re-setting, the four stage readings of
+# the transition-band bisection: outer/inner at the bottom edge, then inner/outer
+# at the top edge, as `Obot/Ibot/Itop/Otop`, repeats separated by `;`.
+M1_READING_SEP = ";"
+M1_FIELD_SEP = "/"
+M1_FIELDS_PER_REPEAT = 4
+# Minimum re-settings at which a Type-A standard deviation exists at all.  This is
+# a statistical floor, NOT an accuracy requirement, so falling short is a WARN.
+M1_MIN_REPEATS = 3
+# Transcription / rounding tolerance when re-deriving reference_h_mm from the raw
+# readings.  This is a bookkeeping tolerance, NOT a measurement threshold: the
+# table is written with six decimal places.
+RAW_READING_TOL_MM = 1e-5
+
+
+def parse_m1_readings(text):
+    """Parse `Obot/Ibot/Itop/Otop;...` into per-repeat bisected heights.
+
+    Returns (heights, mean) or raises ValueError.  The bottom boundary estimate is
+    the midpoint of its transition band and likewise the top; the height is their
+    separation (docs/P0_REFERENCE_PROCEDURE.md §4.1).
+    """
+    chunks = [c.strip() for c in str(text).split(M1_READING_SEP) if c.strip()]
+    if not chunks:
+        raise ValueError("no readings")
+    heights = []
+    for c in chunks:
+        parts = [p.strip() for p in c.split(M1_FIELD_SEP)]
+        if len(parts) != M1_FIELDS_PER_REPEAT:
+            raise ValueError("repeat %r does not have %d fields"
+                             % (c, M1_FIELDS_PER_REPEAT))
+        o_bot, i_bot, i_top, o_top = (float(p) for p in parts)
+        heights.append((i_top + o_top) / 2.0 - (o_bot + i_bot) / 2.0)
+    return heights, sum(heights) / len(heights)
 
 ERROR, WARN, INFO = "ERROR", "WARN", "INFO"
 
@@ -178,6 +217,38 @@ def validate(rows, manifest=None):
                 "a MICROSCOPE row may not declare measurement_procedure=%s; the "
                 "cross-check exists to be independent of the pipeline estimator" % proc, i)
 
+        # --- M1 auditability (docs/P0_REFERENCE_PROCEDURE.md §4) ------------
+        raw = str(r.get("raw_readings") or "").strip()
+        n_rep = r.get("n_repeats")
+        if r.get("method") == "MICROSCOPE":
+            if not raw:
+                add(WARN, "MICROSCOPE_WITHOUT_RAW_READINGS",
+                    "raw_readings is empty; the M1 transition-band bisection cannot "
+                    "be re-derived, so this reading is not auditable", i)
+            if isinstance(n_rep, float) and n_rep < M1_MIN_REPEATS:
+                add(WARN, "MICROSCOPE_REPEATS_BELOW_M1",
+                    "n_repeats=%g is below the M1 floor of %d independent "
+                    "re-settings, so no Type-A uncertainty can be derived"
+                    % (n_rep, M1_MIN_REPEATS), i)
+        if raw:
+            try:
+                heights, mean_h = parse_m1_readings(raw)
+            except ValueError as exc:
+                add(WARN, "RAW_READINGS_UNPARSEABLE",
+                    "raw_readings is not in the M1 form "
+                    "'Obot/Ibot/Itop/Otop;...' (%s); the reading cannot be "
+                    "re-derived" % exc, i)
+            else:
+                if isinstance(n_rep, float) and int(n_rep) != len(heights):
+                    add(ERROR, "N_REPEATS_MISMATCH",
+                        "n_repeats=%g but raw_readings contains %d repeats"
+                        % (n_rep, len(heights)), i)
+                if isinstance(v, float) and abs(mean_h - v) > RAW_READING_TOL_MM:
+                    add(ERROR, "RAW_READINGS_INCONSISTENT",
+                        "the mean of the bisected raw readings is %.6f mm but "
+                        "reference_h_mm=%.6f mm; the recorded value does not follow "
+                        "from the recorded readings" % (mean_h, v), i)
+
         # --- duplicates / supersession -------------------------------------
         exact = (glyph_key(r), r.get("method"), r.get("measured_at"))
         if exact in seen_exact:
@@ -219,6 +290,19 @@ def validate(rows, manifest=None):
                 "(%s); estimator-definitional bias would be common mode and cancel, "
                 "so this pair cannot support P1" % (canonical_glyph_id(*key),
                                                     sorted(procs)))
+        # observer independence (rule R6): P0_EXECUTION_PLAN.md §8 states this as a
+        # SHOULD, so a shared operator is reported, not rejected.
+        ops = {}
+        for m in METHODS:
+            ops[m] = {str(r.get("operator") or "").strip()
+                      for _i, r in by_key_method.get((key, m), [])}
+        shared = sorted(ops[METHODS[0]] & ops[METHODS[1]])
+        if shared:
+            add(WARN, "SAME_OPERATOR_BOTH_METHODS",
+                "glyph %s has operator(s) %s on both methods; the cross-check "
+                "operator should not be the person who produced the scanner value "
+                "for that glyph (rule R6)"
+                % (canonical_glyph_id(*key), shared))
 
     summary = {
         "rows": len(rows),

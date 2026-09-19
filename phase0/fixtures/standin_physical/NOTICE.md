@@ -32,8 +32,15 @@ fall.  It targets a *mixture* of statuses so every analyser branch is covered â€
 | `WITHIN_CELL_SD_MM` | 0.090 | spread across the three angle repeats |
 | `U_C_MM`, `K` | 0.050, 1.645 | reported interval, k matching `uncertainty_model_v1.json` |
 | `REFERENCE_DIFF_MM` | 0.018 | scanner-vs-microscope disagreement scale for P1 |
+| `M1_REPEATS` | 3 | microscope re-settings, matching the M1 floor |
+| `M1_BAND_MM` | 0.030 | a made-up apparent transition-band width, so the M1 `Obot/Ibot/Itop/Otop` form has something to carry |
+| `M1_SPREAD_MM` | 0.017320 | symmetric repeat offset (`0.01*sqrt(3)`), chosen so the repeat mean is **exactly** `reference_h_mm` and `s/sqrt(n)` is exactly the recorded 0.010 mm â€” P1 is therefore unaffected by the M1 fields |
 | abstained nominal runs | 1 of 24 | keeps an abstention in the P5 denominator |
 | stress runs measured | 1 of 8 | makes P6 land outside its Go band |
+
+The microscope rows exist to exercise `validate_reference_table.py`'s M1 auditability
+branch.  **No crosshair was ever set**; the readings are constructed backwards from the
+synthetic `reference_h_mm`.
 
 Randomness is the repository's deterministic `Rng` seeded from the run id, so
 regenerating reproduces the files byte for byte.

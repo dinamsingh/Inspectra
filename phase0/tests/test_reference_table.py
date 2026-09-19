@@ -315,5 +315,120 @@ class TestDeterminismAndStandin(unittest.TestCase):
             shutil.rmtree(tmp)
 
 
+def m1_raw(h_mm, band=0.030, spread=0.017320, repeats=(-1, 0, 1)):
+    """Build `Obot/Ibot/Itop/Otop` readings whose bisected mean is exactly h_mm."""
+    half = band / 2.0
+    out = []
+    for k in repeats:
+        h = h_mm + k * spread
+        out.append("%.6f/%.6f/%.6f/%.6f" % (-half, +half, h - half, h + half))
+    return ";".join(out)
+
+
+def m1_row(value=3.052, **over):
+    row = dict(method="MICROSCOPE", value=value, operator="OP2",
+               n_repeats=3, raw_readings=m1_raw(value))
+    row.update(over)
+    return ref_row(**row)
+
+
+class TestM1Auditability(unittest.TestCase):
+    """M1 = the frozen microscope transition-band bisection (§4.1).
+
+    These tests check that a recorded microscope value can be re-derived from its own
+    raw readings.  They assert nothing about physical accuracy.
+    """
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def _validate(self, rows):
+        p = write_table(os.path.join(self.tmp, "reference_table.csv"), rows)
+        return vrt.validate(vrt.load_table(p), None)
+
+    # --- the bisection rule itself ------------------------------------------
+    def test_bisection_is_the_midpoint_of_each_transition_band(self):
+        heights, mean = vrt.parse_m1_readings("-0.015/0.015/2.985/3.015")
+        self.assertEqual(len(heights), 1)
+        self.assertAlmostEqual(heights[0], 3.0, places=9)
+        self.assertAlmostEqual(mean, 3.0, places=9)
+
+    def test_bisection_is_invariant_to_the_band_width(self):
+        """The whole point of M1: a symmetric band gives the same height."""
+        narrow = vrt.parse_m1_readings(m1_raw(3.0, band=0.004, repeats=(0,)))[1]
+        wide = vrt.parse_m1_readings(m1_raw(3.0, band=0.120, repeats=(0,)))[1]
+        self.assertAlmostEqual(narrow, wide, places=9)
+        self.assertAlmostEqual(wide, 3.0, places=9)
+
+    def test_symmetric_repeats_average_to_the_recorded_value(self):
+        _h, mean = vrt.parse_m1_readings(m1_raw(2.028))
+        self.assertAlmostEqual(mean, 2.028, places=9)
+
+    def test_unparseable_readings_raise(self):
+        for bad in ("", "  ", "1/2/3", "a/b/c/d", "1/2/3/4/5"):
+            with self.assertRaises(ValueError):
+                vrt.parse_m1_readings(bad)
+
+    # --- validator behaviour ------------------------------------------------
+    def test_compliant_microscope_row_is_clean(self):
+        issues, _s = self._validate([ref_row(), m1_row()])
+        self.assertEqual(codes(issues, "ERROR"), [])
+        self.assertEqual(codes(issues, "WARN"), [])
+
+    def test_missing_raw_readings_warns_but_does_not_reject(self):
+        issues, _s = self._validate([ref_row(), m1_row(raw_readings="")])
+        self.assertIn("MICROSCOPE_WITHOUT_RAW_READINGS", codes(issues, "WARN"))
+        self.assertEqual(codes(issues, "ERROR"), [])
+
+    def test_too_few_repeats_warns(self):
+        issues, _s = self._validate(
+            [ref_row(), m1_row(n_repeats=1, raw_readings=m1_raw(3.052, repeats=(0,)))])
+        self.assertIn("MICROSCOPE_REPEATS_BELOW_M1", codes(issues, "WARN"))
+        self.assertEqual(codes(issues, "ERROR"), [])
+
+    def test_unparseable_raw_readings_warn(self):
+        issues, _s = self._validate([ref_row(), m1_row(raw_readings="3.05,3.06")])
+        self.assertIn("RAW_READINGS_UNPARSEABLE", codes(issues, "WARN"))
+
+    def test_readings_that_do_not_reproduce_the_value_are_an_error(self):
+        issues, _s = self._validate([ref_row(), m1_row(raw_readings=m1_raw(3.200))])
+        self.assertIn("RAW_READINGS_INCONSISTENT", codes(issues, "ERROR"))
+
+    def test_rounding_scale_disagreement_is_tolerated(self):
+        issues, _s = self._validate(
+            [ref_row(), m1_row(raw_readings=m1_raw(3.052 + 2e-6))])
+        self.assertNotIn("RAW_READINGS_INCONSISTENT", codes(issues, "ERROR"))
+
+    def test_n_repeats_must_match_the_readings(self):
+        issues, _s = self._validate([ref_row(), m1_row(n_repeats=5)])
+        self.assertIn("N_REPEATS_MISMATCH", codes(issues, "ERROR"))
+
+    def test_m1_checks_do_not_apply_to_scanner_rows(self):
+        issues, _s = self._validate([ref_row(n_repeats=1, raw_readings=""), m1_row()])
+        self.assertNotIn("MICROSCOPE_WITHOUT_RAW_READINGS", codes(issues, "WARN"))
+        self.assertNotIn("MICROSCOPE_REPEATS_BELOW_M1", codes(issues, "WARN"))
+
+    # --- observer independence (rule R6) ------------------------------------
+    def test_shared_operator_across_methods_warns(self):
+        issues, _s = self._validate([ref_row(operator="OP1"),
+                                     m1_row(operator="OP1")])
+        self.assertIn("SAME_OPERATOR_BOTH_METHODS", codes(issues, "WARN"))
+        self.assertEqual(codes(issues, "ERROR"), [])
+
+    def test_distinct_operators_do_not_warn(self):
+        issues, _s = self._validate([ref_row(operator="OP1"),
+                                     m1_row(operator="OP2")])
+        self.assertNotIn("SAME_OPERATOR_BOTH_METHODS", codes(issues, "WARN"))
+
+    def test_standin_microscope_rows_are_m1_compliant(self):
+        issues, summary = vrt.validate(vrt.load_table(STANDIN_TABLE), None)
+        self.assertEqual(codes(issues, "ERROR"), [])
+        self.assertEqual(codes(issues, "WARN"), [])
+        self.assertEqual(summary["rows_by_method"]["MICROSCOPE"], 16)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

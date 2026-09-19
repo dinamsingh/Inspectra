@@ -32,6 +32,24 @@ U_C_MM = 0.050                    # reported combined uncertainty per run
 K = 1.645                         # matches config/uncertainty_model_v1.json
 REFERENCE_DIFF_MM = 0.018         # scanner vs microscope disagreement scale
 
+# ---- M1 stand-in crosshair readings (arbitrary; see NOTICE.md) -------------
+# The microscope rows carry raw readings in the frozen M1 form so the validator's
+# auditability check has something to exercise.  The spread is symmetric, so the
+# mean of the repeats is exactly reference_h_mm and P1 is unaffected.
+M1_REPEATS = 3
+M1_BAND_MM = 0.030                # apparent transition-band width, both edges
+M1_SPREAD_MM = 0.017320           # +/- offset of the outer repeats; 0.01*sqrt(3)
+
+
+def m1_raw_readings(h_mm):
+    """`Obot/Ibot/Itop/Otop` per re-setting, bottom boundary placed at stage 0."""
+    out = []
+    half = M1_BAND_MM / 2.0
+    for d in (-M1_SPREAD_MM, 0.0, +M1_SPREAD_MM):
+        h = h_mm + d
+        out.append("%.6f/%.6f/%.6f/%.6f" % (-half, +half, h - half, h + half))
+    return ";".join(out)
+
 PANELS = [
     {"panel_id": "P01", "glyph_label": "BAR_I", "shape_class": "FLAT_TOP",
      "nominal_h_mm": 3.0, "reference_h_mm": 3.041},
@@ -180,7 +198,8 @@ def build():
                         "instrument_cal_ref": "STANDIN-NO-CERTIFICATE",
                         "operator": "OP1" if scanner else "OP2",
                         "measured_at": "2026-01-01T00:00:00Z",
-                        "n_repeats": 1, "raw_readings": "",
+                        "n_repeats": 1 if scanner else M1_REPEATS,
+                        "raw_readings": "" if scanner else m1_raw_readings(val),
                         "cross_check_status": "PENDING",
                         "notes": "STAND-IN, NOT PHYSICAL EVIDENCE"})
                 n += 1

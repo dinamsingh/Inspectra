@@ -15,6 +15,12 @@ state is marked UNRESOLVED.
 
 **Verdict: `B2_READY_TO_EXECUTE = NO`** (§10).
 
+**STEP 4B update:** the two human decisions this document identified as the cheapest
+progress available are now closed — **M1** is frozen (`P0_REFERENCE_PROCEDURE.md` §4.2.3)
+and **S3 = NO** (§3.2 there, §5.2 here). §5.2's earlier recommendation of the S3 route is
+**withdrawn**, with the reasoning kept visible rather than deleted. The equipment position
+is unchanged.
+
 ---
 
 ## 0. A correction that must come first: the products are not the sample
@@ -53,11 +59,11 @@ scope, not about whether you eventually need them.
 | **Printed coupons** on dimensionally stable stock | `tools/make_coupons_svg.py`, 20 panels (`P0_PROTOCOL.md` §0) | **REQUIRED FOR VALIDATION** (prerequisite) | yes, §0 |
 | **Printer at true 100 % scale** | verified against the frame's 100 mm check bar | **REQUIRED FOR VALIDATION** (prerequisite, one-time) | yes, `P0_EXECUTION_PLAN.md` §13, `P0_PROTOCOL.md` §1 step 1 |
 | **Flatbed scanner, 2400 dpi optical, 8-bit grey, enhancement off** | `P0_PROTOCOL.md` §0, §3 | **REQUIRED FOR VALIDATION** | yes, explicitly |
-| **Certified length standard** — steel scale or glass graticule **with certificate** | `P0_PROTOCOL.md` §0, §3 step 1 | **REQUIRED FOR VALIDATION** (see §5 for the one documented route that removes it) | yes, explicitly |
+| **Certified length standard** — steel scale or glass graticule **with certificate** | `P0_PROTOCOL.md` §0, §3 step 1 | **REQUIRED FOR VALIDATION, unconditionally** — the route that would have removed it was evaluated in STEP 4B and rejected (§5.2) | yes, explicitly |
 | **Measuring / toolmaker's microscope** | `P0_PROTOCOL.md` §0, §3 cross-check | **REQUIRED ONLY FOR P1** — but P1 gates every accuracy claim | yes for P1; `P0_EXECUTION_PLAN.md` §13 lists it as PREFERRED for the experiment while stating "P1 depends on it" |
 | **Calibrated digital caliper, 0.01 mm, with record** | `P0_PROTOCOL.md` §0 | **NOT ACTUALLY NECESSARY for B2** — explicitly "never a reference" for a 3 mm glyph (`P0_EXECUTION_PLAN.md` §2.3). Required for frame survey (B3/B4) and the 100 % print check | yes, but for a different job |
 | **Rigid flat backing plate** | float glass / ground plate ≥150×100 mm | **PREFERRED for B2** — during a scan, flatness is supplied by the platen glass under lid pressure. REQUIRED for camera capture | §3 step 2 says "scan each coupon flat"; the plate is specified for capture (§1, §5) |
-| **Fiducial frame** (polyester film / acrylic) | `tools/make_frame_svg.py`, outer 100×60 mm | **OPTIONAL for B2, and decision-contingent** — needed only if decision **S3** is answered "scan the frame lying on the coupon" (then see §5) | S3 is open (`P0_REFERENCE_PROCEDURE.md` §3.2) |
+| **Fiducial frame** (polyester film / acrylic) | `tools/make_frame_svg.py`, outer 100×60 mm | **NOT NECESSARY for B2** — **S3 was frozen as NO** in STEP 4B, so the frame is never scanned with the coupon. It remains REQUIRED for camera capture | S3 is decided (`P0_REFERENCE_PROCEDURE.md` §3.2) |
 | **Lossless image conversion** to 8-bit grey PNG, no resampling/sharpening | A-02 | **REQUIRED FOR VALIDATION** (software, not equipment) | yes, A-02 |
 | Two phones, copy stand/tripod, diffuse lighting, crossed polarisers, second print stock, clamps/vacuum plate | `P0_EXECUTION_PLAN.md` §13 | **NOT ACTUALLY NECESSARY for B2** — these are camera-capture items | not for B2 |
 | CMM / optical comparator, dial indicator, DNG-capable phone | `P0_EXECUTION_PLAN.md` §13 OPTIONAL | **OPTIONAL** — §13 already argues the caliper survey contributes only ~0.0006 mm on a 3 mm glyph | no |
@@ -171,22 +177,21 @@ Everything below is necessary; nothing else is.
 PHYSICAL
   1. Printed coupons, flat, dimensionally stable stock          (prerequisite)
   2. Flatbed scanner, 2400 dpi OPTICAL, 8-bit grey, enhancement off
-  3. Scale traceability, one of:
-       3a. certified steel scale / glass graticule WITH certificate   [documented default]
-       3b. the caliper-surveyed fiducial frame scanned with the coupon [S3 route, §5 —
-           requires reconciling §3 step 1 first]
+  3. Certified steel scale / glass graticule WITH certificate   (unconditional after
+                                                                 S3 = NO; §5.2)
   4. Measuring / toolmaker's microscope + a trained operator    (P1 only; without it,
                                                                  no accuracy claim)
   5. Calibrated digital caliper                                 (NOT a glyph reference;
-                                                                 needed for 3b and for the
-                                                                 100 % print check)
+                                                                 needed for the 100 %
+                                                                 print check)
 
 SOFTWARE (no equipment, and must exist BEFORE the instruments are touched — §9)
   6. a scan-measurement path   (S1/S2, §7 A1-A2)
   7. lossless scanner output → 8-bit grey PNG, no resampling/sharpening (A-02)
 
-WRITTEN DECISION (no equipment, no code)
-  8. M1 — the microscope operator's edge criterion
+WRITTEN DECISIONS (no equipment, no code)
+  8. M1 — the microscope operator's edge criterion   [DONE, STEP 4B]
+  9. S3 — fiducial frame in the scan?                [DONE, STEP 4B: NO]
 ```
 
 Not needed for B2: phones, copy stand, lighting, polarisers, second print stock, clamps,
@@ -233,42 +238,50 @@ Removing it does not simplify P1 — it **deletes** P1, and with it every accura
 Replacing it with anything that runs the pipeline estimator violates **R1/R2** and is
 rejected by `tools/validate_reference_table.py`. Not simplifiable.
 
-### 5.2 The scanner tier can be simplified — via decision S3, at a measurable cost
+### 5.2 The scanner tier cannot be simplified either — **S3 evaluated and rejected (STEP 4B)**
 
-`P0_REFERENCE_PROCEDURE.md` §3.2 **S3** already raises, and leaves open, the option of
-scanning the coupon **with the fiducial frame lying on it**. Taking that option:
+**This section previously recommended the opposite.** It proposed scanning the coupon
+**with the fiducial frame lying on it**, on the strength of **A-08** ("metric scale comes
+from the surveyed fiducial, not the imaging device") and of `P0_EXECUTION_PLAN.md` §2.5
+raising the option. Worked through in STEP 4B, the option **fails**, and the earlier
+recommendation is withdrawn. The full argument is in `P0_REFERENCE_PROCEDURE.md` §3.2; the
+decisive point:
 
-**Gains**
+**A frame laid on the print sits one frame-thickness above it, and correcting for that
+needs a scanner working distance `Z` that no document provides.** The pipeline's
+`thickness_correction` applies `1 + d/Z` and the `PLANARITY` gate limits
+`thickness_over_z` to `0.01`, but for a scan `Z` is not measurable from the image —
+`z_estimate_mm` is just `f_px / rho`, so asserting a focal length *is* asserting `Z`. Using
+the repository's own `FRAME-SYN-0002-THICK.json` (`thickness_mm = 0.45`):
 
-| Gain | Detail |
-|---|---|
-| No new measurement code | the scan becomes an ordinary very-high-`rho` fronto-parallel capture; the existing `tools/run_real_batch.py` + `p0.measure` path applies. Closes **S1** |
-| **S6** dissolves | baseline direction comes from the existing `estimate_baseline_dir`, not a new rule |
-| Metric scale no longer depends on the scanner | per **A-08**, scale comes from the *surveyed fiducial*, not the imaging device. The certified graticule stops being a scale dependency (item 3a → 3b), leaving the caliper, which is required anyway |
-| **S4** softens | if scale comes from the frame inside the same scan, platen scale non-uniformity is absorbed by the local homography instead of needing a platen map |
-| One ROI solution serves twice | S2 becomes the *same* problem as B3 rather than a second one |
+| Asserted `Z` | `thickness_over_z` | `PLANARITY` gate (limit 0.01) | Scale error on a 3 mm glyph |
+|---|---|---|---|
+| 200 mm (phone working distance) | 0.00225 | passes | 0.0068 mm |
+| 50 mm (a plausible flatbed guess) | 0.00900 | **passes** | **0.0270 mm — 90 % of P1's Go band, undetected** |
 
-**Costs — stated, not hidden**
+Both escapes fail on the frozen design: the coupon (95 × 55 mm, `COUPON`) cannot sit inside
+the frame window (50 × 20 mm, `WINDOW`) to make the two coplanar, and printing the frame
+onto the coupon sheet contradicts `P0_PROTOCOL.md` §0's dimensional-stability requirement
+and would change the frozen coupon layout.
 
-1. The scanner reference then shares the fiducial-detection and homography chain with the
-   phone path, so **P2/P3/P4 additionally become blind to frame-survey scale error**, on
-   top of the already-disclosed estimator blindness. Magnitude is bounded and small:
-   `P0_EXECUTION_PLAN.md` §13 records the caliper survey contributing **~0.0006 mm on a
-   3 mm glyph** — about **11 %** of the estimator bias already accepted (0.0054 mm), and
-   **2 %** of P1's Go band.
-2. It needs the fiducial frame to physically exist (film/acrylic) and to lie flush on the
-   coupon under the scanner lid without bowing.
-3. `P0_PROTOCOL.md` §3 step 1 still *literally* demands graticule calibration of the
-   scanner scale. Choosing S3 means **reconciling that sentence** — a human decision
-   (§8 C7), not something this audit may declare.
+**Consequences of S3 = NO for this document:**
 
-### 5.3 What this simplification does **not** touch
+* item **3b is withdrawn** — the certified length standard is unconditionally required;
+* **S4** (platen non-uniformity) is *not* softened; it becomes the load-bearing scale term;
+* **S1/S2** are not closed by reuse of `run_real_batch.py`, though S1's *shape* is now
+  fixed by §4 (dpi-derived pure-scale homography, no measurement-code change);
+* the compensating gain: the scanner tier stays independent of the frame-survey chain, so
+  **P2/P3/P4 keep their sensitivity to frame-survey scale error** (≈ 0.0005-0.0006 mm on a
+  3 mm glyph per `PHASE0_VERDICTS.md` #14 and `P0_EXECUTION_PLAN.md` §13). That blindness
+  is avoided rather than accepted.
 
-**P1 is completely unchanged** under S3: same statistic (mean absolute
+### 5.3 What the S3 decision does **not** touch
+
+**P1 is completely unchanged** either way: same statistic (mean absolute
 scanner-vs-microscope difference), same bands (≤ 0.03 / 0.03-0.06 / > 0.06 mm), same
-minimum of 15 paired glyphs, same `compute_p1` code path, same independence rules R1-R5.
-The simplification is confined to *how the scanner value is produced*, not to what P1
-compares. No criterion, threshold or `k` is affected.
+minimum of 15 paired glyphs, same `compute_p1` code path, same independence rules. The
+decision is confined to *how the scanner value is produced*, not to what P1 compares. No
+criterion, threshold or `k` is affected.
 
 ---
 
@@ -281,7 +294,7 @@ documents already say.
 |---|---|---|
 | **1200 / 600 dpi scanner** instead of 2400 dpi | **NOT ACCEPTABLE** | `P0_PROTOCOL.md` §0/§3 specify 2400 dpi and a ≤ 0.01 mm target. At 600 dpi one pixel (0.0423 mm) exceeds P1's whole Go band. Relaxing the dpi is a frozen-protocol change |
 | **Trusting the scanner's nameplate dpi** instead of a certified standard | **NOT ACCEPTABLE** | §3 step 1 requires calibration against a certified standard in both axes |
-| **Caliper-surveyed fiducial frame** as the scan's scale reference (S3 route) | **CONDITIONALLY ACCEPTABLE** | The option is raised by the documents themselves (§2.5, S3) and is consistent with **A-08**. Conditions: the frame exists and stays flat in the scan; §3 step 1 is reconciled; the ~0.0006 mm blindness in §5.2 is disclosed in every result statement |
+| **Caliper-surveyed fiducial frame** as the scan's scale reference (S3 route) | **NOT ACCEPTABLE** — status changed in STEP 4B (was CONDITIONALLY ACCEPTABLE here) | Applying it needs a scanner `Z` that no document provides, and a wrong `Z` passes the `PLANARITY` gate while carrying up to 90 % of P1's Go band as scale bias. The coplanar variants are blocked by the frozen coupon and frame geometry. See §5.2 and `P0_REFERENCE_PROCEDURE.md` §3.2 |
 | **Digital caliper across a 3 mm glyph** | **NOT ACCEPTABLE** | `P0_EXECUTION_PLAN.md` §2.3 lists it as "never a reference"; it cannot realise an ink-boundary measurand |
 | **`panels.json` nominal heights** as ground truth | **NOT ACCEPTABLE** | §2.2 and `P0_PROTOCOL.md` §3 both prohibit it explicitly |
 | **A second scanner / second scan at a different dpi** in place of the microscope | **NOT ACCEPTABLE** | It is the same photometric realisation; if it runs the estimator, **R2** rejects the pair, and if it does not, nothing defines what it measures. It is also not representable — `method` is enumerated `SCANNER_2400DPI \| MICROSCOPE` |
@@ -296,11 +309,11 @@ documents already say.
 
 | # | Blocker | Maps to | Notes |
 |---|---|---|---|
-| A1 | No scan-measurement entry point | **S1** | §4 proves the model supports it. Two routes: wire `p0.measure` with a scale-only `H` + zero-distortion `Camera`, **or** take the S3 route and reuse `run_real_batch.py` with no new measurement code |
-| A2 | Glyph ROI in a scan is undetermined | **S2** | Same class as **B3**; one solution serves both. Not solved here |
+| A1 | No scan-measurement entry point | **S1** | §4 proves the model supports it, and STEP 4B fixed the route: with S3 = NO, wire `p0.measure` with a dpi-derived scale-only `H` + zero-distortion `Camera`. No measurement-code change. Still unwritten |
+| A2 | Glyph ROI in a scan is undetermined | **S2** | Related to **B3** but, with no frame in the scan, it is a *separate* problem. Not solved here |
 | A3 | Scanner output → 8-bit grey PNG without resampling or sharpening | **A-02** | The reader accepts 8-bit grey PNG only; a TIFF/JPEG path must be verified not to sharpen |
 | A4 | Platen non-uniformity correction rule then code | **S4** | Rule is a human decision (C4); the code after it is small |
-| A5 | Baseline direction on a scan | **S6** | `estimate_baseline_dir` exists; dissolves entirely under S3 |
+| A5 | Baseline direction on a scan | **S6** | `estimate_baseline_dir` exists and is the obvious candidate; S3 = NO does **not** dissolve this, so it still needs a decision |
 | A6 | `method` / procedure enums would need extending for any agreed substitute instrument | §6 | Deliberately **not** pre-extended — an unused enum value invites a silent substitution |
 
 **None of A1-A6 requires owning or borrowing anything.** They are the part that can
@@ -318,18 +331,19 @@ progress today, and §9 argues they *must* progress before any instrument is tou
 
 ## 7. C. Human procedure decisions (no equipment, no code, free to make today)
 
-| # | Decision | Why it is the cheapest progress available |
+| # | Decision | Status |
 |---|---|---|
-| C1 | **M1 — microscope edge criterion** | The single hardest B2 item, and it costs nothing but agreement. Without it two operators measure different quantities and P1 is uninterpretable |
-| C2 | M2 magnification / illumination / stage resolution | §2.3's table informs it; the decision is still the owner's |
-| C3 | M3 perpendicularity on the stage; M4 repeats → `reference_u_mm`; M5 operator training | all procedural |
-| C4 | **S3 — scan the frame with the coupon, or not** | unlocks the most (§5.2); changes S1, S2, S4, S6 and the graticule dependency |
-| C5 | S5 repeat scans, and what `n_repeats` aggregates | determines the stated `reference_u_mm` |
-| C6 | Reference population: all 400 glyphs or a **pre-declared** reduction | must be fixed before capture (`P0_PROTOCOL.md` §3 step 3) |
-| C7 | Reconciling §3 step 1's graticule sentence if C4 = "with frame" | documentation consistency |
-| C8 | **D1** — per-glyph `DISAGREED` threshold, and what follows | only the aggregate 0.06 mm rule exists today |
-| C9 | Cross-check subset: which ≥15 glyphs, and whether it includes the 20 camera-measured ones | entangled with **B5**; must not be chosen after seeing camera data |
-| C10 | Operator independence / blinding roster (§8) | e.g. microscope first and blind, or a different person |
+| C1 | **M1 — microscope edge criterion** | **CLOSED (STEP 4B).** Frozen as symmetric transition-band bisection, `P0_REFERENCE_PROCEDURE.md` §4.2.3, with an operator checklist in §4.2.6 and machine auditing of the recorded readings |
+| C2 | M2 magnification / illumination / reading resolution | **Illumination frozen** (reflected/episcopic, §4.2.4). Magnification and reading resolution **still open** — instrument-dependent; §2.3's *d*/4 table informs the choice |
+| C3 | M3 perpendicularity on the stage; M4 repeats → `reference_u_mm`; M5 operator training | **M3 and M4 CLOSED (STEP 4B)**: stage rotation with a two-point verification, ≥ 3 independent re-settings, `u = s/√n`. **M5 still open** — needs two people and the instrument |
+| C4 | **S3 — scan the frame with the coupon, or not** | **CLOSED (STEP 4B): NO.** See §5.2. Consequence: the graticule is unconditionally required and S4 gets *harder*, not easier |
+| C5 | S5 repeat scans, and what `n_repeats` aggregates | **open** — determines the stated `reference_u_mm` for the scanner tier |
+| C6 | Reference population: all 400 glyphs or a **pre-declared** reduction | **open** — must be fixed before capture (`P0_PROTOCOL.md` §3 step 3) |
+| C7 | ~~Reconciling §3 step 1's graticule sentence~~ | **dissolved by C4.** S3 = NO leaves `P0_PROTOCOL.md` §3 step 1 exactly as frozen |
+| C8 | **D1** — per-glyph `DISAGREED` threshold, and what follows | **open** — only the aggregate 0.06 mm rule exists today. M1 does not close it |
+| C9 | Cross-check subset: which ≥ 15 glyphs, and whether it includes the 20 camera-measured ones | **open** — entangled with **B5**; must not be chosen after seeing camera data |
+| C10 | Operator independence / blinding roster (§8) | **formalised as rule R6 (STEP 4B)** and reported by the validator as a `WARN` when both methods share an operator; the roster itself is still yours to set |
+| C11 | **S4 — platen non-uniformity correction rule** | **open, and promoted** by C4: with scale now coming from the platen, this is the load-bearing scanner scale term |
 
 ---
 
@@ -345,20 +359,22 @@ PREREQUISITE ARTEFACT
 SCANNER PATH  (produces reference_h_mm for every camera-measured glyph)
 [ ] Flatbed scanner, 2400 dpi OPTICAL (not interpolated), 8-bit grey, ALL enhancement off
 [ ] instrument_id recorded; one scanner only, for all panels
-[ ] Scale traceability chosen and recorded, ONE of:
-      [ ] 3a certified steel scale / glass graticule + certificate reference
-      [ ] 3b fiducial frame scanned with the coupon (S3) + §3-step-1 reconciliation
+[ ] Certified steel scale / glass graticule + certificate reference recorded
+    (unconditional: S3 = NO, so there is no frame-based alternative)
+[ ] Coupon scanned WITHOUT the fiducial frame (S3 = NO)
 [ ] Both-axis scale factors measured and recorded
-[ ] Platen non-uniformity recorded AND a correction rule decided (S4)
+[ ] Platen non-uniformity recorded AND a correction rule decided (S4 -- load-bearing)
 [ ] Scan-measurement software exists and has been dry-run end to end (A1, A2, A3)
 [ ] reference_u_mm achieved and stated; protocol target <= 0.01 mm
 [ ] Reference population pre-declared (all 400, or a declared reduction) (C6)
 
 MICROSCOPE PATH  (P1 only — without it, no accuracy claim is permitted)
 [ ] Measuring / toolmaker's microscope available; instrument_id + calibration ref recorded
-[ ] M1 edge criterion WRITTEN DOWN before the first reading
-[ ] M2 magnification / illumination / reading resolution recorded
-[ ] M3 perpendicularity method; M4 repeats -> reference_u_mm; M5 operator trained
+[x] M1 edge criterion written down -- FROZEN, P0_REFERENCE_PROCEDURE.md §4.2.3
+[x] M3 perpendicularity method; M4 repeats (>=3) and u = s/sqrt(n) -- FROZEN §4.2.4
+[x] Reflected (episcopic) illumination -- FROZEN §4.2.4
+[ ] M2 magnification and stage reading resolution recorded (instrument-dependent)
+[ ] M5 operator trained against M1, and the §4.2.6 checklist followed
 [ ] >= 15 glyphs, spanning heights, shapes and fonts, pre-registered (C9, needs B5)
 [ ] Operator independence + blinding respected (C10): the microscope operator has not
     produced and has not seen the scanner values for those glyphs
@@ -386,7 +402,7 @@ second print stock, clamps.
 | **Calibrated digital caliper** | **can likely be borrowed**, but **must have a calibration record** | Any mechanical lab / workshop |
 | **Printer at true 100 %** | **can likely be borrowed / commercial** | Verify with the 100 mm check bar; do not trust "fit to page" |
 | **Coupon and frame stock** (polyester film, acrylic, float glass) | **purchase, cheap** | Dimensional stability matters more than print quality (`P0_PROTOCOL.md` §0) |
-| **The M1 edge criterion** | **cannot be borrowed or substituted** | It is a definition. It is also free |
+| **The M1 edge criterion** | **cannot be borrowed or substituted — and is now WRITTEN** | It was a definition, it was free, and STEP 4B froze it (`P0_REFERENCE_PROCEDURE.md` §4.2.3). What still cannot be borrowed is M5: an operator trained against it |
 | **A reference that shares the pipeline estimator on both sides of P1** | **cannot be substituted safely** | R2 rejects it; it would report agreement it never tested |
 
 **Practical bundling:** items 2 (graticule), 3 (microscope) and 4 (caliper) usually live in
@@ -434,14 +450,19 @@ software and decisions first, instruments second.
 
 ## 11. Remaining decisions, and what must be physically arranged
 
-**Decide (free, today):** C1 **M1**, C4 **S3** — these two unlock the most. Then C2, C3,
-C5, C6, C7, C8, C10. C9 waits on B5.
+**Decided in STEP 4B:** C1 **M1**, C3 **M3/M4**, C4 **S3 = NO**, C10 **rule R6**, and the
+illumination half of C2. C7 dissolved.
 
-**Build (free, today):** A1, A2 (couples to B3), A3; then A4, A5 once C4/S4 land.
+**Still to decide (free, today):** C2 (magnification / reading resolution, once an
+instrument is identified), C5 **S5**, C6 reference population, C8 **D1**, C11 **S4**.
+C9 waits on B5; C5/M5 waits on people and hardware.
+
+**Build (free, today):** A1 — now fully specified by S3 = NO — then A2, A3; A4 once S4
+lands; A5 once S6 is decided.
 
 **Physically arrange:** coupons printed and verified at 100 %; a 2400 dpi optical flatbed;
-a certified length standard **or** the surveyed fiducial frame under S3; a measuring
-microscope with a trained operator; a calibrated caliper.
+a certified length standard (no longer optional — S3 = NO); a measuring microscope with an
+operator trained against M1; a calibrated caliper.
 
 ## 12. Verdict
 
@@ -450,10 +471,11 @@ B2_READY_TO_EXECUTE = NO
 B2 = OPEN
 ```
 
-No instrument is available, three of the nine checklist blocks cannot be started, and the
-two decisions that cost nothing (M1, S3) are still open. Nothing in this audit changed a
-criterion, a threshold, `k = 1.645`, the measurement algorithm or the Solution Lock, and
-no equipment was assumed to exist.
+No instrument is available, and the instrument-dependent checklist blocks cannot be
+started. **The two free decisions are now closed** (STEP 4B: M1 frozen, S3 = NO), which is
+progress on the human side and none at all on the equipment side. Nothing in this audit
+changed a criterion, a threshold, `k = 1.645`, the measurement algorithm or the Solution
+Lock, and no equipment was assumed to exist.
 
 **B2 remains OPEN until an actual reference setup is available and verified** — verified
 meaning: the checklist in §8 is fully ticked, `validate_reference_table.py` returns
