@@ -14,7 +14,12 @@ was verified against the repository, not recalled.
 - **Project:** NiyamDrishti — an offline-first Legal Metrology field-inspection assistant
   for packaged commodities, for **Smart India Hackathon 2026, problem statement SIH26034**
   (Ministry of Consumer Affairs, Food & Public Distribution / Department of Consumer
-  Affairs).
+  Affairs). **§2 states the problem statement, why it is hard, and the
+  requirement-by-requirement mapping to our approach — read it before §3 onward.**
+- **The one insight the project rests on:** a declaration can be read perfectly by OCR and
+  still be non-compliant because it is **printed too small**. Size is a *physical* question,
+  not a textual one — so the hard part of this PS is calibrated measurement plus the honesty
+  to refuse when the evidence cannot support it.
 - **What exists today:** a complete, reproducible, dependency-free **measurement engine**
   (Phase 0 proof of concept) + a 76-run synthetic benchmark + 352 automated tests + a fully
   pre-registered physical-experiment design + 6 readiness audits + a screening-ready
@@ -71,7 +76,84 @@ fails there.
 
 ---
 
-## 2. What the product is
+## 2. The problem statement — and how NiyamDrishti answers it
+
+### 2.1 The official PS, verbatim
+
+> **SIH26034** — *Software System to check compliance of Packaged Commodities under Legal
+> Metrology (Packaged Commodities) Rules, 2011 by scanning products, images and labels.*
+>
+> Organisation: **Ministry of Consumer Affairs, Food & Public Distribution — Department of
+> Consumer Affairs.** Category: Software.
+
+### 2.2 What the PS is actually asking for
+
+Six asks, separated because they have very different difficulty:
+
+1. **Model the Rules** — LMPC 2011 governs mandatory declarations on a pre-packaged
+   commodity: name and address of the packer, net quantity, retail sale price (MRP),
+   month/year of manufacture or packing, consumer-care contact, country of origin where
+   applicable — and, importantly, **requirements on how those declarations are printed**
+   (size and legibility), not merely that they exist.
+2. **Check compliance** — decide whether a given package satisfies those requirements.
+3. **By scanning products** — a physical package in the field, not a PDF artwork file.
+4. **Images** — the evidence is camera imagery, with all its glare, blur and perspective.
+5. **Labels** — text has to be located, read and parsed into typed values.
+6. **Implicit, and the hard part:** a declaration can be *present and readable by OCR* and
+   still be **non-compliant because it is printed too small**. That question is **physical**,
+   not textual.
+
+### 2.3 Why this is hard — the field problem
+
+Every difficulty below is taken from the project's own frozen analysis
+(`SOLUTION_LOCK_V2.md`, `PHASE0_REVIEW.md`), not from invented field statistics:
+
+| The trap | Why a naive build falls into it |
+|---|---|
+| **Letter size is not an OCR question** | Pixel OCR reads "500 g" perfectly whether it is printed 6 mm tall or 1 mm tall. A text-only system therefore *cannot see* the most common size violation, and will report the package as fine. Physical size is unsolved by OCR — this is the single insight the whole project is built on |
+| **"OCR found nothing" ≠ "the declaration is absent"** | The face may never have been captured, or captured unreadably. Turning silence into an absence finding manufactures a violation. So **capture completeness is kept a separate fact from declaration completeness** |
+| **The same field appears on more than one surface** | A carton face and a stuck-on label can carry different MRPs. Silently taking the higher-confidence or the latest value invents a fact; both must be preserved as a contradiction |
+| **The Rules change** | An inspection dated last year must be evaluable under the rule text in force *then*, not under today's text |
+| **Field reality** | No connectivity in shops and godowns; glare on glossy stock; and most real packaging is curved or flexible, where a single-view physical measurement is provably unreliable (A-06) |
+| **A wrong accusation has a cost** | A confident false finding against a compliant packer is a worse failure than declining to decide. This is why abstention is a designed output, not an error path |
+
+### 2.4 Requirement → approach → status
+
+| PS ask | How NiyamDrishti answers it | Status today |
+|---|---|---|
+| Model the Rules | A **signed, versioned rule pack selected by inspection date**, evaluated deterministically with three/four-valued logic (`TRUE / FALSE / UNKNOWN / NOT_APPLICABLE`) — never a default assumption when a fact is unknown | **DESIGNED** |
+| Check compliance | Emits a **screening state and candidate findings**, each with its evidence; the **officer** records the legal determination. Applicability pre-check raises `REQUIRES_OFFICER_REVIEW` rather than guessing | **DESIGNED** |
+| Scan products | **Guided six-face capture** with per-surface coverage states: `CAPTURED_READABLE` / `CAPTURED_UNREADABLE` / `NOT_ACCESSIBLE` / `NOT_APPLICABLE`, each with a reason | **DESIGNED** |
+| Images | Every image gets a quality result, a hash and metadata; crops are retained as evidence. Image-quality, geometry and segmentation **gates already exist and are tested** in the engine | **PARTLY BUILT** (gates built and benchmarked; capture UI designed) |
+| Labels | Offline OCR produces raw spans, alternatives and confidences; a **deterministic typed grammar** parses MRP, net quantity, dates and responsible entity. *OCR output is an observation, never a fact*; low confidence on a critical field yields `UNKNOWN_OCR` or review, **not absence** | **DESIGNED** |
+| **Printed size compliance** | The **calibrated measurement path**: a printed co-planar four-marker fiducial frame, homography rectification, a sub-pixel 50 % linearised-luminance ink boundary, an uncertainty interval, a guard-band decision — **or an explicit abstention** | **ENGINE BUILT + synthetically validated; physical validation pending** |
+| Cross-surface conflicts | Contradiction graph: conflicting values are both kept and surfaced | **DESIGNED** |
+| Evidence and audit | Finding → source crop → raw + normalised observation → rule version → engine version, hash-linked; immutable report versions | **DESIGNED** |
+| Field operation | Capture-to-draft-report **fully offline**; sync optional and idempotent | **DESIGNED** |
+
+**Read the status column carefully.** The part that is *built and measured* is the hardest
+and most differentiating part — the physical measurement engine. The surrounding app
+(capture UI, OCR, rule pack, report) is specified but not implemented. Nothing in the deck
+or in any communication may imply otherwise.
+
+### 2.5 What is deliberately NOT solved
+
+From the frozen hard exclusions:
+
+- **Actual net quantity** — we screen the *declared* value on the label; verifying the true
+  contents needs a weighing instrument and a sampling workflow. Out of scope.
+- **Curved, moulded, flexible, embossed or creased surfaces** — physical measurement is
+  blocked and abstains; OCR may still run.
+- **Whole-package "declaration absent" conclusions** when required faces are incomplete or
+  unreadable.
+- **Automated penalty or adjudication**, marketplace crawling, medical-device rule
+  adjudication.
+- **Font point size, nominal design size, OCR-box height** — the system reports *visible
+  printed-ink extent perpendicular to the fitted baseline*, and only for explicitly selected
+  eligible glyphs. Whether that is the correct reading of the statutory "character height"
+  is **open question G0**, to be confirmed with the administering authority.
+
+### 2.6 The product, concretely
 
 An Android assistant for a Legal Metrology inspection of a packaged commodity. The officer
 works through:
@@ -648,7 +730,8 @@ products on hand are genuinely useful here.
 > measurement has been done and no measurement equipment is owned.** Blockers: B1 CLOSED,
 > B2 OPEN, B3 CLOSED, B4 OPEN (spec resolved), B5 CLOSED, B6 OPEN (spec resolved) —
 > the three open ones are purely physical. Read `HANDOFF.md` at the repo root for the full
-> context, then `phase0/docs/P0_EXECUTION_PLAN.md` §12 for the blocker table. House rules:
+> context — **§2 is the problem statement and how we solve it**, §8 is the blocker board —
+> then `phase0/docs/P0_EXECUTION_PLAN.md` §12 for the blocker table. House rules:
 > reply in Hinglish, be adversarial, derive rather than invent, mark anything the documents
 > do not state as UNRESOLVED, never claim first/only/unique/best or legal-grade, never
 > present synthetic results as physical, and never move a threshold to make something pass.
