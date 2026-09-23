@@ -1,17 +1,17 @@
-# NiyamDrishti — full project handoff / context transfer
+# Inspectra — full project handoff / context transfer
 
 **Purpose of this file.** Give any AI assistant or new engineer the complete state of this
 project in one read, so work can continue without re-deriving anything. Everything below
 was verified against the repository, not recalled.
 
-**Last verified:** branch `niyamdrishti-phase0`, HEAD `f88f2d2`, working tree clean,
+**Last verified:** branch `main`, HEAD `f88f2d2`, working tree clean,
 352 tests passing.
 
 ---
 
 ## 0. TL;DR — read this first
 
-- **Project:** NiyamDrishti — an offline-first Legal Metrology field-inspection assistant
+- **Project:** Inspectra — an offline-first Legal Metrology field-inspection assistant
   for packaged commodities, for **Smart India Hackathon 2026, problem statement SIH26034**
   (Ministry of Consumer Affairs, Food & Public Distribution / Department of Consumer
   Affairs). **§2 states the problem statement, why it is hard, and the
@@ -39,8 +39,8 @@ was verified against the repository, not recalled.
 ## 1. Repository
 
 ```
-https://github.com/dinamsingh/Setu        (private)
-branch: niyamdrishti-phase0
+https://github.com/dinamsingh/Inspectra        (private)
+branch: main
 ```
 
 Sandbox working clone during the session: `/projects/sandbox/b2`.
@@ -76,7 +76,7 @@ fails there.
 
 ---
 
-## 2. The problem statement — and how NiyamDrishti answers it
+## 2. The problem statement — and how Inspectra answers it
 
 ### 2.1 The official PS, verbatim
 
@@ -119,7 +119,7 @@ Every difficulty below is taken from the project's own frozen analysis
 
 ### 2.4 Requirement → approach → status
 
-| PS ask | How NiyamDrishti answers it | Status today |
+| PS ask | How Inspectra answers it | Status today |
 |---|---|---|
 | Model the Rules | A **signed, versioned rule pack selected by inspection date**, evaluated deterministically with three/four-valued logic (`TRUE / FALSE / UNKNOWN / NOT_APPLICABLE`) — never a default assumption when a fact is unknown | **DESIGNED** |
 | Check compliance | Emits a **screening state and candidate findings**, each with its evidence; the **officer** records the legal determination. Applicability pre-check raises `REQUIRES_OFFICER_REVIEW` rather than guessing | **DESIGNED** |
@@ -597,8 +597,8 @@ template's own "Important Instructions" slide deleted as it instructs, submit as
 
 | File | What |
 |---|---|
-| `NiyamDrishti_SIH2026_Idea.pptx` | editable, 475 native shapes, 6 vector diagrams, no flattened images, 2 fonts |
-| `NiyamDrishti_SIH2026_Idea.pdf` | the upload artefact |
+| `Inspectra_SIH2026_Idea.pptx` | editable, 475 native shapes, 6 vector diagrams, no flattened images, 2 fonts |
+| `Inspectra_SIH2026_Idea.pdf` | the upload artefact |
 | `preview/slide1..6.png` | rasterisations used for visual QA |
 | `OUTLINE.md` · `CLAIMS_LEDGER.md` · `SOURCES.md` · `EVALUATOR_AUDIT.md` · `README.md` | outline + template audit, every claim with source and status, sources, adversarial review |
 | `deck/deckkit.py` · `build_deck.py` · `preview.py` | generators |
@@ -722,9 +722,9 @@ products on hand are genuinely useful here.
 
 ## 15. One-paragraph summary to paste into a new chat
 
-> I am building **NiyamDrishti** for **SIH 2026, PS SIH26034** (Legal Metrology packaged-
-> commodity compliance screening). Repo `github.com/dinamsingh/Setu`, branch
-> `niyamdrishti-phase0`, HEAD `f88f2d2`. A Phase-0 measurement proof of concept exists:
+> I am building **Inspectra** for **SIH 2026, PS SIH26034** (Legal Metrology packaged-
+> commodity compliance screening). Repo `github.com/dinamsingh/Inspectra`, branch
+> `main`, HEAD `f88f2d2`. A Phase-0 measurement proof of concept exists:
 > pure-stdlib engine, 76-run synthetic benchmark with 10/10 pre-registered criteria PASS,
 > 352 tests, and a fully pre-registered physical-experiment design. **No physical
 > measurement has been done and no measurement equipment is owned.** Blockers: B1 CLOSED,
