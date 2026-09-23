@@ -1,4 +1,4 @@
-# SIH26034 NiyamDrishti — Phase 0 (P0-min)
+# SIH26034 Inspectra — Phase 0 (P0-min)
 
 Desktop proof-of-concept for calibrated planar printed-glyph measurement, plus the
 frozen strategy and adversarial review documents.
