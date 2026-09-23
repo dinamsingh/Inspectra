@@ -1,17 +1,17 @@
-# SIH26034 — NiyamDrishti
+# SIH26034 — Inspectra
 ## SOLUTION LOCK V2 — Engineering Decision Baseline
 
 **Status:** FROZEN for Phase 0–4 prototype implementation; statutory screening rules and performance claims remain disabled until the proof gates in §27 pass.  
 **Language:** Hinglish; legal/CV terms intentionally English mein rakhe gaye hain taaki implementation ambiguity na ho.  
 **Scope:** Ye final PPT nahi hai. Ye product, engineering, evidence aur validation contract hai.
 
-> **Legal boundary:** NiyamDrishti compliance-screening assistant hai, adjudication system nahi. Machine observations aur candidate findings banati hai; final legal determination authorised officer/authority ka rahega.
+> **Legal boundary:** Inspectra compliance-screening assistant hai, adjudication system nahi. Machine observations aur candidate findings banati hai; final legal determination authorised officer/authority ka rahega.
 
 ---
 
 ## Executive lock
 
-NiyamDrishti ko generic “AI + OCR + rules” scanner ke roop mein build **nahi** karna hai. Final product ek **offline-first field inspection assistant** hai jo controlled physical retail package inspection mein captured evidence ko dated rule version, calibrated physical character-height estimate, uncertainty, abstention aur officer review se jodta hai.
+Inspectra ko generic “AI + OCR + rules” scanner ke roop mein build **nahi** karna hai. Final product ek **offline-first field inspection assistant** hai jo controlled physical retail package inspection mein captured evidence ko dated rule version, calibrated physical character-height estimate, uncertainty, abstention aur officer review se jodta hai.
 
 ### Frozen decisions
 
@@ -48,11 +48,11 @@ Isliye PPT ka hero “hum font measure karte hain” nahi, balki “hum only sup
 
 # 1. Final product definition
 
-**Name:** NiyamDrishti  
+**Name:** Inspectra  
 **Category:** Offline-first Legal Metrology field inspection and evidence assistant.  
 **One-line definition:**
 
-> **NiyamDrishti officers ko package faces capture karke declarations screen karne, controlled planar print ka calibrated character-height estimate uncertainty ke saath dekhne, contradictions review karne, aur dated-rule/evidence-linked report banane mein assist karta hai—offline.**
+> **Inspectra officers ko package faces capture karke declarations screen karne, controlled planar print ka calibrated character-height estimate uncertainty ke saath dekhne, contradictions review karne, aur dated-rule/evidence-linked report banane mein assist karta hai—offline.**
 
 Ye product teen layers ko explicitly separate karega:
 
@@ -137,7 +137,7 @@ Neeche statements proof objectives hain; gate artifacts se pehle achieved capabi
 
 # 4. Final primary USP
 
-> **NiyamDrishti ka primary USP “calibrated physical measurement” alone nahi; “evidence-bounded planar character-height screening” hai: source-linked mm estimate + quantified uncertainty + guard-band decision, aur weak evidence par explicit refusal.**
+> **Inspectra ka primary USP “calibrated physical measurement” alone nahi; “evidence-bounded planar character-height screening” hai: source-linked mm estimate + quantified uncertainty + guard-band decision, aur weak evidence par explicit refusal.**
 
 ### Why this wording
 - OCR, PDF, dashboards, offline claims crowded/copyable hain.
@@ -1126,7 +1126,7 @@ Demo fallback:
 
 ## Safe now as design statements
 
-- “NiyamDrishti is designed as an offline-first Legal Metrology screening assistant for field officers.”
+- “Inspectra is designed as an offline-first Legal Metrology screening assistant for field officers.”
 - “The architecture separates captured observation, machine screening and officer determination.”
 - “The MVP targets controlled planar printed cartons; curved and moulded measurement is out of scope.”
 - “Rule evaluations are designed to retain source citation, effective interval and exact rule-pack version.”
@@ -1143,7 +1143,7 @@ Demo fallback:
 
 ## Safe technical contrast wording
 
-> “Single-image OCR by itself physical millimetres, unseen-face completeness, or dated rule applicability establish nahi karta; NiyamDrishti in gaps ko explicit measurement, coverage and rule records se address karne ke liye designed hai.”
+> “Single-image OCR by itself physical millimetres, unseen-face completeness, or dated rule applicability establish nahi karta; Inspectra in gaps ko explicit measurement, coverage and rule records se address karne ke liye designed hai.”
 
 Ye technical limitation statement hai, universal competitor superiority claim nahi.
 
