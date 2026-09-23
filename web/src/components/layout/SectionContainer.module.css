@@ -1,0 +1,21 @@
+.section {
+  padding: var(--space-9) var(--space-5);
+}
+
+.narrow {
+  max-width: var(--content-max-width-narrow);
+  margin: 0 auto;
+}
+
+.wide {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.subtle {
+  background: var(--color-bg-subtle);
+}
+
+.bordered {
+  border-top: 1px solid var(--color-border);
+}

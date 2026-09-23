@@ -1,0 +1,11 @@
+.heading {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-3);
+}
+
+.lead {
+  color: var(--color-text-muted);
+  max-width: 640px;
+  margin-bottom: var(--space-5);
+  line-height: 1.65;
+}

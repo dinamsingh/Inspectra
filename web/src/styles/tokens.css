@@ -1,0 +1,55 @@
+:root {
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-border: #e0e3e8;
+  --color-border-strong: #c7ccd4;
+
+  /* Text */
+  --color-text: #171f2b;
+  --color-text-muted: #5b6472;
+  --color-text-faint: #8b93a0;
+  --color-on-accent: #ffffff;
+
+  /* Accent (muted blue) */
+  --color-accent: #1f5d8c;
+  --color-accent-strong: #164a70;
+  --color-accent-tint: #e7f0f7;
+
+  /* Semantic status */
+  --color-positive: #2f6b4f;
+  --color-positive-tint: #e7f2ec;
+  --color-review: #8a5a12;
+  --color-review-tint: #faf1de;
+  --color-issue: #9b2c2c;
+  --color-issue-tint: #fbebea;
+  --color-neutral: #4b5563;
+  --color-neutral-tint: #eef0f2;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* Type */
+  --font-sans: 'Public Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --content-max-width: 1180px;
+  --content-max-width-narrow: 760px;
+
+  --focus-ring: 0 0 0 3px rgba(31, 93, 140, 0.35);
+
+  --shadow-1: 0 1px 2px rgba(23, 31, 43, 0.06);
+}

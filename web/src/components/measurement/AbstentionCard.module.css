@@ -1,0 +1,37 @@
+.card {
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-review);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  background: var(--color-review-tint);
+}
+
+.heading {
+  font-size: 1.125rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.reasonCode {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-review);
+  background: var(--color-surface);
+  border: 1px solid color-mix(in srgb, var(--color-review) 30%, transparent);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  margin-bottom: var(--space-4);
+}
+
+.explanation {
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: var(--space-3);
+}
+
+.footnote {
+  font-size: 0.875rem;
+  color: var(--color-text-faint);
+  font-style: normal;
+}

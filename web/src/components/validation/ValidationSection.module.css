@@ -1,0 +1,17 @@
+.heading {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-3);
+}
+
+.lead {
+  color: var(--color-text-muted);
+  max-width: 640px;
+  margin-bottom: var(--space-5);
+  line-height: 1.65;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+}

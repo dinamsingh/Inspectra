@@ -1,0 +1,47 @@
+.panel {
+  padding-top: var(--space-5);
+}
+
+.panel:focus-visible {
+  outline: none;
+}
+
+.summary {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+.detail {
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: var(--space-5);
+  max-width: 640px;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-3);
+}
+
+.field {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-subtle);
+}
+
+.fieldLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+  margin: 0 0 4px;
+}
+
+.fieldValue {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-text);
+  margin: 0;
+}

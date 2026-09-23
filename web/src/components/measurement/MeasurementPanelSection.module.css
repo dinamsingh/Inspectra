@@ -1,0 +1,69 @@
+.heading {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-3);
+}
+
+.lead {
+  color: var(--color-text-muted);
+  max-width: 640px;
+  margin-bottom: var(--space-5);
+  line-height: 1.65;
+}
+
+.tabs {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 7px 14px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.tab:hover {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.tabActive,
+.tabActive:hover {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  color: var(--color-on-accent);
+}
+
+.terminology {
+  margin-top: var(--space-5);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+}
+
+.termCard {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-subtle);
+}
+
+.termLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-accent-strong);
+  margin-bottom: 4px;
+}
+
+.termText {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}

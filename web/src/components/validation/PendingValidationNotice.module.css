@@ -1,0 +1,25 @@
+.notice {
+  margin-top: var(--space-5);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-review);
+  border-radius: var(--radius-md);
+  background: var(--color-review-tint);
+}
+
+.heading {
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.text {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: var(--space-2);
+}
+
+.text strong {
+  color: var(--color-text);
+}
