@@ -1,8 +1,8 @@
-# NiyamDrishti Phase 0 (P0-min)
+# Inspectra Phase 0 (P0-min)
 
 Desktop proof-of-concept that answers one question, falsifiably:
 
-> Can NiyamDrishti estimate controlled planar printed glyph extent in millimetres
+> Can Inspectra estimate controlled planar printed glyph extent in millimetres
 > with acceptable repeatability and error, quantify its uncertainty, and abstain
 > when conditions are unreliable?
 
