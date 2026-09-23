@@ -1,6 +1,6 @@
 # Slide-by-slide content outline
 
-Deck: `NiyamDrishti_SIH2026_Idea.pptx` / `.pdf` — 6 slides, 13.333 × 7.5 in (960 × 540 pt).
+Deck: `Inspectra_SIH2026_Idea.pptx` / `.pdf` — 6 slides, 13.333 × 7.5 in (960 × 540 pt).
 
 ## Template audit this deck complies with
 
@@ -15,7 +15,7 @@ current public SIH guidance (see `SOURCES.md`):
 | Points, diagrams, infographics — not paragraphs | No paragraph exceeds three lines; six diagrams, no prose blocks |
 | Title-slide metadata fields | All six present in the template's order |
 | Chrome | Team-name oval top-left (slides 2–6), "SMART INDIA HACKATHON 2026" wordmark top-right, blue footer bar with `@SIH Idea submission- Template` and the slide number |
-| Submit as PDF | `NiyamDrishti_SIH2026_Idea.pdf` is the upload artefact |
+| Submit as PDF | `Inspectra_SIH2026_Idea.pdf` is the upload artefact |
 
 **Two fields you must fill before upload:** `Theme` and `Team ID` / `Team Name` on slide 1
 are shown as ‹placeholders›. The Problem Statement ID is written `SIH26034`, following the
@@ -44,7 +44,7 @@ in the PPTX is editable and nothing is flattened.
 ## Slide 2 — IDEA TITLE
 *Question answered: what is the solution, and what is actually new about it?*
 
-- Idea strip: NiyamDrishti — offline-first Legal Metrology screening assistant.
+- Idea strip: Inspectra — offline-first Legal Metrology screening assistant.
 - **❖ Proposed Solution**, three labelled blocks:
   - *Detailed explanation* — on-device capture, extraction, versioned rule evaluation;
     the calibrated measurement path via a printed co-planar reference frame; output is a
@@ -125,7 +125,7 @@ in the PPTX is editable and nothing is flattened.
 - **Our own engineering evidence:** frozen protocol and criteria; the independent
   reference method; pre-registered coverage (400 glyph instances, 20 panels, hash-checked);
   readiness audits; the reference implementation (76-run benchmark, 352 tests).
-- **Repository:** `github.com/dinamsingh/Setu`, branch `niyamdrishti-phase0`, with the
+- **Repository:** `github.com/dinamsingh/Inspectra`, branch `main`, with the
   note that every synthetic figure is reproducible and that physical validation has not
   been performed.
 
