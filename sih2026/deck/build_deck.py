@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the NiyamDrishti SIH 2026 idea-submission deck (6 slides, official template).
+"""Build the Inspectra SIH 2026 idea-submission deck (6 slides, official template).
 
 Panels are sized from measured content, so there is no dead space and no overflow.
 """
@@ -21,7 +21,7 @@ LIGHT, PANEL, RULE = "E8F0F8", "F6F9FC", "C3D4E4"
 GREY, MUT, WHITE = "333333", "5A6672", "FFFFFF"
 SAFF, GREEN = "B3541E", "2E7D32"
 
-TEAM = "NiyamDrishti"
+TEAM = "Inspectra"
 FOOT = "@SIH Idea submission- Template"
 
 L_X, L_W = 22.0, 466.0
@@ -153,7 +153,7 @@ def slide1():
 def slide2():
     e = chrome("IDEA TITLE", 2)
     e += [rect(22, 60, 916, 23, fill=LIGHT, line=RULE, lw=0.8, r=3, name="idea strip")]
-    e += [text(33, 66, 900, "NiyamDrishti \u2014 offline-first Legal Metrology "
+    e += [text(33, 66, 900, "Inspectra \u2014 offline-first Legal Metrology "
                "screening assistant for packaged commodities:  capture \u2192 extract "
                "\u2192 check \u2192 measure-or-abstain \u2192 evidence-linked report",
                "HB", 10.6, NAVY, "l")]
@@ -615,7 +615,7 @@ def slide6():
     ry = y - 7 + 10 + 12
 
     c = [text(R_X + 13, ry + 32, R_W - 26,
-              "github.com/dinamsingh/Setu   \u00b7   branch niyamdrishti-phase0",
+              "github.com/dinamsingh/Inspectra   \u00b7   branch main",
               "HB", 9.8, BLUE, "l"),
          text(R_X + 13, ry + 50, R_W - 26,
               "Holds the measurement engine, the synthetic benchmark and its analysis "
@@ -676,9 +676,9 @@ def main():
     print("QA: %d issue(s)" % len(bad))
     for p in bad:
         print("  " + p)
-    pptx = os.path.join(OUT, "NiyamDrishti_SIH2026_Idea.pptx")
-    pdf = os.path.join(OUT, "NiyamDrishti_SIH2026_Idea.pdf")
-    size = write_pptx(pptx, slides, "NiyamDrishti - SIH 2026 (PS SIH26034)")
+    pptx = os.path.join(OUT, "Inspectra_SIH2026_Idea.pptx")
+    pdf = os.path.join(OUT, "Inspectra_SIH2026_Idea.pdf")
+    size = write_pptx(pptx, slides, "Inspectra - SIH 2026 (PS SIH26034)")
     pages = write_pdf(pdf, slides)
     print("pptx %d bytes, %d slides, %d shapes | pdf %d pages"
           % (size, len(slides), sum(len(s) for s in slides), pages))
