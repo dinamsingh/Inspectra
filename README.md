@@ -165,13 +165,13 @@ The product-level architecture is documented separately from the Phase-0 engine 
     │   ├── fixtures/                   # Physical experiment artefacts
     │   └── out/synthetic/              # Committed synthetic evidence
     │
-    ├── sih2026/                        # SIH deck, claims ledger and evaluator audit
+    ├── sih2026/                        # SIH submission references and deck source
     │
-    ├── SOLUTION_LOCK_V2.md             # Frozen product + architecture baseline
+    ├── docs/engineering/                # Engineering decision records
+    │   ├── SOLUTION_LOCK.md
+    │   ├── PHASE0_REVIEW.md
+    │   └── PHASE0_VERDICTS.md
     ├── PHASE0_SPEC.md                  # Phase-0 implementation specification
-    ├── PHASE0_REVIEW.md                # Adversarial technical review
-    ├── PHASE0_VERDICTS.md              # Design decision record
-    ├── HANDOFF.md                      # Detailed engineering handoff
     └── README.md                       # This public project overview
 
 ---
@@ -215,16 +215,12 @@ This repository separates **implemented evidence**, **designed architecture**, a
 
 ---
 
-## Key engineering records
+## Engineering records
 
-- [Solution Lock V2](SOLUTION_LOCK_V2.md) — frozen scope, architecture and non-negotiable boundaries
 - [Phase 0 Specification](PHASE0_SPEC.md) — implementation specification
-- [Adversarial Review](PHASE0_REVIEW.md) — technical challenge and revisions
-- [Phase 0 Verdicts](PHASE0_VERDICTS.md) — decision record
 - [Phase 0 README](phase0/README.md) — detailed engine documentation
 - [Synthetic Results](phase0/out/synthetic/analysis/RESULT.md) — reproducible benchmark output
-- [SIH Claims Ledger](sih2026/CLAIMS_LEDGER.md) — claims, evidence and deliberate non-claims
-- [Evaluator Audit](sih2026/EVALUATOR_AUDIT.md) — what was challenged and changed
+- [Engineering decision records](docs/engineering/) — frozen design decisions and technical review
 
 ---
 
