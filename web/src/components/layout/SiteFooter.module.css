@@ -1,31 +1,35 @@
 .footer {
   border-top: 1px solid var(--color-border);
+  background: rgba(10, 14, 24, 0.6);
+  backdrop-filter: blur(12px);
 }
 
 .inner {
   max-width: var(--content-max-width);
   margin: 0 auto;
-  padding: var(--space-7) var(--space-5);
+  padding: var(--space-8) var(--space-5);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: var(--space-5);
+  gap: var(--space-6);
 }
 
 .identity {
-  max-width: 460px;
+  max-width: 480px;
 }
 
 .wordmark {
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: 800;
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+  color: #ffffff;
   margin-bottom: var(--space-2);
 }
 
 .note {
   color: var(--color-text-muted);
   font-size: 0.875rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .meta {
@@ -36,6 +40,7 @@
   flex-direction: column;
   gap: var(--space-2);
   text-align: right;
+  line-height: 1.6;
 }
 
 @media (max-width: 640px) {

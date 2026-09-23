@@ -1,13 +1,20 @@
 .heading {
-  font-size: 1.75rem;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: var(--space-3);
   margin-bottom: var(--space-3);
+  background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .lead {
   color: var(--color-text-muted);
-  max-width: 640px;
+  max-width: 680px;
   margin-bottom: var(--space-6);
-  line-height: 1.65;
+  line-height: 1.7;
+  font-size: 1.0625rem;
 }
 
 .pipeline {
@@ -15,6 +22,10 @@
   flex-wrap: wrap;
   gap: var(--space-2);
   margin-bottom: var(--space-7);
+  background: rgba(10, 14, 24, 0.4);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
 }
 
 .stageWrap {
@@ -27,21 +38,32 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
+  padding: 6px 12px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: var(--color-surface);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  transition: all 180ms ease;
+}
+
+.stage:hover {
+  border-color: var(--color-accent-strong);
+  background: rgba(99, 102, 241, 0.1);
+  transform: translateY(-1px);
 }
 
 .stageOrder {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  color: var(--color-text-faint);
+  color: var(--color-accent-cyan);
+  font-weight: 700;
 }
 
 .stageArrow {
-  color: var(--color-border-strong);
+  color: var(--color-text-faint);
+  font-size: 0.875rem;
 }
 
 .boundaryGrid {
@@ -51,18 +73,28 @@
 }
 
 .boundaryCard {
-  padding: var(--space-5);
+  padding: var(--space-6);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   background: var(--color-surface);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-1);
+  transition: transform 200ms ease, border-color 200ms ease;
+}
+
+.boundaryCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 .boundaryHeading {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   font-size: 1rem;
-  margin-bottom: var(--space-4);
+  font-weight: 600;
+  margin-bottom: var(--space-5);
+  color: var(--color-text);
 }
 
 .boundaryList {
@@ -74,12 +106,19 @@
 
 .boundaryItem {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   gap: var(--space-3);
   font-size: 0.9375rem;
   color: var(--color-text-muted);
   padding-bottom: var(--space-3);
   border-bottom: 1px solid var(--color-border);
+  line-height: 1.5;
+}
+
+.boundaryItem::before {
+  content: '▪';
+  color: var(--color-accent-strong);
+  font-size: 1.1rem;
 }
 
 .boundaryItem:last-child {
@@ -87,7 +126,7 @@
   padding-bottom: 0;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 800px) {
   .boundaryGrid {
     grid-template-columns: 1fr;
   }

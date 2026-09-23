@@ -1,16 +1,17 @@
 .header {
   position: sticky;
   top: 0;
-  z-index: 40;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: saturate(180%) blur(6px);
+  z-index: 50;
+  background: rgba(7, 9, 14, 0.82);
+  backdrop-filter: saturate(180%) blur(16px);
   border-bottom: 1px solid var(--color-border);
+  transition: all 0.2s ease;
 }
 
 .bar {
   max-width: var(--content-max-width);
   margin: 0 auto;
-  padding: 14px var(--space-5);
+  padding: 12px var(--space-5);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,20 +24,33 @@
   gap: var(--space-3);
   text-decoration: none;
   color: var(--color-text);
+  transition: opacity 150ms ease;
+}
+
+.identity:hover {
+  opacity: 0.9;
 }
 
 .wordmark {
-  font-size: 1.125rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .descriptor {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  letter-spacing: 0.05em;
   color: var(--color-text-faint);
   white-space: nowrap;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
 }
 
 .nav {
@@ -54,23 +68,25 @@
 .navLinks a {
   color: var(--color-text-muted);
   text-decoration: none;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  padding: 4px 2px;
+  padding: 6px 2px;
   border-bottom: 2px solid transparent;
-  transition: color 150ms ease, border-color 150ms ease;
+  transition: all 180ms ease;
+  position: relative;
 }
 
 .navLinks a:hover {
   color: var(--color-text);
 }
 
-.navLinks a.active {
-  color: var(--color-text);
+.navLinks a[class*="active"],
+.navLinks a:global(.active) {
+  color: #ffffff;
   border-bottom-color: var(--color-accent);
 }
 
-@media (max-width: 860px) {
+@media (max-width: 768px) {
   .descriptor {
     display: none;
   }

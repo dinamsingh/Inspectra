@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 *.zip
 .claude/
+graphify-out/cache/
+graphify-out/graph_orig.html

@@ -1,22 +1,31 @@
 .banner {
   max-width: var(--content-max-width);
-  margin: 0 auto;
-  padding: var(--space-3) var(--space-5);
+  margin: 0 auto var(--space-7);
+  padding: var(--space-4) var(--space-5);
   display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
+  align-items: center;
+  gap: var(--space-4);
   border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent-cyan);
   border-radius: var(--radius-md);
-  background: var(--color-bg-subtle);
+  background: var(--color-surface);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-1);
 }
 
 .indicator {
   flex: none;
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  margin-top: 6px;
-  background: var(--color-accent);
+  background: var(--color-accent-cyan);
+  box-shadow: 0 0 10px var(--color-accent-cyan);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
 }
 
 .text {
@@ -27,4 +36,5 @@
 
 .text strong {
   color: var(--color-text);
+  font-weight: 600;
 }

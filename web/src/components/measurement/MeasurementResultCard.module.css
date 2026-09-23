@@ -1,53 +1,65 @@
 .card {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-5);
-  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  background: var(--color-surface-elevated);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-elevated), 0 0 35px rgba(99, 102, 241, 0.08);
 }
 
 .top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .label {
   font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--color-text-faint);
-  margin-bottom: 2px;
+  margin-bottom: var(--space-1);
 }
 
 .value {
   font-family: var(--font-mono);
-  font-size: 2rem;
-  font-weight: 500;
-  color: var(--color-text);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
 }
 
 .unit {
-  font-size: 1.125rem;
-  color: var(--color-text-muted);
-  margin-left: 4px;
+  font-size: 1.25rem;
+  color: var(--color-accent-cyan);
+  margin-left: 6px;
+  font-weight: 600;
 }
 
 .metaGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: var(--space-3);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--color-border);
+  gap: var(--space-4);
 }
 
 .metaLabel {
   font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
   color: var(--color-text-faint);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .metaValue {
   font-family: var(--font-mono);
-  font-size: 0.9375rem;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--color-text);
+  font-variant-numeric: tabular-nums;
 }

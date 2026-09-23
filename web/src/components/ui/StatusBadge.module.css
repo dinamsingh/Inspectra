@@ -2,54 +2,61 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: 3px 10px 3px 8px;
-  border-radius: var(--radius-sm);
+  padding: 4px 10px 4px 8px;
+  border-radius: var(--radius-full);
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   border: 1px solid transparent;
   white-space: nowrap;
+  backdrop-filter: blur(8px);
 }
 
 .dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   flex: none;
 }
 
 .positive {
   background: var(--color-positive-tint);
-  color: var(--color-positive);
-  border-color: color-mix(in srgb, var(--color-positive) 30%, transparent);
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.25);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
 }
 .positive .dot {
   background: var(--color-positive);
+  box-shadow: 0 0 6px var(--color-positive);
 }
 
 .review {
   background: var(--color-review-tint);
-  color: var(--color-review);
-  border-color: color-mix(in srgb, var(--color-review) 30%, transparent);
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.25);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.15);
 }
 .review .dot {
   background: var(--color-review);
+  box-shadow: 0 0 6px var(--color-review);
 }
 
 .issue {
   background: var(--color-issue-tint);
-  color: var(--color-issue);
-  border-color: color-mix(in srgb, var(--color-issue) 30%, transparent);
+  color: #fb7185;
+  border-color: rgba(251, 113, 133, 0.25);
+  box-shadow: 0 0 12px rgba(244, 63, 94, 0.15);
 }
 .issue .dot {
   background: var(--color-issue);
+  box-shadow: 0 0 6px var(--color-issue);
 }
 
 .neutral {
   background: var(--color-neutral-tint);
-  color: var(--color-neutral);
-  border-color: color-mix(in srgb, var(--color-neutral) 25%, transparent);
+  color: #cbd5e1;
+  border-color: rgba(203, 213, 225, 0.2);
 }
 .neutral .dot {
   background: var(--color-neutral);
@@ -58,8 +65,10 @@
 .accent {
   background: var(--color-accent-tint);
   color: var(--color-accent-strong);
-  border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  border-color: rgba(129, 140, 248, 0.25);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.15);
 }
 .accent .dot {
   background: var(--color-accent);
+  box-shadow: 0 0 6px var(--color-accent);
 }

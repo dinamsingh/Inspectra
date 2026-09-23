@@ -1,16 +1,18 @@
 .notice {
-  margin-top: var(--space-5);
+  margin-top: var(--space-6);
   padding: var(--space-5);
-  border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-review);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-left: 4px solid var(--color-review);
   border-radius: var(--radius-md);
-  background: var(--color-review-tint);
+  background: rgba(245, 158, 11, 0.06);
+  backdrop-filter: blur(12px);
 }
 
 .heading {
-  font-weight: 600;
-  color: var(--color-text);
+  font-weight: 700;
+  color: #fbbf24;
   margin-bottom: var(--space-2);
+  font-size: 1rem;
 }
 
 .text {
@@ -22,4 +24,5 @@
 
 .text strong {
   color: var(--color-text);
+  font-weight: 600;
 }

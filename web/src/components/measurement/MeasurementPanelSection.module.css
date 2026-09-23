@@ -1,48 +1,61 @@
 .heading {
-  font-size: 1.75rem;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: var(--space-3);
   margin-bottom: var(--space-3);
+  background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .lead {
   color: var(--color-text-muted);
-  max-width: 640px;
-  margin-bottom: var(--space-5);
-  line-height: 1.65;
+  max-width: 680px;
+  margin-bottom: var(--space-6);
+  line-height: 1.7;
+  font-size: 1.0625rem;
 }
 
 .tabs {
   display: flex;
   gap: var(--space-2);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
   flex-wrap: wrap;
+  background: rgba(10, 14, 24, 0.6);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  width: fit-content;
 }
 
 .tab {
-  padding: 7px 14px;
-  border: 1px solid var(--color-border-strong);
+  padding: 8px 16px;
+  border: 1px solid transparent;
   border-radius: var(--radius-sm);
-  background: var(--color-surface);
+  background: transparent;
   color: var(--color-text-muted);
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tab:hover {
-  border-color: var(--color-text);
   color: var(--color-text);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .tabActive,
 .tabActive:hover {
-  background: var(--color-text);
-  border-color: var(--color-text);
-  color: var(--color-on-accent);
+  background: var(--color-surface-elevated);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .terminology {
-  margin-top: var(--space-5);
+  margin-top: var(--space-6);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--space-4);
@@ -51,15 +64,24 @@
 .termCard {
   padding: var(--space-4);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background: var(--color-bg-subtle);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  backdrop-filter: blur(12px);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.termCard:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 .termLabel {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--color-accent-strong);
-  margin-bottom: 4px;
+  font-weight: 600;
+  color: var(--color-accent-cyan);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
 }
 
 .termText {
