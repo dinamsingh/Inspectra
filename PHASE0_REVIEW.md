@@ -1,4 +1,4 @@
-# SIH26034 — NiyamDrishti
+# SIH26034 — Inspectra
 # PHASE 0 ADVERSARIAL REVIEW — Part 1 of 3: Technical findings
 
 **Reviewer role:** senior adversarial technical reviewer + implementation architect.
