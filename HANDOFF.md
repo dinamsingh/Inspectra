@@ -4,7 +4,7 @@
 project in one read, so work can continue without re-deriving anything. Everything below
 was verified against the repository, not recalled.
 
-**Last verified:** branch `main`, HEAD `f88f2d2`, working tree clean,
+**Last verified baseline:** branch `main` (repository state may evolve after this handoff),
 352 tests passing.
 
 ---
@@ -39,11 +39,11 @@ was verified against the repository, not recalled.
 ## 1. Repository
 
 ```
-https://github.com/dinamsingh/Inspectra        (private)
+https://github.com/dinamsingh/Inspectra        (public)
 branch: main
 ```
 
-Sandbox working clone during the session: `/projects/sandbox/b2`.
+This handoff is an engineering context document; local sandbox paths are intentionally not treated as part of the public product.
 **Note:** `/tmp` is ephemeral between tool calls in that sandbox — work under
 `/projects/sandbox/`.
 
