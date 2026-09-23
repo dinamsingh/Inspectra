@@ -488,7 +488,7 @@ run_dir/
 
 ## 8. Smallest working Phase-0 prototype (**P0-min**)
 
-> Question to answer: *"Kya NiyamDrishti controlled planar conditions mein printed glyph extent ko millimetres mein reliably estimate kar sakta hai, uski uncertainty quantify kar sakta hai, aur unsafe conditions par abstain kar sakta hai?"*
+> Question to answer: *"Kya Inspectra controlled planar conditions mein printed glyph extent ko millimetres mein reliably estimate kar sakta hai, uski uncertainty quantify kar sakta hai, aur unsafe conditions par abstain kar sakta hai?"*
 
 ### P0-min scope — exactly this, nothing more
 
