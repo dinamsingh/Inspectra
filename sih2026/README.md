@@ -1,4 +1,4 @@
-# NiyamDrishti — SIH 2026 idea submission deck
+# Inspectra — SIH 2026 idea submission deck
 
 Problem statement **SIH26034** — Software System to check compliance of Packaged
 Commodities under the Legal Metrology (Packaged Commodities) Rules, 2011 by scanning
@@ -9,8 +9,8 @@ products, images and labels. Ministry of Consumer Affairs, Food & Public Distrib
 
 | File | What it is |
 |---|---|
-| `NiyamDrishti_SIH2026_Idea.pptx` | the editable deck — 6 slides, 13.333 × 7.5 in, every diagram native shapes, no flattened images |
-| `NiyamDrishti_SIH2026_Idea.pdf` | the upload artefact (the portal takes PDF only) |
+| `Inspectra_SIH2026_Idea.pptx` | the editable deck — 6 slides, 13.333 × 7.5 in, every diagram native shapes, no flattened images |
+| `Inspectra_SIH2026_Idea.pdf` | the upload artefact (the portal takes PDF only) |
 | `preview/slide1..6.png` | layout rasterisations used for visual QA |
 | `OUTLINE.md` | slide-by-slide content outline + the template compliance audit |
 | `CLAIMS_LEDGER.md` | every claim, its source, its status, and the claims deliberately not made |
